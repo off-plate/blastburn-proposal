@@ -1,0 +1,53 @@
+{
+  "_placeholder": true,
+  "_warning": "THESE PRICES ARE INVENTED. Blast & Burn publishes no prices anywhere: not on their website, not on Instagram, not on Google. Michael asked for placeholder pricing on 2026-08-10 because this is a design proposal rather than their live site. Every number below must be replaced with real rates before this is deployed to any client-facing domain. The site renders a visible .note disclosure wherever these appear.",
+  "_real_promo_verbatim": "20% ULJE CMIMI PER JU QE ABONOHENI TANI",
+  "_real_promo_source": "blastburn.al/about/, read 2026-08-10",
+  "currency": "ALL",
+  "plans": [
+    {
+      "id": "month",
+      "name": { "en": "Monthly", "sq": "Mujore" },
+      "price": 3000,
+      "unit": { "en": "per month", "sq": "në muaj" },
+      "features": {
+        "en": ["Full gym access, 09:00 to 22:00", "All group classes included", "Locker and shower"],
+        "sq": ["Akses i plotë, 09:00 deri 22:00", "Të gjitha klasat në grup", "Dollap dhe dush"]
+      },
+      "feature": false
+    },
+    {
+      "id": "quarter",
+      "name": { "en": "Three months", "sq": "Tre muaj" },
+      "price": 7500,
+      "unit": { "en": "for 3 months", "sq": "për 3 muaj" },
+      "features": {
+        "en": ["Everything in Monthly", "One body composition check", "A written training plan"],
+        "sq": ["Gjithçka nga Mujore", "Një matje e përbërjes trupore", "Një plan stërvitor me shkrim"]
+      },
+      "feature": true
+    },
+    {
+      "id": "year",
+      "name": { "en": "Twelve months", "sq": "Dymbëdhjetë muaj" },
+      "price": 24000,
+      "unit": { "en": "for 12 months", "sq": "për 12 muaj" },
+      "features": {
+        "en": ["Everything in Three months", "Quarterly plan review", "Two guest passes"],
+        "sq": ["Gjithçka nga Tre muaj", "Rishikim plani çdo tre muaj", "Dy hyrje për shokë"]
+      },
+      "feature": false
+    },
+    {
+      "id": "pt",
+      "name": { "en": "Personal training", "sq": "Trajnim personal" },
+      "price": 1500,
+      "unit": { "en": "per session", "sq": "për seancë" },
+      "features": {
+        "en": ["One to one with a coach", "Plan built around your goal", "Technique corrected on the spot"],
+        "sq": ["Një me një me trajnerin", "Plan sipas objektivit tuaj", "Teknika korrigjohet aty për aty"]
+      },
+      "feature": false
+    }
+  ]
+}

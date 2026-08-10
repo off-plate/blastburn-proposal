@@ -1,0 +1,66 @@
+{
+  "_source": "Instagram bio @blastandburn_gym plus blastburn.al/zbuloni-sherbimet-tona-per-ju/. Posture & rehabilitation appears ONLY on Instagram and is missing from their current website entirely.",
+  "programs": [
+    {
+      "id": "crossfit",
+      "img": "g25",
+      "name": { "en": "CrossFit", "sq": "CrossFit" },
+      "text": {
+        "en": "Functional strength and conditioning in a group, coached from the first rep to the last.",
+        "sq": "Forcë dhe kondicion funksional në grup, i drejtuar nga trajneri nga përsëritja e parë deri te e fundit."
+      },
+      "meta": { "en": ["Group", "All levels"], "sq": ["Në grup", "Të gjitha nivelet"] }
+    },
+    {
+      "id": "hiit",
+      "img": "g33",
+      "name": { "en": "HIIT", "sq": "HIIT" },
+      "text": {
+        "en": "Short rounds at full effort with measured rest. The fastest way to spend a lunch break.",
+        "sq": "Raunde të shkurtra me përpjekje maksimale dhe pushim të matur. Mënyra më e shpejtë për ta shfrytëzuar pushimin e drekës."
+      },
+      "meta": { "en": ["Group", "45 min"], "sq": ["Në grup", "45 min"] }
+    },
+    {
+      "id": "aerobics",
+      "img": "g00",
+      "name": { "en": "Aerobics", "sq": "Aerobi" },
+      "text": {
+        "en": "Continuous, music-led cardio work. Low barrier to start, and it keeps the room honest.",
+        "sq": "Punë kardio e vazhdueshme me muzikë. E lehtë për të filluar dhe e mban sallën gjallë."
+      },
+      "meta": { "en": ["Group", "Beginner friendly"], "sq": ["Në grup", "E përshtatshme për fillestarët"] }
+    },
+    {
+      "id": "abs",
+      "img": "g20",
+      "name": { "en": "Abs and core", "sq": "Abs dhe core" },
+      "text": {
+        "en": "Direct trunk work that holds up everything else you lift.",
+        "sq": "Punë e drejtpërdrejtë për trupin qendror, që mban gjithçka tjetër që ngrini."
+      },
+      "meta": { "en": ["Group", "30 min"], "sq": ["Në grup", "30 min"] }
+    },
+    {
+      "id": "pt",
+      "img": "g18",
+      "name": { "en": "Personal training", "sq": "Trajnim personal" },
+      "text": {
+        "en": "One coach, one plan, technique corrected while you are doing it rather than afterwards.",
+        "sq": "Një trajner, një plan, teknika korrigjohet ndërsa e bëni dhe jo më pas."
+      },
+      "meta": { "en": ["One to one", "By appointment"], "sq": ["Një me një", "Me takim"] }
+    },
+    {
+      "id": "rehab",
+      "img": "g31",
+      "name": { "en": "Posture and rehabilitation", "sq": "Posturë dhe rehabilitim" },
+      "_note": "PROPOSAL POINT, not site copy: this service is sold on their Instagram and is absent from their current website. It is the one service with no obvious local competitor.",
+      "text": {
+        "en": "Work for a back that hurts by the end of a desk day, or a joint coming back from injury. Assessed first, then programmed.",
+        "sq": "Punë për një shpinë që dhemb në fund të ditës në zyrë, ose një nyje që po kthehet pas dëmtimit. Fillimisht vlerësohet, pastaj programohet."
+      },
+      "meta": { "en": ["One to one", "By appointment"], "sq": ["Një me një", "Me takim"] }
+    }
+  ]
+}

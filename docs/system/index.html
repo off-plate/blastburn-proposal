@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Design system, Blast &amp; Burn Gym</title>
+<link rel="stylesheet" href="../css/app.css">
+<style>
+  .sys { padding: 56px 0 140px; }
+  .sys h2 { margin: 84px 0 8px; }
+  .sys h3 { margin: 40px 0 14px; color: var(--osb); font-size: 13px; letter-spacing: .16em; }
+  .sys p.n { color: var(--dim); max-width: 74ch; margin-bottom: 10px; font-size: 15.5px; }
+  .sys code { font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: var(--osb-lift); }
+  .row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 14px 0; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 14px 0; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 14px 0; }
+  .sw { border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+  .sw b { display: block; height: 68px; }
+  .sw span { display: block; padding: 9px 11px; font-family: ui-monospace, monospace; font-size: 12px; color: var(--dim); }
+  table.t { width: 100%; border-collapse: collapse; font-size: 14px; margin: 12px 0; }
+  table.t th, table.t td { text-align: left; padding: 11px 12px 11px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  table.t th { color: var(--osb); font-weight: 500; font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; }
+  .pass { color: var(--ink); font-weight: 500; }
+  .fail { color: var(--red-lift); }
+  .state { font-family: ui-monospace, monospace; font-size: 11px; color: var(--dim); letter-spacing: .04em; margin-bottom: 8px; display: block; }
+  .cell { display: grid; gap: 8px; }
+  .prov { display: grid; grid-template-columns: 168px 1fr; gap: 20px; align-items: center; }
+  .prov img { width: 168px; height: 108px; object-fit: cover; border-radius: var(--r-sm); border: 1px solid var(--line2); }
+  .full { width: 100%; }
+</style>
+</head>
+<body>
+<main class="sys">
+
+<div class="shell">
+  <p class="t-eyebrow">Blast &amp; Burn Gym, Durrës</p>
+  <h1>Design system</h1>
+</div>
+
+<div class="shell" style="margin:28px 0 40px">
+  <svg class="led" viewBox="0 0 1200 90" role="img" aria-label="The house mark, drawn from the branching LED tubes on their ceiling">
+    <path class="led__tube" d="M40 62 H300 L360 24 H560 L610 62 H840 L900 26 H1160"/>
+    <path class="led__tube" d="M360 24 L330 66"/>
+    <path class="led__tube" d="M900 26 L872 64"/>
+  </svg>
+</div>
+
+<div class="shell">
+<p class="n">
+  Built before any screen was designed, and rebuilt once after the first review rejected it.
+  Every colour below is sampled from photographs of their actual gym. If a page needs
+  something that is not on this page, it gets added here first.
+</p>
+
+<!-- =================================================================== -->
+<h2>1 · Provenance</h2>
+<p class="n">
+  <strong>The logo carries no brand colour.</strong> Sampling <code>logo-gym-copy.png</code>
+  returns <code>#F8F8F8</code> (80,092 px), <code>#101010</code> (4,943 px) and one desaturated
+  blue-grey <code>#607080</code> (1,823 px). So the palette cannot honestly come from the logo.
+  It comes from the room, photographed 35 times and measured. Each source is shown beside the
+  value it produced, so the claim can be checked rather than believed.
+</p>
+
+<table class="t">
+  <tr><th style="width:210px">Source</th><th>Where it is in the gym</th><th style="width:230px">Measured</th><th style="width:150px">Becomes</th></tr>
+  <tr>
+    <td><img src="../img/src/src-void.webp" alt="Black walls and ceiling" style="width:190px;height:112px;object-fit:cover;border-radius:3px"></td>
+    <td>Walls and ceiling, throughout</td>
+    <td><code>#000000</code> <code>#101010</code> <code>#141414</code> <code>#101014</code></td>
+    <td><code>--void</code> <code>--surface</code></td>
+  </tr>
+  <tr>
+    <td><img src="../img/src/src-red.webp" alt="Red painted wall type reading BEAST MODE ON" style="width:190px;height:112px;object-fit:cover;border-radius:3px"></td>
+    <td>Painted wall type: "NO PAIN - NO POWER", "BEAST MODE: ON"</td>
+    <td><code>#AE1212</code> to <code>#EA4230</code>, centre <code>#C9281F</code></td>
+    <td><code>--red</code> <code>--red-lift</code></td>
+  </tr>
+  <tr>
+    <td><img src="../img/src/src-osb.webp" alt="OSB chipboard column" style="width:190px;height:112px;object-fit:cover;border-radius:3px"></td>
+    <td>OSB columns and blonde floor</td>
+    <td><code>#9C8A66</code> <code>#A2906C</code> <code>#A89672</code></td>
+    <td><code>--osb</code></td>
+  </tr>
+  <tr>
+    <td><img src="../img/src/src-mural.webp" alt="Hand-painted Goku mural" style="width:190px;height:112px;object-fit:cover;border-radius:3px"></td>
+    <td>The hand-painted Goku mural, roughly three metres wide</td>
+    <td><code>#182466</code> <code>#121866</code> <code>#1E2A6C</code></td>
+    <td><code>--mural</code></td>
+  </tr>
+  <tr>
+    <td><img src="../img/src/src-led.webp" alt="Branching LED ceiling tubes" style="width:190px;height:112px;object-fit:cover;border-radius:3px"></td>
+    <td>The branching LED tubes on the ceiling</td>
+    <td><code>#FFFFFF</code></td>
+    <td><code>--led</code> and the signature</td>
+  </tr>
+</table>
+
+<p class="n">
+  <strong>Both reds are measured values, not interpolations.</strong> <code>--red #C9281F</code>
+  is the centre of the sampled range. <code>--red-lift #EA4230</code> is the same paint where
+  the LED bars hit it, and it is the cut that clears AA for small text at 4.98:1. Nothing was
+  nudged for taste.
+</p>
+<p class="n">
+  <strong>The risk, stated plainly.</strong> "Near-black ground with one hot accent" is listed
+  in <code>design-log.md</code> as a 2026 AI default and is off the table by default. The first
+  review of this page rejected the defence, correctly: the tan was argued for in prose and then
+  never used as a surface. It is now load-bearing. <code>--osb</code> is a full-bleed band
+  carrying dark type, and the section divider is permanently tan. If the tan came out, the
+  system would visibly break, which is the only test of a co-lead that means anything.
+</p>
+</div>
+
+<!-- =================================================================== -->
+<div class="shell">
+<h2>2 · Colour as roles</h2>
+<p class="n">A role says what a colour <em>means</em>, so a new component has one correct answer.</p>
+<div class="grid4">
+  <div class="sw"><b style="background:var(--void)"></b><span>--void #0B0B0D</span></div>
+  <div class="sw"><b style="background:var(--surface)"></b><span>--surface #141417</span></div>
+  <div class="sw"><b style="background:var(--raised)"></b><span>--raised #1C1C20</span></div>
+  <div class="sw"><b style="background:var(--mural)"></b><span>--mural #182466</span></div>
+  <div class="sw"><b style="background:var(--red)"></b><span>--red #C9281F</span></div>
+  <div class="sw"><b style="background:var(--red-lift)"></b><span>--red-lift #EA4230</span></div>
+  <div class="sw"><b style="background:var(--osb)"></b><span>--osb #A2906C</span></div>
+  <div class="sw"><b style="background:var(--osb-lift)"></b><span>--osb-lift #C9B489</span></div>
+  <div class="sw"><b style="background:var(--ink)"></b><span>--ink #F2F0EC</span></div>
+  <div class="sw"><b style="background:var(--dim)"></b><span>--dim #9E9A93</span></div>
+  <div class="sw"><b style="background:var(--led)"></b><span>--led #FFFFFF</span></div>
+  <div class="sw"><b style="background:var(--line2)"></b><span>--line2 #34343C</span></div>
+</div>
+
+<table class="t">
+  <tr><th>Token</th><th>Means</th><th>Never</th><th style="width:170px">On --void</th></tr>
+  <tr><td><code>--ink</code></td><td>body text and headings</td><td>large fills</td><td class="pass">17.28 AAA</td></tr>
+  <tr><td><code>--dim</code></td><td>secondary text, captions, disabled labels</td><td>anything read fast</td><td class="pass">7.02 AAA</td></tr>
+  <tr><td><code>--red</code></td><td>the live thing: button fills, display type, the signature</td><td class="fail">never body text</td><td class="fail">3.56, large only</td></tr>
+  <tr><td><code>--red-lift</code></td><td>small red text, links, focus rings, errors</td><td>large fills</td><td class="pass">4.98 AA</td></tr>
+  <tr><td><code>--osb</code></td><td>a full-bleed band surface, and the section divider</td><td>primary actions</td><td class="pass">6.31 AA</td></tr>
+  <tr><td><code>--osb-lift</code></td><td>warm text carrying weight, labels on dark</td><td>surfaces</td><td class="pass">9.71 AAA</td></tr>
+  <tr><td><code>--mural</code></td><td>one full band per page at most</td><td class="fail">never a text colour</td><td class="fail">1.39, surface only</td></tr>
+  <tr><td><code>--led</code></td><td>the signature, and numbers that matter</td><td>large areas</td><td class="pass">19.66 AAA</td></tr>
+</table>
+
+<h3>Text on filled surfaces</h3>
+<table class="t">
+  <tr><th>Combination</th><th style="width:110px">Ratio</th><th>Verdict</th></tr>
+  <tr><td>white on <code>--red</code></td><td class="pass">5.52</td><td class="pass">AA. This is the primary button.</td></tr>
+  <tr><td>void on <code>--osb</code></td><td class="pass">6.31</td><td class="pass">AA. This is the tan band.</td></tr>
+  <tr><td>white on <code>--mural</code></td><td class="pass">14.16</td><td class="pass">AAA</td></tr>
+  <tr><td><code>--dim</code> on <code>--surface</code></td><td class="pass">6.56</td><td class="pass">AA. This is the disabled button.</td></tr>
+  <tr><td>white on <code>--osb</code></td><td class="fail">3.11</td><td class="fail">Fails. Never.</td></tr>
+</table>
+<p class="n">
+  Pass and fail are set in <code>--ink</code> and <code>--red-lift</code>. There is no green
+  token, because nothing in that gym is green and a verdict colour is not a reason to invent one.
+</p>
+</div>
+
+<!-- the tan band, proving it is a surface -->
+<div class="band band--osb" style="margin:40px 0">
+  <div class="shell">
+    <p class="t-eyebrow">The tan is a surface</p>
+    <h2 style="margin:8px 0 12px; max-width:20ch">Open 09:00 to 22:00</h2>
+    <p class="t-lede" style="max-width:56ch">Void type on <code>--osb</code> at 6.31:1. On a page this band carries the hours, the address and the call action, which is the block people open the site for.</p>
+    <div class="callbar" style="margin-top:20px">
+      <a class="btn btn--primary" href="#">Call the gym</a>
+      <a class="btn btn--ghost" href="#" style="border-color:rgba(11,11,13,.35); color:var(--void)">Get directions</a>
+    </div>
+  </div>
+</div>
+
+<!-- =================================================================== -->
+<div class="shell">
+<h2>3 · Type as roles</h2>
+<p class="n">
+  Two families, four cuts, 70 KB, self-hosted. Technor because their own wordmark has squared,
+  sliced terminals. Author because it is quiet enough to sit under it.
+</p>
+<table class="t">
+  <tr><th>Role</th><th>Family</th><th>Size</th><th>Used for</th></tr>
+  <tr><td><code>.t-display</code></td><td>Technor 900, uppercase</td><td>clamp(38, 7vw, 104)</td><td>the homepage hero only</td></tr>
+  <tr><td><code>h1</code></td><td>Technor 900, uppercase</td><td>clamp(34, 5.5vw, 76)</td><td>one per page</td></tr>
+  <tr><td><code>h2</code></td><td>Technor 900, uppercase</td><td>clamp(26, 3.4vw, 46)</td><td>section heads</td></tr>
+  <tr><td><code>h3</code></td><td>Technor 700, uppercase</td><td>clamp(18, 1.6vw, 23)</td><td>card and block titles</td></tr>
+  <tr><td><code>.t-body</code></td><td>Author 400</td><td>17px, max 68ch</td><td>everything readable</td></tr>
+  <tr><td><code>.t-data</code></td><td>Technor 700, tabular</td><td>inherits</td><td>numbers, prices, hours</td></tr>
+  <tr><td><code>.t-eyebrow</code></td><td>Technor 700, .18em</td><td>12.5px</td><td>section labels, in <code>--osb</code></td></tr>
+</table>
+
+<h3>Albanian is the language this has to survive</h3>
+<p class="n">
+  Their members are in Durrës. Technor 900 uppercase has to hold ë and ç, and Albanian words
+  run long, so the specimen is set in Albanian rather than English.
+</p>
+<div class="post" style="margin:18px 0">
+  <p class="t-eyebrow">Programet stërvitore</p>
+  <h2 style="margin:10px 0">Posturë dhe rehabilitim</h2>
+  <h2 style="margin:10px 0; color:var(--dim)">Pa dhimbje nuk ka fuqi</h2>
+  <p class="t-lede">Trajnim personal, CrossFit, HIIT dhe aerobi në Durrës. Salla është e hapur nga ora 09:00 deri në 22:00.</p>
+  <p class="t-body" style="margin-top:12px">Tekst në Author 400. Shkronjat ë dhe ç duhet të lexohen qartë në çdo madhësi, dhe fjalët e gjata shqip nuk duhet të dalin nga rreshti.</p>
+  <p class="t-data" style="margin-top:12px; font-size:26px">5.0 · 113 vlerësime · 9,711 ndjekës</p>
+</div>
+</div>
+
+<!-- =================================================================== -->
+<div class="shell">
+<h2>4 · Scales and ceilings</h2>
+<table class="t">
+  <tr><th>Scale</th><th>Steps</th><th>Ceiling</th></tr>
+  <tr><td>Spacing</td><td>4 8 12 16 24 32 48 64 96 128</td><td>none</td></tr>
+  <tr><td>Radius</td><td><code>--r-sm</code> 2, <code>--r</code> 3, <code>--r-lg</code> 4</td><td><strong>4px, no exceptions.</strong> The room is angular: branching light bars, cut OSB panels, sliced wordmark terminals.</td></tr>
+  <tr><td>Shadow</td><td>none, except the signature glow</td><td>hairlines, not shadows</td></tr>
+  <tr><td>Motion</td><td>two curves, 160ms and 220ms</td><td>220ms. Hover and focus only, no scroll theatre.</td></tr>
+</table>
+</div>
+
+<!-- =================================================================== -->
+<div class="shell">
+<h2>5 · The signature</h2>
+<p class="n">
+  Their ceiling is hung with branching LED tubes: straight runs joined at angles with arms
+  splitting off. It is the one thing in that room you could not mistake for another gym, so it
+  is drawn at architectural scale and crosses the canvas. It is not a 4px divider rule.
+  <strong>One per screenful, never inside a card.</strong>
+</p>
+</div>
+<div class="shell" style="margin:20px 0 8px">
+  <svg class="led" viewBox="0 0 1200 80"><path class="led__tube" d="M20 56 H340 L400 20 H700 L750 56 H1180"/><path class="led__tube" d="M400 20 L372 60"/></svg>
+</div>
+<div class="shell" style="margin:26px 0">
+  <svg class="led led--red" viewBox="0 0 1200 80"><path class="led__tube" d="M20 30 H420 L470 60 H820 L880 24 H1180"/><path class="led__tube" d="M470 60 L500 26"/></svg>
+</div>
+<div class="shell">
+  <span class="state">the same fixture, small, as a lockup mark</span>
+  <svg class="led led--mark" viewBox="0 0 120 60"><path class="led__tube" d="M8 44 H44 L62 14 H88"/><path class="led__tube" d="M62 14 L52 46"/></svg>
+</div>
+
+<!-- =================================================================== -->
+<div class="shell">
+<h2>6 · Component inventory</h2>
+<p class="n">
+  One purpose means one component. Two rows with the same purpose sentence would be one
+  component, so there are none. The first review rejected this list for missing everything a
+  gym site actually runs on, and those are now in it.
+</p>
+<table class="t">
+  <tr><th>Component</th><th>Purpose, in one sentence</th><th>Variants</th><th>Appears on</th></tr>
+  <tr><td><code>.nav</code></td><td>Get to any page, call, or open Instagram from anywhere</td><td>sheet on mobile</td><td>every page</td></tr>
+  <tr><td><code>.foot</code></td><td>Close the page with the practical facts and the social links</td><td>none</td><td>every page</td></tr>
+  <tr><td><code>.btn</code></td><td>Take the most important action available on this surface</td><td><code>--primary</code> <code>--ghost</code> <code>--sm</code></td><td>every page</td></tr>
+  <tr><td><code>.card</code></td><td>Present one item so it can be understood, compared and acted on</td><td><code>--plan</code></td><td>home, programs, membership</td></tr>
+  <tr><td><code>.stat</code></td><td>State one proven number with its source</td><td>none</td><td>home, gym</td></tr>
+  <tr><td><code>.phero</code></td><td>Open a sub-page: breadcrumb, title, lede, actions</td><td>none</td><td>all 4 sub-pages</td></tr>
+  <tr><td><code>.led</code></td><td>Mark the house, once per screenful</td><td><code>--red</code> <code>--mark</code></td><td>every page</td></tr>
+  <tr><td><code>.tt</code></td><td>Show the week so a visitor can find a class they can attend</td><td>none</td><td>programs, home</td></tr>
+  <tr><td><code>.hours</code></td><td>Answer "are they open now"</td><td>none</td><td>contact, home, footer</td></tr>
+  <tr><td><code>.place</code></td><td>Answer "where is it and how do I get there"</td><td>none</td><td>contact, home</td></tr>
+  <tr><td><code>.callbar</code></td><td>Start a conversation by phone, WhatsApp or Instagram</td><td>none</td><td>every page</td></tr>
+  <tr><td><code>.coach</code></td><td>Show one person who will actually be in the room</td><td>none</td><td>gym</td></tr>
+  <tr><td><code>.field</code></td><td>Take one piece of information from a visitor</td><td><code>--full</code> <code>--error</code></td><td>contact</td></tr>
+  <tr><td><code>.note</code></td><td>Disclose that a number on screen is placeholder data</td><td>none</td><td>membership</td></tr>
+  <tr><td><code>.post</code></td><td>Divide two major blocks, echoing the OSB columns</td><td>none</td><td>every page</td></tr>
+</table>
+<p class="n">
+  <strong>The one-edit test.</strong> "Make every primary button tan instead of red." One edit:
+  <code>.btn--primary</code>. The nav CTA, the hero CTA, the card CTAs, the tan band CTA and
+  the footer CTA are all that one class. Same for the accent, the body font, the card radius,
+  the hero height and the footer gap.
+</p>
+</div>
+
+<!-- =================================================================== -->
+<div class="shell">
+<h2>7 · Every component, every state</h2>
+
+<h3>Buttons, all five states</h3>
+<table class="t">
+  <tr><th style="width:130px">State</th><th>Primary</th><th>Ghost</th><th>Small</th></tr>
+  <tr>
+    <td><code>rest</code></td>
+    <td><a class="btn btn--primary" href="#">Join the gym</a></td>
+    <td><a class="btn btn--ghost" href="#">See programs</a></td>
+    <td><a class="btn btn--primary btn--sm" href="#">Book</a></td>
+  </tr>
+  <tr>
+    <td><code>hover</code></td>
+    <td><a class="btn btn--primary" href="#" style="background:var(--red-lift)">Join the gym</a></td>
+    <td><a class="btn btn--ghost" href="#" style="border-color:var(--ink); background:rgba(255,255,255,.05)">See programs</a></td>
+    <td><a class="btn btn--primary btn--sm" href="#" style="background:var(--red-lift)">Book</a></td>
+  </tr>
+  <tr>
+    <td><code>focus-visible</code></td>
+    <td><a class="btn btn--primary" href="#" style="outline:2px solid var(--red-lift); outline-offset:3px">Join the gym</a></td>
+    <td><a class="btn btn--ghost" href="#" style="outline:2px solid var(--red-lift); outline-offset:3px">See programs</a></td>
+    <td><a class="btn btn--primary btn--sm" href="#" style="outline:2px solid var(--red-lift); outline-offset:3px">Book</a></td>
+  </tr>
+  <tr>
+    <td><code>active</code></td>
+    <td><a class="btn btn--primary" href="#" style="background:var(--red-lift); translate:0 1px">Join the gym</a></td>
+    <td><a class="btn btn--ghost" href="#" style="translate:0 1px; border-color:var(--ink)">See programs</a></td>
+    <td><a class="btn btn--primary btn--sm" href="#" style="translate:0 1px">Book</a></td>
+  </tr>
+  <tr>
+    <td><code>disabled</code></td>
+    <td><button class="btn btn--primary" disabled>Join the gym</button></td>
+    <td><button class="btn btn--ghost" disabled>See programs</button></td>
+    <td><button class="btn btn--primary btn--sm" disabled>Book</button></td>
+  </tr>
+</table>
+<p class="n">Disabled is a flat <code>--surface</code> fill with <code>--dim</code> text at 6.56:1, never a faded red fill, which reads as a button you are allowed to press.</p>
+
+<h3>Fields, all four states, with a hand-built select</h3>
+<div class="grid4">
+  <label class="field"><span class="state">rest</span><span>Name</span><input type="text" placeholder="Your name"></label>
+  <label class="field"><span class="state">focus</span><span>Phone</span><input type="tel" value="+355 69" style="border-color:var(--red-lift)"></label>
+  <label class="field"><span class="state">filled</span><span>Name</span><input type="text" value="Enkeleda Hoxha"></label>
+  <label class="field field--error"><span class="state">error</span><span>Phone</span><input type="tel" value="069"><span class="field__err">Add the full number so we can call back</span></label>
+</div>
+<div class="grid3">
+  <label class="field"><span class="state">select, hand-built to match</span><span>Programme</span>
+    <select><option>CrossFit</option><option>HIIT</option><option>Aerobics</option><option>Abs and core</option><option>Personal training</option><option>Posture and rehabilitation</option></select>
+  </label>
+  <label class="field field--full" style="grid-column:span 2"><span class="state">textarea</span><span>Anything we should know</span><textarea rows="3" placeholder="Injuries, goals, when you want to train"></textarea></label>
+</div>
+
+<h3>Card</h3>
+<div class="grid3">
+  <a class="card" href="#">
+    <span class="card__shot"><img src="../img/g25-s.webp" alt="" width="800" height="600" loading="lazy"></span>
+    <span class="card__title">CrossFit</span>
+    <span class="card__text">Functional strength and conditioning in a group, coached from the first rep to the last.</span>
+    <span class="card__meta"><span>Group</span><span>All levels</span></span>
+  </a>
+  <a class="card" href="#">
+    <span class="card__title">No photograph yet</span>
+    <span class="card__text">The same component with the image slot empty, which is how it renders before a shot exists.</span>
+    <span class="card__meta"><span>Group</span><span>45 min</span></span>
+  </a>
+  <a class="card" href="#">
+    <span class="card__shot"><img src="../img/g31-s.webp" alt="" width="800" height="600" loading="lazy"></span>
+    <span class="card__title">Posturë dhe rehabilitim, një titull i gjatë që duhet të mbështillet</span>
+    <span class="card__text">Hostile case, in Albanian.</span>
+  </a>
+</div>
+
+<h3>Card, plan variant. No "most popular" badge.</h3>
+<div class="grid3">
+  <div class="card card--plan">
+    <span class="card__title">Mujore</span>
+    <span class="card__price">3 000 <span>Lekë / muaj</span></span>
+    <ul><li>Akses i plotë, 09:00 deri 22:00</li><li>Të gjitha klasat në grup</li><li>Dollap dhe dush</li></ul>
+    <a class="btn btn--ghost" href="#">Zgjidh</a>
+  </div>
+  <div class="card card--plan">
+    <span class="card__title">Tre muaj</span>
+    <span class="card__price">7 500 <span>Lekë / 3 muaj</span></span>
+    <span class="card__says">The plan most members take, once the gym confirms it.</span>
+    <ul><li>Gjithçka nga Mujore</li><li>Një matje e përbërjes trupore</li><li>Një plan stërvitor me shkrim</li></ul>
+    <a class="btn btn--primary" href="#">Zgjidh</a>
+  </div>
+  <div class="card card--plan">
+    <span class="card__title">Trajnim personal</span>
+    <span class="card__price">1 500 <span>Lekë / seancë</span></span>
+    <ul><li>Një me një me trajnerin</li><li>Plan sipas objektivit tuaj</li><li>Teknika korrigjohet aty për aty</li></ul>
+    <a class="btn btn--ghost" href="#">Zgjidh</a>
+  </div>
+</div>
+
+<h3>Stat. Two facts, not one fact padded to three.</h3>
+<div class="row" style="gap:64px">
+  <div class="stat"><span class="stat__n">5.0</span><span class="stat__k">Google rating, from 113 reviews</span><span class="stat__src">Verified 10 Aug 2026</span></div>
+  <div class="stat"><span class="stat__n">9,711</span><span class="stat__k">Instagram followers</span><span class="stat__src">@blastandburn_gym</span></div>
+</div>
+
+<h3>Hours, place, callbar</h3>
+<div class="grid3">
+  <div class="hours">
+    <div class="hours__row hours__row--now"><span>Today</span><b>09:00 to 22:00</b></div>
+    <div class="hours__row"><span>Monday to Friday</span><b>09:00 to 22:00</b></div>
+    <div class="hours__row"><span>Saturday and Sunday</span><b>To confirm</b></div>
+  </div>
+  <div class="place">
+    <p class="place__addr">Rruga Glaukia 17, Durrës</p>
+    <p class="place__note">Next to the Ibrahim Kodra school, by the industrial market.</p>
+    <p class="place__note">Plus code 8FF5+63</p>
+  </div>
+  <div class="callbar" style="align-content:start">
+    <a class="btn btn--primary btn--sm" href="#">Call</a>
+    <a class="btn btn--ghost btn--sm" href="#">Instagram</a>
+    <a class="btn btn--ghost btn--sm" href="#">Directions</a>
+  </div>
+</div>
+
+<h3>Timetable</h3>
+<table class="tt">
+  <tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th></tr>
+  <tr><td class="tt__time">09:00</td><td class="tt__cls">Aerobics<br><span class="tt__coach">Studio</span></td><td class="tt__cls">HIIT<br><span class="tt__coach">Studio</span></td><td class="tt__cls">Aerobics<br><span class="tt__coach">Studio</span></td></tr>
+  <tr><td class="tt__time">18:30</td><td class="tt__cls">CrossFit<br><span class="tt__coach">Main floor</span></td><td class="tt__cls">Abs and core<br><span class="tt__coach">Studio</span></td><td class="tt__cls">CrossFit<br><span class="tt__coach">Main floor</span></td></tr>
+  <tr><td class="tt__time">20:00</td><td class="tt__cls">HIIT<br><span class="tt__coach">Studio</span></td><td class="tt__cls">CrossFit<br><span class="tt__coach">Main floor</span></td><td class="tt__cls">Aerobics<br><span class="tt__coach">Studio</span></td></tr>
+</table>
+<div class="note" style="margin-top:16px"><span>Placeholder timetable. Blast &amp; Burn publishes no schedule anywhere, so these classes and times are invented for the proposal and must be replaced with the real week.</span></div>
+
+<h3>Coach</h3>
+<div class="grid4">
+  <div class="coach"><img src="../img/g18-s.webp" alt="" loading="lazy"><span class="coach__nm">Name to confirm</span><span class="coach__role">Personal training, rehabilitation</span></div>
+  <div class="coach"><img src="../img/g08-s.webp" alt="" loading="lazy"><span class="coach__nm">Name to confirm</span><span class="coach__role">Aerobics, HIIT</span></div>
+</div>
+<div class="note" style="margin-top:16px"><span>No coach is named anywhere online, so no name is invented here. These slots stay empty until the gym supplies them.</span></div>
+
+<h3>Note, the placeholder disclosure</h3>
+<div class="note"><span>These prices are placeholders for the proposal. They are not Blast &amp; Burn's real rates and must be replaced before this goes live.</span></div>
+
+<h3>Post, the tan divider</h3>
+<div class="post"><p class="t-body" style="margin:0">A block divided by the tan post, echoing the OSB columns that hold up the actual room. Permanently tan, never red.</p></div>
+</div>
+
+<!-- =================================================================== -->
+<div class="band band--mural" style="margin-top:56px">
+  <div class="shell">
+    <p class="t-eyebrow" style="color:rgba(255,255,255,.7)">The mural band</p>
+    <h2 style="margin:8px 0 10px">One per page at most</h2>
+    <p style="margin:0; max-width:60ch; color:rgba(255,255,255,.82)">White on <code style="color:#fff">--mural</code> at 14.16:1. The blue is the Goku mural on their wall, so it is used where the page talks about the room itself.</p>
+  </div>
+</div>
+
+</main>
+</body>
+</html>

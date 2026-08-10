@@ -1,0 +1,35 @@
+{
+  "_sources": "Every value verified 2026-08-10. See research/01-extraction.md. Nothing here may be changed without a source.",
+  "name": "Blast & Burn",
+  "nameFull": "Blast & Burn Gym",
+  "googleName": "Blast & Burn Durrës (Palestër)",
+  "city": "Durrës",
+  "address": "Rruga Glaukia 17, Durrës",
+  "addressLandmark": {
+    "en": "next to the Ibrahim Kodra school, by the industrial market",
+    "sq": "ngjitur me shkollën Ibrahim Kodra, pranë tregut të madh industrial"
+  },
+  "plusCode": "8FF5+63 Durrës",
+  "lat": 41.3230148,
+  "lng": 19.4577407,
+  "mapsCid": "728856836562096617",
+  "phone": "+355 69 455 3486",
+  "tel": "+355694553486",
+  "email": "info@blastburn.al",
+  "instagram": "blastandburn_gym",
+  "instagramUrl": "https://www.instagram.com/blastandburn_gym/",
+  "tiktok": "blastandburn_gym",
+  "tiktokUrl": "https://www.tiktok.com/@blastandburn_gym",
+  "hours": { "open": "09:00", "close": "22:00" },
+  "hoursNote": {
+    "en": "Confirm weekend hours with the gym",
+    "sq": "Konfirmoni oraret e fundjavës me palestrën"
+  },
+  "proof": {
+    "rating": "5.0",
+    "reviews": 113,
+    "followers": "9,711",
+    "capturedOn": "2026-08-10"
+  },
+  "wallCopy": ["NO PAIN - NO POWER", "BEAST MODE: ON", "CHASING GREATNESS"]
+}
