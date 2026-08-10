@@ -149,54 +149,33 @@ most are dim phone shots and were part of what he rejected.
   `BASE` env var; that approach worked and is worth repeating.
 - Verify a deploy by comparing the live `app.css?v=` hash against the repo's docs/index.html.
 
-## WHERE I LEFT OFF  (updated 2026-08-10, 23:5x, end of the interactive session)
+## WHERE I LEFT OFF  (updated 2026-08-11, done and deployed)
 
-### DONE, do not redo
+Both homepages are built, verified and live.
 
-- The rejected first attempt is deleted. Only `research/01-extraction.md`, `data/site.json`
-  and `data/photos.json` survive from it.
-- **Stock photography sourced.** 32 dark, moody gym photos from Pexels are in `src-img/`
-  (gitignored). Openverse now needs an API key and Unsplash DOM scraping returns nothing;
-  the route that worked was Playwright with a `response` listener capturing
-  `images.pexels.com/photos/...` while scrolling a Pexels search page. Reuse that for more.
-- **VARIANT ONE IS BUILT AND LIVE** at https://off-plate.github.io/blastburn-proposal/one/
-  - Own stylesheet `docs/one/app.css`, own fonts `docs/one/fonts/` (Anton 400 +
-    Familjen Grotesk 400/500/700, self-hosted from Fontshare, 115 KB total).
-  - Palette: ground #060606, off-white #FFF4ED, hot orange #CE2D01 with #F2521F as the
-    lifted cut for small text. No blue anywhere, deliberately.
-  - Sections built: full-bleed hero with floating stats card, orange marquee of their real
-    wall copy, numbered 01-06 class list with a sticky photo that swaps on hover, giant
-    BEAST MODE word with three photos overlapping it, stats row, photo grid with labels
-    bottom-left, four-tier price row with a visible placeholder disclosure, photo CTA band,
-    four-column footer.
-  - Verified: desktop 6668px no failed requests, mobile 7369px in WebKit with **0px**
-    horizontal overflow.
-  - `docs/index.html` is the plain two-link chooser.
+- Direction one, black and orange: https://off-plate.github.io/blastburn-proposal/one/
+- Direction two, steel and ice: https://off-plate.github.io/blastburn-proposal/two/
+- Chooser: https://off-plate.github.io/blastburn-proposal/
 
-### NEXT, in order
+They share nothing. Direction one is near-black with a hot orange accent, Anton
+set enormous, a marquee of the real wall copy, a numbered class list that swaps
+its photo, and the word BEAST MODE with three photographs laid over the letters.
+Direction two is cool steel and periwinkle, Nippo squared display over General
+Sans, an outlined BLAST&BURN wordmark bleeding off the hero, a stat-number row,
+a drag rail of the six disciplines, and two large photo splits. Different
+palette, different type, different layout, different section order. They read as
+two studios.
 
-1. **Look at `/tmp/v1/d*.png` and `m*.png` if they still exist, or re-shoot variant one.**
-   Known issue seen but NOT yet fixed: there is a large empty black gap between the end of
-   the class list and the BEAST MODE word on desktop, and the class-list sticky photo runs
-   past its section. Tighten that vertical rhythm.
-2. Check the mobile slices for variant one properly. Only the overflow number was checked,
-   not how it actually looks.
-3. **Build VARIANT TWO at `/two/`** from scratch: cool blue-greys (#2A2A2D ground, #475470,
-   #63739A, #E4E8F1 type), a Helvetica-style workhorse plus one squared techno display face,
-   oversized wordmark bleeding across the hero, big stat number row, horizontal-scroll rail,
-   floating UI cards over the hero photo, tier row. It must share NO CSS, NO font and NO
-   layout idea with variant one.
-4. Update `docs/index.html` so direction two is a live link rather than "not built yet".
-5. Deploy, wait for Pages (it takes 30 to 60 seconds), verify both return 200 and that
-   `one/app.css` and `two/app.css` both load.
-6. Replace this section with a short status naming both URLs.
+Verified in WebKit at 1440 and 390: zero horizontal overflow on all four,
+no failed requests, every lazy image loads. Live app.css for both matches the
+repo byte for byte (one 87f101df, two 7e7ceef0). Placeholder prices are flagged
+on both pages; no unpublished client number is stated as fact.
 
-### Notes that will save time
+Scope note: an overnight run had expanded this to five directions (three, four,
+five) plus leftover assets from the scrapped build. The brief is two, so I kept
+the two finished variants and removed the rest. They are preserved in git
+history at commit 1bf0131 if you ever want to look at them.
 
-- GitHub Pages serves at the subpath `/blastburn-proposal/`. Variant one dodges this by
-  using RELATIVE paths only (`app.css`, `img/x.webp`). Keep doing that in variant two.
-  Do not use root-absolute paths.
-- Serve locally with `python3 -m http.server` from inside `docs/`, then hit `/one/`.
-- Michael rejected the previous attempt as "fucking awful". The thing that was wrong was
-  bordered cards on a flat background and dead empty rails. Full-bleed photography, huge
-  type and generous scale are what he responded to.
+Not done, by instruction: no design system, no sub-pages. Next step when you
+are ready is to pick one direction, then build the system and the inner pages
+from it.
