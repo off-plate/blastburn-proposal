@@ -149,21 +149,54 @@ most are dim phone shots and were part of what he rejected.
   `BASE` env var; that approach worked and is worth repeating.
 - Verify a deploy by comparing the live `app.css?v=` hash against the repo's docs/index.html.
 
-## WHERE I LEFT OFF
+## WHERE I LEFT OFF  (updated 2026-08-10, 23:5x, end of the interactive session)
 
-Everything from the rejected attempt has been deleted except `research/01-extraction.md`,
-`data/site.json`, `data/photos.json`, `docs/fonts/`, and `docs/img/` (old photos, mostly
-unusable). The homepage has NOT been started.
+### DONE, do not redo
 
-Next actions, in order:
-1. Fetch and study the two reference URLs above. Screenshot them if useful.
-2. Source good dark gym photography (10 to 15 images), convert to webp.
-3. Pick and verify typefaces for EACH variant separately. They must not share a family.
-4. Lock a palette per variant with computed contrast ratios.
-5. Build variant ONE at /one/. Screenshot at 1440 and 390 WebKit. Look at it. Fix what is ugly.
-6. Build variant TWO at /two/, from scratch, sharing no CSS with ONE.
-7. Deploy both, verify the live hashes match the repo, write the chooser at docs/index.html.
-8. Replace this section with a short status for Michael, naming both URLs.
+- The rejected first attempt is deleted. Only `research/01-extraction.md`, `data/site.json`
+  and `data/photos.json` survive from it.
+- **Stock photography sourced.** 32 dark, moody gym photos from Pexels are in `src-img/`
+  (gitignored). Openverse now needs an API key and Unsplash DOM scraping returns nothing;
+  the route that worked was Playwright with a `response` listener capturing
+  `images.pexels.com/photos/...` while scrolling a Pexels search page. Reuse that for more.
+- **VARIANT ONE IS BUILT AND LIVE** at https://off-plate.github.io/blastburn-proposal/one/
+  - Own stylesheet `docs/one/app.css`, own fonts `docs/one/fonts/` (Anton 400 +
+    Familjen Grotesk 400/500/700, self-hosted from Fontshare, 115 KB total).
+  - Palette: ground #060606, off-white #FFF4ED, hot orange #CE2D01 with #F2521F as the
+    lifted cut for small text. No blue anywhere, deliberately.
+  - Sections built: full-bleed hero with floating stats card, orange marquee of their real
+    wall copy, numbered 01-06 class list with a sticky photo that swaps on hover, giant
+    BEAST MODE word with three photos overlapping it, stats row, photo grid with labels
+    bottom-left, four-tier price row with a visible placeholder disclosure, photo CTA band,
+    four-column footer.
+  - Verified: desktop 6668px no failed requests, mobile 7369px in WebKit with **0px**
+    horizontal overflow.
+  - `docs/index.html` is the plain two-link chooser.
 
-Do not build sub-pages. Do not build a design system. Two homepages, each done well, each
-looking like it came from a different studio.
+### NEXT, in order
+
+1. **Look at `/tmp/v1/d*.png` and `m*.png` if they still exist, or re-shoot variant one.**
+   Known issue seen but NOT yet fixed: there is a large empty black gap between the end of
+   the class list and the BEAST MODE word on desktop, and the class-list sticky photo runs
+   past its section. Tighten that vertical rhythm.
+2. Check the mobile slices for variant one properly. Only the overflow number was checked,
+   not how it actually looks.
+3. **Build VARIANT TWO at `/two/`** from scratch: cool blue-greys (#2A2A2D ground, #475470,
+   #63739A, #E4E8F1 type), a Helvetica-style workhorse plus one squared techno display face,
+   oversized wordmark bleeding across the hero, big stat number row, horizontal-scroll rail,
+   floating UI cards over the hero photo, tier row. It must share NO CSS, NO font and NO
+   layout idea with variant one.
+4. Update `docs/index.html` so direction two is a live link rather than "not built yet".
+5. Deploy, wait for Pages (it takes 30 to 60 seconds), verify both return 200 and that
+   `one/app.css` and `two/app.css` both load.
+6. Replace this section with a short status naming both URLs.
+
+### Notes that will save time
+
+- GitHub Pages serves at the subpath `/blastburn-proposal/`. Variant one dodges this by
+  using RELATIVE paths only (`app.css`, `img/x.webp`). Keep doing that in variant two.
+  Do not use root-absolute paths.
+- Serve locally with `python3 -m http.server` from inside `docs/`, then hit `/one/`.
+- Michael rejected the previous attempt as "fucking awful". The thing that was wrong was
+  bordered cards on a flat background and dead empty rails. Full-bleed photography, huge
+  type and generous scale are what he responded to.
