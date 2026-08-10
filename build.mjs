@@ -17,6 +17,9 @@ const { programs } = JSON.parse(readFileSync(join(ROOT, 'data/programs.json'), '
 const hash = f => createHash('sha1').update(readFileSync(join(D, f))).digest('hex').slice(0, 8);
 const CSS = hash('css/app.css');
 const JS = hash('js/app.js');
+const BASE = process.env.BASE || '/';
+const rebase = html => BASE === '/' ? html
+  : html.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE}`);
 const money = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
 /* ---------------- copy ---------------- */
@@ -430,7 +433,7 @@ for (const t of [T.en, T.sq]) {
   for (const [slug, fn] of PAGES) {
     const out = join(D, t.dir, slug, 'index.html');
     mkdirSync(dirname(out), { recursive: true });
-    writeFileSync(out, fn(t));
+    writeFileSync(out, rebase(fn(t)));
     n++;
   }
 }
