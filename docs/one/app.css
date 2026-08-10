@@ -18,8 +18,8 @@
   --hot-lift:#F2521F;     /* the cut that clears AA for small text */
   --line:rgba(255,244,237,.14);
   --line2:rgba(255,244,237,.28);
-  --shell:1380px;
-  --pad:clamp(20px,4vw,64px);
+  --shell:1760px;
+  --pad:clamp(20px,3.5vw,72px);
   --e:cubic-bezier(.22,.61,.36,1);
 }
 *{margin:0;box-sizing:border-box}
