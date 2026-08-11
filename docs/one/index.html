@@ -7,13 +7,13 @@
 <meta name="description" content="A gym in Durrës, open 09:00 to 22:00. CrossFit, HIIT, aerobics, abs, personal training, posture and rehabilitation. Rated 5.0 on Google by 113 people.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preload" href="fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/familjen-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bespoke-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
 
 <nav class="nav" id="nav">
-  <a class="nav__b" href="#top">Blast<i>&amp;</i>Burn</a>
+  <a class="nav__b" href="#top"><img src="img/logo.png" alt="Blast &amp; Burn">Blast<i>&amp;</i>Burn</a>
   <div class="nav__l">
     <a href="#train">Train</a><a href="#room">The room</a><a href="#prices">Membership</a><a href="#find">Find us</a>
   </div>
@@ -28,11 +28,10 @@
 <header class="hero" id="top">
   <img class="hero__img" src="img/hero.webp" alt="A lifter resting between sets in a dark gym" fetchpriority="high">
   <div class="shell hero__in">
-    <p class="kk">Durrës, Albania</p>
-    <h1 class="d d1 hero__h" style="margin-top:14px">No pain.<br><em>No power.</em></h1>
+    <h1 class="d d1 hero__h">No pain.<br><em>No power.</em></h1>
     <div class="hero__row">
       <div>
-        <p class="lede">It is painted on the wall inside. Blast &amp; Burn is a gym in Durrës, open from nine in the morning until ten at night, with coaches on the floor the whole time.</p>
+        <p class="lede">It is painted on the wall inside, so it may as well be the first thing you read. Six disciplines, coaches on the floor the whole time, and the door open thirteen hours a day.</p>
         <div class="hero__act" style="margin-top:24px">
           <a class="btn btn--hot" href="#prices">Become a member</a>
           <a class="btn btn--out" href="#train">See the training</a>
@@ -42,7 +41,7 @@
         <div class="fcard__t"><b>Open now</b><span>09:00 to 22:00</span></div>
         <div class="fcard__r"><span>Google rating</span><b>5.0 from 113</b></div>
         <div class="fcard__r"><span>Instagram</span><b>9,711 following</b></div>
-        <div class="fcard__r"><span>Rruga Glaukia 17</span><b>Durrës</b></div>
+        <div class="fcard__r"><span>Rruga Glaukia 17, Durrës</span><b>Get directions</b></div>
       </div>
     </div>
   </div>
@@ -51,10 +50,7 @@
 <!-- ============ MARQUEE ============ -->
 <div class="mq" aria-hidden="true">
   <div class="mq__t">
-    <span>No pain - no power</span><span>&bull;</span><span>Beast mode: on</span><span>&bull;</span><span>Chasing greatness</span><span>&bull;</span>
-    <span>No pain - no power</span><span>&bull;</span><span>Beast mode: on</span><span>&bull;</span><span>Chasing greatness</span><span>&bull;</span>
-    <span>No pain - no power</span><span>&bull;</span><span>Beast mode: on</span><span>&bull;</span><span>Chasing greatness</span><span>&bull;</span>
-    <span>No pain - no power</span><span>&bull;</span><span>Beast mode: on</span><span>&bull;</span><span>Chasing greatness</span><span>&bull;</span>
+    <span>No pain - no power</span><span>Beast mode: on</span><span>Chasing greatness</span><span>Open 09:00 to 22:00</span><span>No pain - no power</span><span>Beast mode: on</span><span>Chasing greatness</span><span>Open 09:00 to 22:00</span>
   </div>
 </div>
 
@@ -67,16 +63,20 @@
     </div>
     <div class="cl">
       <div class="cl__list" id="cl">
-        <div class="cl__i on" data-img="img/press-s.webp" data-cap="Main floor" data-lvl="All levels"><span class="cl__n">01</span><span class="cl__nm">CrossFit</span><span class="cl__ar">&rarr;</span></div>
-        <div class="cl__i" data-img="img/machine-s.webp" data-cap="Studio" data-lvl="45 min"><span class="cl__n">02</span><span class="cl__nm">HIIT</span><span class="cl__ar">&rarr;</span></div>
-        <div class="cl__i" data-img="img/bike-s.webp" data-cap="Studio" data-lvl="Beginner friendly"><span class="cl__n">03</span><span class="cl__nm">Aerobics</span><span class="cl__ar">&rarr;</span></div>
-        <div class="cl__i" data-img="img/duo-s.webp" data-cap="Studio" data-lvl="30 min"><span class="cl__n">04</span><span class="cl__nm">Abs and core</span><span class="cl__ar">&rarr;</span></div>
-        <div class="cl__i" data-img="img/arm-s.webp" data-cap="By appointment" data-lvl="One to one"><span class="cl__n">05</span><span class="cl__nm">Personal training</span><span class="cl__ar">&rarr;</span></div>
-        <div class="cl__i" data-img="img/tall1-s.webp" data-cap="By appointment" data-lvl="Assessed first"><span class="cl__n">06</span><span class="cl__nm">Posture &amp; rehab</span><span class="cl__ar">&rarr;</span></div>
+        <div class="cl__i on" data-img="img/press-s.webp" data-cap="Main floor" data-lvl="All levels" data-name="CrossFit" data-text="Functional strength and conditioning in a group, coached from the first rep to the last. Scaled to whoever turns up, so a first session and a fifth year run side by side."><span class="cl__n">01</span><span class="cl__nm">CrossFit</span><span class="cl__ar">&rarr;</span></div>
+        <div class="cl__i" data-img="img/machine-s.webp" data-cap="Studio" data-lvl="45 min" data-name="HIIT" data-text="Short rounds at full effort against measured rest. The fastest useful thing you can do with a lunch break, and the one people feel the next morning."><span class="cl__n">02</span><span class="cl__nm">HIIT</span><span class="cl__ar">&rarr;</span></div>
+        <div class="cl__i" data-img="img/bike-s.webp" data-cap="Studio" data-lvl="Beginner friendly" data-name="Aerobics" data-text="Continuous, music-led cardiovascular work. The lowest barrier to walking in for the first time, and the class that keeps the room full in January."><span class="cl__n">03</span><span class="cl__nm">Aerobics</span><span class="cl__ar">&rarr;</span></div>
+        <div class="cl__i" data-img="img/duo-s.webp" data-cap="Studio" data-lvl="30 min" data-name="Abs and core" data-text="Direct trunk work that holds up everything else you lift. Thirty minutes, no equipment to learn, and it makes the heavy days safer."><span class="cl__n">04</span><span class="cl__nm">Abs and core</span><span class="cl__ar">&rarr;</span></div>
+        <div class="cl__i" data-img="img/arm-s.webp" data-cap="By appointment" data-lvl="One to one" data-name="Personal training" data-text="One coach, one plan, technique corrected while you are doing it rather than afterwards. Built around a single goal and reviewed on a fixed day."><span class="cl__n">05</span><span class="cl__nm">Personal training</span><span class="cl__ar">&rarr;</span></div>
+        <div class="cl__i" data-img="img/tall1-s.webp" data-cap="By appointment" data-lvl="Assessed first" data-name="Posture and rehab" data-text="For a back that hurts by the end of a desk day, or a joint coming back from an injury. Assessed first, then programmed, then progressed."><span class="cl__n">06</span><span class="cl__nm">Posture &amp; rehab</span><span class="cl__ar">&rarr;</span></div>
       </div>
       <figure class="cl__shot" style="margin:0">
-        <img id="clshot" src="img/press-s.webp" alt="" width="900" height="1125">
-        <figcaption class="cl__cap"><span id="clcap">Main floor</span><span id="cllvl">All levels</span></figcaption>
+        <img id="clshot" src="img/press-s.webp" alt="" width="900" height="562">
+        <figcaption class="cl__cap">
+          <h3 id="clname">CrossFit</h3>
+          <p id="cltext">Functional strength and conditioning in a group, coached from the first rep to the last. Scaled to whoever turns up, so a first session and a fifth year run side by side.</p>
+          <span class="cl__meta"><span id="clcap">Main floor</span><span id="cllvl">All levels</span></span>
+        </figcaption>
       </figure>
     </div>
   </div>
@@ -87,9 +87,9 @@
   <div class="big__w">Beast mode</div>
   <div class="shell">
     <div class="big__g">
-      <img src="img/bags-s.webp" alt="Bags hanging in the dark" loading="lazy">
-      <img src="img/blue-s.webp" alt="Training under the lights" loading="lazy">
-      <img src="img/rack-s.webp" alt="A loaded dumbbell rack" loading="lazy">
+      <img src="img/bags-s.webp" alt="Bags hanging in the dark" loading="lazy" data-drift="0.16">
+      <img src="img/blue-s.webp" alt="Training under the lights" loading="lazy" data-drift="-0.10">
+      <img src="img/rack-s.webp" alt="A loaded dumbbell rack" loading="lazy" data-drift="0.22">
     </div>
   </div>
 </section>
@@ -112,11 +112,12 @@
 <section class="sec sec--tight">
   <div class="shell">
     <div class="pg">
-      <a class="pg__c pg__c--w" href="#train"><img src="img/barbell-s.webp" alt="A loaded barbell on the floor" loading="lazy"><span class="pg__l">Free weights</span></a>
+      <a class="pg__c pg__c--wide pg__c--tall" href="#train"><img src="img/barbell-s.webp" alt="A loaded barbell on the floor" loading="lazy"><span class="pg__l">Free weights</span></a>
+      <a class="pg__c" href="#train"><img src="img/machine-s.webp" alt="Training on a machine" loading="lazy"><span class="pg__l">Studio classes</span></a>
       <a class="pg__c" href="#train"><img src="img/bag-s.webp" alt="A heavy bag" loading="lazy"><span class="pg__l">Conditioning</span></a>
       <a class="pg__c" href="#train"><img src="img/dumbbells-s.webp" alt="Dumbbells racked" loading="lazy"><span class="pg__l">Strength</span></a>
       <a class="pg__c" href="#train"><img src="img/weights-s.webp" alt="Plates stacked" loading="lazy"><span class="pg__l">Machines</span></a>
-      <a class="pg__c pg__c--w" href="#train"><img src="img/machine-s.webp" alt="Training on a machine" loading="lazy"><span class="pg__l">Studio classes</span></a>
+      <a class="pg__c" href="#train"><img src="img/bike-s.webp" alt="Cardio at night" loading="lazy"><span class="pg__l">Open late</span></a>
     </div>
   </div>
 </section>
@@ -184,12 +185,29 @@
   document.addEventListener('click',e=>{if(!s.hidden&&!e.target.closest('#sheet')&&!e.target.closest('#burger')){s.hidden=true;b.setAttribute('aria-expanded','false');}});
   s.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{s.hidden=true;b.setAttribute('aria-expanded','false');}));
 
+  // beast-mode plates drift at their own rates as the section passes
+  const drift=[...document.querySelectorAll('[data-drift]')];
+  if(drift.length&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let t=false;
+    const upd=()=>{const vh=innerHeight;
+      drift.forEach(el=>{const r=el.getBoundingClientRect();
+        if(r.bottom<-300||r.top>vh+300)return;
+        const k=(r.top+r.height/2-vh/2)/vh;
+        el.style.transform=`translate3d(0,${(k*parseFloat(el.dataset.drift)*-160).toFixed(1)}px,0)`;});
+      t=false;};
+    addEventListener('scroll',()=>{if(!t){t=true;requestAnimationFrame(upd);}},{passive:true});
+    upd();
+  }
+
   // the class list swaps the photograph beside it
-  const shot=document.getElementById('clshot'),cap=document.getElementById('clcap'),lvl=document.getElementById('cllvl');
+  const shot=document.getElementById('clshot'),cap=document.getElementById('clcap'),
+        lvl=document.getElementById('cllvl'),nm=document.getElementById('clname'),
+        tx=document.getElementById('cltext');
   document.querySelectorAll('#cl .cl__i').forEach(it=>{
     const pick=()=>{
       document.querySelectorAll('#cl .cl__i').forEach(x=>x.classList.toggle('on',x===it));
       shot.src=it.dataset.img;cap.textContent=it.dataset.cap;lvl.textContent=it.dataset.lvl;
+      nm.textContent=it.dataset.name;tx.textContent=it.dataset.text;
     };
     it.addEventListener('mouseenter',pick);it.addEventListener('click',pick);
   });

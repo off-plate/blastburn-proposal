@@ -4,9 +4,9 @@
    This stylesheet is private to /one/ and shares nothing with /two/. */
 
 @font-face { font-family:'Anton'; src:url('fonts/anton-400.woff2') format('woff2'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Familjen'; src:url('fonts/familjen-grotesk-400.woff2') format('woff2'); font-weight:400; font-display:swap; }
-@font-face { font-family:'Familjen'; src:url('fonts/familjen-grotesk-500.woff2') format('woff2'); font-weight:500; font-display:swap; }
-@font-face { font-family:'Familjen'; src:url('fonts/familjen-grotesk-700.woff2') format('woff2'); font-weight:700; font-display:swap; }
+@font-face { font-family:'Bespoke'; src:url('fonts/bespoke-sans-400.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Bespoke'; src:url('fonts/bespoke-sans-500.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Bespoke'; src:url('fonts/bespoke-sans-700.woff2') format('woff2'); font-weight:700; font-display:swap; }
 
 :root{
   --ink:#060606;          /* ground */
@@ -27,7 +27,7 @@
 html{scroll-behavior:smooth;overscroll-behavior-y:none}
 body{
   background:var(--ink);color:var(--paper);
-  font-family:'Familjen',system-ui,sans-serif;font-size:17px;line-height:1.55;
+  font-family:'Bespoke',system-ui,sans-serif;font-size:17px;line-height:1.55;
   -webkit-font-smoothing:antialiased;overscroll-behavior-y:none;overflow-x:hidden;
 }
 img{max-width:100%;height:auto;display:block}
@@ -51,11 +51,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   padding:16px var(--pad);transition:background .25s var(--e),border-color .25s var(--e);
   border-bottom:1px solid transparent}
 .nav.pin{background:rgba(6,6,6,.92);backdrop-filter:blur(12px);border-bottom-color:var(--line)}
-.nav__b{font-family:'Anton',Impact,sans-serif;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.nav__b{display:flex;align-items:center;gap:11px;font-family:'Anton',Impact,sans-serif;
+  font-size:24px;letter-spacing:.02em;text-transform:uppercase}
+.nav__b img{height:44px;width:auto}
 .nav__b i{color:var(--hot-lift);font-style:normal}
-.nav__l{display:flex;gap:26px;margin-left:auto}
-.nav__l a{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--paper-dim)}
+/* desktop nav floor: 16px, 44px hit height, 20px gap. Under that it reads as
+   decoration rather than navigation. */
+.nav__l{display:flex;gap:clamp(20px,2vw,34px);margin-left:auto;align-items:center}
+.nav__l a{font-size:16.5px;letter-spacing:.01em;font-weight:500;color:var(--paper-dim);
+  min-height:44px;display:inline-flex;align-items:center;position:relative}
+.nav__l a::after{content:'';position:absolute;left:0;right:100%;bottom:11px;height:2px;
+  background:var(--hot-lift);transition:right .25s var(--e)}
 .nav__l a:hover{color:var(--paper)}
+.nav__l a:hover::after{right:0}
 .burger{display:none;width:44px;height:44px;place-content:center;gap:6px;margin-left:auto}
 .burger span{display:block;width:22px;height:2px;background:var(--paper)}
 .sheet{display:none}
@@ -80,19 +88,30 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero__row{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,48px);align-items:flex-end;justify-content:space-between;margin-top:clamp(22px,3vw,40px)}
 .hero__act{display:flex;flex-wrap:wrap;gap:12px}
 /* the floating card, lifted from the ELITE reference */
-.fcard{border:1px solid var(--line2);background:rgba(6,6,6,.72);backdrop-filter:blur(8px);
-  padding:18px 20px;display:grid;gap:10px;min-width:250px}
-.fcard__t{display:flex;align-items:baseline;gap:10px;justify-content:space-between}
-.fcard__t b{font-family:'Anton',Impact,sans-serif;font-size:19px;text-transform:uppercase;font-weight:400}
-.fcard__t span{font-size:12px;color:var(--paper-dim)}
-.fcard__r{display:flex;justify-content:space-between;font-size:13.5px;color:var(--paper-dim);
-  border-top:1px solid var(--line);padding-top:8px}
+.fcard{border:1px solid var(--line2);background:rgba(10,10,10,.82);backdrop-filter:blur(14px);
+  padding:22px 24px;display:grid;gap:13px;min-width:300px;
+  box-shadow:0 30px 70px rgba(0,0,0,.6);border-top:3px solid var(--hot)}
+.fcard__t{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.fcard__t b{display:inline-flex;align-items:center;gap:10px;font-family:'Anton',Impact,sans-serif;
+  font-size:24px;text-transform:uppercase;font-weight:400}
+/* a live dot, because the claim is that they are open right now */
+.fcard__t b::before{content:'';width:10px;height:10px;border-radius:50%;background:#39D07A;
+  box-shadow:0 0 0 0 rgba(57,208,122,.6);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(57,208,122,0)}100%{box-shadow:0 0 0 0 rgba(57,208,122,0)}}
+@media (prefers-reduced-motion:reduce){.fcard__t b::before{animation:none}}
+.fcard__t span{font-size:14px;color:var(--paper)}
+.fcard__r{display:flex;justify-content:space-between;gap:16px;font-size:15px;color:var(--paper-dim);
+  border-top:1px solid var(--line);padding-top:11px}
 .fcard__r b{color:var(--paper);font-weight:500}
 
 /* ---- marquee, straight from COREX ---- */
 .mq{background:var(--hot);color:var(--paper);overflow:hidden;padding:13px 0;border-block:1px solid var(--hot)}
-.mq__t{display:flex;gap:44px;width:max-content;animation:mq 34s linear infinite}
-.mq__t span{font-family:'Anton',Impact,sans-serif;font-size:19px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.mq__t{display:flex;align-items:center;gap:0;width:max-content;animation:mq 46s linear infinite}
+.mq__t span{display:inline-flex;align-items:center;gap:26px;padding-right:26px;
+  font-family:'Anton',Impact,sans-serif;font-size:21px;text-transform:uppercase;
+  letter-spacing:.04em;white-space:nowrap}
+/* a struck bar between phrases instead of a bullet dot */
+.mq__t span::after{content:'';width:34px;height:3px;background:currentColor;opacity:.55;flex:none}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.mq__t{animation:none}}
 
@@ -116,16 +135,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cl__i.on .cl__nm{color:var(--hot-lift)}
 .cl__ar{color:var(--hot-lift);opacity:0;transition:opacity .2s var(--e)}
 .cl__i:hover .cl__ar,.cl__i.on .cl__ar{opacity:1}
-.cl__shot{position:sticky;top:100px}
-.cl__shot img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.cl__cap{display:flex;justify-content:space-between;gap:14px;padding-top:12px;font-size:13.5px;color:var(--paper-dim)}
+.cl__shot{position:sticky;top:112px}
+/* landscape rather than portrait, with the explaining copy directly under it */
+.cl__shot img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.cl__cap{display:grid;gap:9px;padding-top:18px}
+.cl__cap h3{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(24px,2.4vw,36px);line-height:.95}
+.cl__cap p{color:var(--paper-dim);font-size:16px;max-width:46ch}
+.cl__meta{display:flex;gap:22px;padding-top:4px;font-size:13px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--hot-lift)}
 
 /* ---- the giant word with photos over it, from COREX ---- */
 .big{position:relative;padding-block:clamp(40px,6vw,90px)}
 .big__w{font-family:'Anton',Impact,sans-serif;text-transform:uppercase;font-size:clamp(72px,17vw,290px);
   line-height:.8;color:var(--hot);white-space:nowrap;text-align:center;letter-spacing:-.02em}
 .big__g{position:relative;margin-top:-6vw;display:grid;grid-template-columns:repeat(12,1fr);gap:14px;align-items:start}
-.big__g img{width:100%;object-fit:cover}
+.big__g img{width:100%;object-fit:cover;will-change:transform}
 .big__g img:nth-child(1){grid-column:1/5;aspect-ratio:4/5}
 .big__g img:nth-child(2){grid-column:6/9;aspect-ratio:3/4;margin-top:8vw}
 .big__g img:nth-child(3){grid-column:9/13;aspect-ratio:4/5;margin-top:2vw}
@@ -138,22 +163,37 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .st__s{font-size:12px;color:var(--hot-lift);margin-top:2px}
 
 /* ---- photo grid with labels bottom-left, from COREX ---- */
-.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
-.pg__c{position:relative;overflow:hidden;isolation:isolate}
-.pg__c img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:scale .5s var(--e)}
+/* a real mosaic: an explicit 6-column grid on a fixed row height, so every
+   tile fills its cell instead of each one setting its own aspect ratio and
+   leaving the row ragged. */
+.pg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+  grid-auto-rows:clamp(150px,15vw,230px);gap:12px}
+.pg__c{position:relative;overflow:hidden;isolation:isolate;grid-column:span 2;grid-row:span 1}
+.pg__c--tall{grid-row:span 2}
+.pg__c--wide{grid-column:span 4}
+.pg__c img{width:100%;height:100%;object-fit:cover;transition:scale .5s var(--e)}
 .pg__c:hover img{scale:1.05}
 .pg__c::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(6,6,6,.82) 100%)}
 .pg__l{position:absolute;left:18px;bottom:16px;z-index:2;font-family:'Anton',Impact,sans-serif;
   font-size:clamp(17px,1.6vw,24px);text-transform:uppercase}
-.pg__c--w{grid-column:span 2}
-@media (max-width:760px){.pg__c--w{grid-column:span 1}}
+/* 4 columns: A becomes 4x2, then the five 2-wide tiles fill two more rows */
+@media (max-width:1000px){
+  .pg{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .pg__c--wide{grid-column:span 4}
+}
+/* 2 columns: everything is full width, the tall one keeps its extra row */
+@media (max-width:640px){
+  .pg{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(130px,34vw,170px)}
+  .pg__c,.pg__c--wide{grid-column:span 2}
+  .pg__c--tall{grid-row:span 2}
+}
 
 /* ---- price row ---- */
 .pr{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line)}
 .pr__c{background:var(--ink);padding:clamp(24px,2.6vw,38px);display:grid;gap:14px;align-content:start}
 .pr__n{font-family:'Anton',Impact,sans-serif;font-size:20px;text-transform:uppercase}
 .pr__p{font-family:'Anton',Impact,sans-serif;font-size:clamp(38px,4.4vw,64px);line-height:.9;font-variant-numeric:tabular-nums}
-.pr__p i{font-style:normal;font-size:15px;color:var(--paper-dim);font-family:'Familjen',sans-serif}
+.pr__p i{font-style:normal;font-size:15px;color:var(--paper-dim);font-family:'Bespoke',sans-serif}
 .pr__u{list-style:none;padding:0;display:grid;gap:8px;font-size:14.5px;color:var(--paper-dim)}
 .pr__u li{padding-left:18px;position:relative}
 .pr__u li::before{content:'';position:absolute;left:0;top:.62em;width:9px;height:2px;background:var(--hot-lift)}
