@@ -53,7 +53,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav{position:fixed;inset:0 0 auto;z-index:80;display:flex;align-items:center;gap:22px;padding:11px var(--pad);
   background:var(--ink);border-bottom:1px solid var(--ln)}
 .nav__lg{display:flex;align-items:center;gap:10px}
-.nav__lg img{height:40px}
+.nav__lg img{height:44px}
 .nav__lg b{font-family:'Ant',sans-serif;font-size:20px;letter-spacing:.04em}
 .nav__l{display:flex;gap:24px;margin-inline:auto}
 .nav__l a{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--cr-d)}
@@ -147,3 +147,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .drw a{padding:14px;font-family:'Ant',sans-serif;font-size:21px;text-transform:uppercase}
   .ft__g{grid-template-columns:1fr}
 }
+
+/* nav floor, DESIGN.md: 16px minimum, 44px hit height, 20px gap. Under that a
+   desktop nav reads as decoration rather than navigation. */
+.nav__l a{font-size:16.5px!important;letter-spacing:.01em!important;min-height:44px;
+  display:inline-flex;align-items:center;position:relative}
+.nav__l a::after{content:'';position:absolute;left:0;right:100%;bottom:10px;height:2px;
+  background:var(--yel);transition:right .25s cubic-bezier(.2,.72,.3,1)}
+.nav__l a:hover::after{right:0}
+.nav__l{gap:clamp(20px,2.2vw,34px)!important;align-items:center}

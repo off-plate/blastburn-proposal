@@ -52,8 +52,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---- header: floats, no bar ---- */
 .top{position:fixed;inset:0 0 auto;z-index:60;display:flex;align-items:center;padding:24px var(--pad)}
-.top__b{font-family:'Mont',sans-serif;font-weight:800;font-size:15px;letter-spacing:.3em;text-transform:uppercase}
-.top__n{display:flex;gap:34px;margin-left:auto}
+.top__b{display:flex;align-items:center;gap:12px;font-family:'Mont',sans-serif;font-weight:800;
+  font-size:17px;letter-spacing:.16em;text-transform:uppercase}
+.top__b img{height:44px;width:auto}
+.top__n{display:flex;gap:clamp(20px,2.2vw,36px);margin-left:auto;align-items:center}
 .top__n a{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--w-dim)}
 .top__n a:hover{color:var(--w)}
 .bur{display:none;width:44px;height:44px;place-content:center;gap:7px;margin-left:auto}
@@ -154,3 +156,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .tab td:last-child{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:1ms!important}}
+
+/* nav floor: 16px minimum, 44px hit height, 20px gap */
+.top__n a{font-size:16.5px;letter-spacing:.01em;min-height:44px;display:inline-flex;align-items:center;position:relative}
+.top__n a::after{content:'';position:absolute;left:0;right:100%;bottom:10px;height:2px;background:currentColor;transition:right .25s ease}
+.top__n a:hover::after{right:0}

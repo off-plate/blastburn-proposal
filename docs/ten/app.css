@@ -13,6 +13,7 @@
   --cr:#E7E2D6; --cr2:#DCD6C7; --bk:#0B0B09; --bk2:#16150F;
   --bk-d:#4A4840;
   --hot:#C2410C;
+  --acc:#E9D9A8;   /* the beige. The hover accent, per his note that black and beige works */
   --ln:rgba(11,11,9,.2);
   --shell:1760px; --pad:clamp(20px,3.5vw,72px);
   --ez:cubic-bezier(.2,.72,.3,1);
@@ -51,11 +52,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav{position:fixed;inset:0 0 auto;z-index:80;display:flex;align-items:center;gap:20px;padding:10px var(--pad);
   background:var(--bk);color:var(--cr);border-bottom:2px solid var(--bk)}
 .nav__lg{display:flex;align-items:center;gap:9px}
-.nav__lg img{height:38px}
+.nav__lg img{height:44px}
 .nav__lg b{font-family:'Sten',sans-serif;font-size:17px;letter-spacing:.06em}
 .nav__l{display:flex;gap:22px;margin-inline:auto}
 .nav__l a{font-family:'Sten',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:rgba(231,226,214,.72)}
-.nav__l a:hover{color:var(--cr)}
+.nav__l a:hover{color:var(--acc)}
 .brg{display:none;width:44px;height:44px;place-content:center;gap:6px;margin-left:auto}
 .brg span{display:block;width:22px;height:2px;background:var(--cr)}
 .drw{display:none}
@@ -157,3 +158,60 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .rt__r{grid-template-columns:1fr auto}
   .ol{-webkit-text-stroke-width:1.4px}
 }
+
+/* nav floor, DESIGN.md: 16px minimum, 44px hit height, 20px gap. Under that a
+   desktop nav reads as decoration rather than navigation. */
+.nav__l a{font-size:16.5px!important;letter-spacing:.01em!important;min-height:44px;
+  display:inline-flex;align-items:center;position:relative}
+.nav__l a::after{content:'';position:absolute;left:0;right:100%;bottom:10px;height:2px;
+  background:var(--hot);transition:right .25s cubic-bezier(.2,.72,.3,1)}
+.nav__l a:hover::after{right:0}
+.nav__l{gap:clamp(20px,2.2vw,34px)!important;align-items:center}
+
+/* ==========================================================================
+   HOVER ACCENT. His note: black and beige works, so the accent is the beige,
+   and it has to be obvious on hover rather than a two percent shift.
+   ========================================================================== */
+.nav__l a::after{background:var(--acc)!important;height:3px}
+.nav__l a:hover{color:var(--acc)!important}
+.nav__lg:hover b{color:var(--acc)}
+.bt--k:hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
+.bt--o:hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
+.wp__c figcaption{transition:background .3s var(--ez),color .3s var(--ez)}
+.wp__c:hover figcaption{background:var(--acc);color:var(--bk)}
+.wp__c:hover span{color:rgba(11,11,9,.7)}
+.rt__r{transition:background .3s var(--ez),padding-inline .3s var(--ez)}
+.rt__r:hover{background:var(--acc);padding-inline:clamp(12px,1.6vw,24px)}
+.ld>div{transition:background .3s var(--ez)}
+.ld>div:hover{background:var(--acc)}
+.ld>div:hover i{color:var(--bk)}
+.drw a:hover{background:var(--acc);color:var(--bk)}
+.ft__c a{transition:color .2s var(--ez)}
+.ft__c a:hover{color:var(--acc)!important}
+
+/* ==========================================================================
+   SERVICES. What the gym actually offers, above the weapons grid. Same
+   approach as 04's class row: numbered, one line, image over a caption.
+   ========================================================================== */
+.sv{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,1.2vw,18px)}
+.sv__c{display:grid;gap:0;border:2px solid var(--bk);background:var(--bk);
+  transition:transform .35s var(--ez)}
+.sv__c:hover{transform:translateY(-8px)}
+.sv__im{position:relative;overflow:hidden}
+.sv__im img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(1) contrast(1.06);
+  transition:transform .55s var(--ez),filter .55s var(--ez)}
+.sv__c:hover .sv__im img{transform:scale(1.07);filter:grayscale(1) contrast(1.16) brightness(1.08)}
+.sv__n{position:absolute;top:8px;left:10px;z-index:2;font-family:'Sten',sans-serif;
+  font-size:13px;letter-spacing:.14em;color:var(--acc)}
+.sv__b{padding:12px 13px 14px;background:var(--bk);color:var(--cr);display:grid;gap:5px;
+  transition:background .3s var(--ez),color .3s var(--ez)}
+.sv__c:hover .sv__b{background:var(--acc);color:var(--bk)}
+.sv__b b{font-family:'Sten',sans-serif;font-size:15.5px;text-transform:uppercase;line-height:1.05}
+.sv__b span{font-size:12.5px;color:rgba(231,226,214,.62);transition:color .3s var(--ez)}
+.sv__c:hover .sv__b span{color:rgba(11,11,9,.68)}
+/* one line on a laptop, never 5 + 1 */
+@media (max-width:1200px){.sv{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.sv{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* the hero plate drifts, and the outlined line tracks the scroll */
+.hero__ph img{will-change:transform}
