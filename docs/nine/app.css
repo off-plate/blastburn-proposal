@@ -156,3 +156,66 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background:var(--yel);transition:right .25s cubic-bezier(.2,.72,.3,1)}
 .nav__l a:hover::after{right:0}
 .nav__l{gap:clamp(20px,2.2vw,34px)!important;align-items:center}
+
+/* ==========================================================================
+   HIS LEVEL 3 NOTE: everything after the gallery is rebuilt in the language of
+   the hero and the gallery. The flat teal bands are gone; the ink ground, the
+   sepia plates, the sideways yellow numerals and the uneven tiling carry
+   through instead.
+   ========================================================================== */
+.sec--teal,.sec--teal2{background:transparent}
+
+/* disciplines, tiled like the heritage mosaic */
+.dsc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(190px,19vw,270px);gap:10px}
+.dsc__c{position:relative;overflow:hidden;background:var(--teal3);display:block;grid-column:span 1;grid-row:span 1}
+.dsc__c--w{grid-column:span 2}
+.dsc__c--t{grid-row:span 2}
+.dsc__c img{width:100%;height:100%;object-fit:cover;filter:sepia(.42) contrast(1.05);
+  transition:filter .5s var(--ez),transform .6s var(--ez)}
+.dsc__c:hover img{filter:sepia(0);transform:scale(1.05)}
+.dsc__c::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(15,20,18,.9))}
+.dsc__c b{position:absolute;right:10px;top:12px;z-index:2;writing-mode:vertical-rl;
+  font-family:'Ant',sans-serif;font-size:22px;color:var(--yel)}
+.dsc__c span{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;display:grid;gap:2px}
+.dsc__c i{font-style:normal;font-family:'Ant',sans-serif;font-size:clamp(19px,1.9vw,27px);
+  text-transform:uppercase;color:var(--cr)}
+.dsc__c em{font-style:normal;font-size:12.5px;color:rgba(243,238,226,.7)}
+@media (max-width:900px){
+  .dsc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dsc__c--w{grid-column:span 2}
+  .dsc__c--t{grid-row:span 1}
+}
+
+/* the record, ruled rather than banded */
+.rec{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));border-top:2px solid var(--yel)}
+.rec>div{padding:clamp(20px,2.6vw,36px) clamp(14px,2vw,28px) clamp(20px,2.6vw,36px) 0;
+  border-right:1px solid var(--ln)}
+.rec>div:last-child{border-right:0}
+.rec b{display:block;font-family:'Ant',sans-serif;font-size:clamp(38px,5vw,78px);line-height:1;
+  color:var(--yel);font-variant-numeric:tabular-nums}
+.rec span{display:block;font-size:14px;color:var(--cr-d);margin-top:8px}
+.rec i{display:block;font-style:normal;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(243,238,226,.45);margin-top:5px}
+
+/* rates as a ledger */
+.lg{display:grid;border-top:1px solid var(--ln)}
+.lg__r{display:grid;grid-template-columns:1fr auto auto;gap:clamp(14px,3vw,48px);align-items:center;
+  padding:clamp(16px,2.2vw,30px) 0;border-bottom:1px solid var(--ln);
+  transition:background .3s var(--ez),padding-inline .3s var(--ez)}
+.lg__r:hover{background:var(--teal3);padding-inline:clamp(12px,1.6vw,24px)}
+.lg__r b{display:block;font-family:'Ant',sans-serif;font-size:clamp(21px,2.2vw,32px);text-transform:uppercase}
+.lg__r span{display:block;color:var(--cr-d);font-size:14.5px;margin-top:2px;max-width:52ch}
+.lg__r em{font-style:normal;font-family:'Ant',sans-serif;font-size:clamp(22px,2.3vw,34px);
+  color:var(--yel);white-space:nowrap;font-variant-numeric:tabular-nums}
+.lg__r em i{display:block;font-style:normal;font-family:'Epi',sans-serif;font-size:12px;
+  color:var(--cr-d);text-align:right}
+.lg__r .bt{transition:background .22s var(--ez),color .22s var(--ez),border-color .22s var(--ez)}
+.lg__r:hover .bt{background:var(--yel);border-color:var(--yel);color:var(--ink)}
+@media (max-width:760px){.lg__r{grid-template-columns:1fr auto}.lg__r .bt{grid-column:1/-1;justify-self:start}}
+
+/* visit, full bleed like the hero */
+.vis{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(70px,10vw,150px)}
+.vis__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  filter:sepia(.3) contrast(1.06)}
+.vis::after{content:'';position:absolute;inset:0;z-index:-1;background:rgba(15,20,18,.74)}
+.vis__in .tx{max-width:56ch}

@@ -68,11 +68,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   padding-top:clamp(90px,12vh,140px)}
 .hero__mk{position:absolute;left:50%;top:clamp(90px,17vh,200px);translate:-50% 0;z-index:1;
   font-family:'Bebas',sans-serif;font-size:min(23vw,300px);line-height:.8;letter-spacing:.01em;
-  color:var(--gold);opacity:.2;white-space:nowrap;user-select:none;pointer-events:none}
+  color:var(--gold);opacity:.3;white-space:nowrap;user-select:none;pointer-events:none}
 .hero__fig{position:absolute;left:50%;bottom:0;translate:-50% 0;z-index:2;width:min(60vw,760px);height:78%}
-.hero__fig img{width:100%;height:100%;object-fit:cover;object-position:center 22%;
-  -webkit-mask-image:radial-gradient(76% 90% at 50% 46%,#000 46%,rgba(0,0,0,.5) 72%,transparent 94%);
-  mask-image:radial-gradient(76% 90% at 50% 46%,#000 46%,rgba(0,0,0,.5) 72%,transparent 94%)}
+.hero__fig img{width:100%;height:100%;object-fit:cover;object-position:center 20%;
+  /* Stock photography cannot be cut out cleanly, so the plate is knocked back
+     to its own darks instead: screen blending drops the black background out
+     entirely against the black ground, which leaves the lit body and the lit
+     parts of the room and lets the wordmark read straight through the rest.
+     A soft mask feathers the remaining edges so nothing ends on a hard line. */
+  mix-blend-mode:screen;
+  filter:contrast(1.24) brightness(.94) saturate(.86);
+  -webkit-mask-image:radial-gradient(66% 82% at 50% 44%,#000 40%,rgba(0,0,0,.62) 66%,transparent 92%);
+  mask-image:radial-gradient(66% 82% at 50% 44%,#000 40%,rgba(0,0,0,.62) 66%,transparent 92%)}
 /* smoke */
 .smk{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
 .smk i{position:absolute;border-radius:50%;filter:blur(60px);background:rgba(232,185,35,.1)}
@@ -162,3 +169,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background:var(--gold);transition:right .25s cubic-bezier(.2,.72,.3,1)}
 .nav__l a:hover::after{right:0}
 .nav__l{gap:clamp(20px,2.2vw,34px)!important;align-items:center}
+
+/* ==========================================================================
+   HIS LEVEL 3 NOTES
+   ========================================================================== */
+
+/* the whole row fills with the accent on hover, and everything on it recolours
+   so it stays readable against gold */
+.pg__r{transition:background .32s var(--ez),padding-inline .32s var(--ez)}
+.pg__r:hover{background:var(--gold);padding-inline:clamp(12px,1.6vw,26px)}
+.pg__r:hover .pg__t{color:var(--b)}
+.pg__r:hover .pg__n{color:rgba(0,0,0,.55)}
+.pg__r:hover .pg__d{color:rgba(0,0,0,.78)}
+.pg__r:hover .pg__m{color:rgba(0,0,0,.62)}
+.pg__r::before{display:none}
+
+/* one card, one hover: the Enquire button reacts to the card rather than
+   needing its own pass */
+.pzc .bt{transition:background .22s var(--ez),color .22s var(--ez),border-color .22s var(--ez)}
+.pzc:hover .bt{background:var(--gold);border-color:var(--gold);color:#000}
+.pzc:hover .bt--g{background:var(--gold2)}
