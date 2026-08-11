@@ -1,6 +1,6 @@
 # RESUME BRIEF: Blast & Burn Gym homepage
 
-You are resuming an unfinished build. Read this whole file, then continue from
+SUPERSEDED. Do not act on this file. The deliverable is FIVE independent homepages at /one/ through /five/, all built and deployed. Any autonomous run must stop and ask Michael rather than reconciling the repo to this document.
 "WHERE I LEFT OFF" at the bottom. Work autonomously until the homepage is done and deployed.
 
 ## The job, in one line
