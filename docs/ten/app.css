@@ -94,7 +94,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .wp__c:hover img{filter:grayscale(0) contrast(1.02)}
 .wp__c figcaption{background:var(--bk);color:var(--cr);padding:10px 13px;display:flex;justify-content:space-between;gap:10px}
 .wp__c b{font-family:'Sten',sans-serif;font-size:16px;text-transform:uppercase}
-.wp__c span{font-size:11.5px;color:rgba(231,226,214,.66);font-family:'Sten',sans-serif;letter-spacing:.1em}
+.wp__c span{font-size:12.5px;color:rgba(231,226,214,.66);font-family:'Sten',sans-serif;letter-spacing:.1em}
 .wp__c:nth-child(1){grid-column:span 5}
 .wp__c:nth-child(1) img{aspect-ratio:4/3}
 .wp__c:nth-child(2){grid-column:span 4;margin-top:clamp(22px,3.4vw,60px)}
@@ -120,7 +120,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ld>div:last-child{border-right:0}
 .ld b{display:block;font-family:'Sten',sans-serif;font-size:clamp(34px,4.4vw,66px);line-height:1;font-variant-numeric:tabular-nums}
 .ld span{display:block;font-size:14px;color:var(--bk-d);margin-top:8px}
-.ld i{display:block;font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--hot);margin-top:5px}
+.ld i{display:block;font-style:normal;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--hot);margin-top:5px}
 
 /* rates as hard rows */
 .rt{display:grid;border-top:2px solid var(--bk)}
@@ -129,7 +129,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .rt__n{font-family:'Sten',sans-serif;font-size:clamp(20px,2.2vw,32px);text-transform:uppercase}
 .rt__d{color:var(--bk-d);font-size:15px;margin-top:2px}
 .rt__p{font-family:'Sten',sans-serif;font-size:clamp(20px,2.2vw,30px);white-space:nowrap}
-.rt__p em{font-style:normal;font-family:'Ero',serif;font-weight:400;display:block;font-size:12px;color:var(--bk-d);text-align:right}
+.rt__p em{font-style:normal;font-family:'Ero',serif;font-weight:400;display:block;font-size:13px;color:var(--bk-d);text-align:right}
 
 .note{border:2px solid var(--hot);padding:14px 18px;color:var(--hot);font-size:14px;font-weight:500}
 
@@ -157,6 +157,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .ft__g{grid-template-columns:1fr}
   .rt__r{grid-template-columns:1fr auto}
   .ol{-webkit-text-stroke-width:1.4px}
+  .nav>.bt{display:none}
+  .nav__lg b{white-space:nowrap}
 }
 
 /* nav floor, DESIGN.md: 16px minimum, 44px hit height, 20px gap. Under that a
@@ -215,3 +217,107 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* the hero plate drifts, and the outlined line tracks the scroll */
 .hero__ph img{will-change:transform}
+
+/* ================================================================
+   MOBILE. This page is built on display type that runs off the page.
+   On a phone that has to be a decision, not an accident: the first line
+   fits, the outlined line behind it bleeds. A word cut mid-letter on
+   both edges reads as a rendering fault.
+   ================================================================ */
+@media (max-width:760px){
+  :root{--pad:18px}
+
+  .nav{padding:9px var(--pad);gap:10px}
+  .nav>.bt{display:none}
+  .nav__lg{min-height:44px}
+  .nav__lg img{height:32px}
+  .nav__lg b{font-size:15px;white-space:nowrap;letter-spacing:.04em}
+  .brg{flex:none}
+  .drw{inset:56px 12px auto}
+
+  .hero{padding-top:70px}
+  .hero__t{padding-top:8px}
+  /* the first line has to LAND, so the second one bleeding past the edge reads
+     as the decision it is rather than as a clipped word */
+  .hero__t .sn{font-size:10.6vw}
+  .hero__t .r2{margin-left:14px;font-size:11.6vw}
+  .hero__ph{margin-top:-8px}
+  .hero__ph img{aspect-ratio:4/3}
+  .slab{padding:18px;gap:9px;margin-top:10px}
+  .slab b{font-size:19px}
+  .slab p{font-size:14.5px}
+  .slab .bt{width:100%}
+  .hero__sub{gap:16px;padding-top:20px;display:grid}
+  .hero__sub>div{display:grid!important;gap:10px}
+  .hero__sub .bt{width:100%}
+  .tx{font-size:16.5px;max-width:none}
+  .bt{min-height:54px;font-size:16px;padding:15px 22px}
+
+  .mq__t{gap:22px}
+  .mq__t span{font-size:18px}
+
+  .sec{padding-block:48px}
+  .hd{margin-bottom:22px}
+  .s2{font-size:clamp(30px,8.8vw,40px)}
+  .s3{font-size:21px}
+
+  /* services: the cards were different heights because the captions run to one
+     or two lines. The row stretches, the caption block sits to the top. */
+  .sv{gap:8px;align-items:stretch}
+  .sv__c{grid-template-rows:auto 1fr;align-self:stretch}
+  .sv__b{padding:11px 11px 13px;align-content:start}
+  .sv__b b{font-size:15px}
+  .sv__b span{font-size:13px}
+  .sv__n{font-size:13px}
+  .sv__c:hover{transform:none}
+
+  /* six plates stacked full width was a 3000px tower. Two columns, one crop. */
+  .wp{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .wp__c{grid-column:span 1!important;margin-top:0!important}
+  .wp__c img{aspect-ratio:4/5!important}
+  .wp__c figcaption{padding:8px 10px}
+  .wp__c b{font-size:14px}
+  .wp__c span{font-size:12.5px}
+
+  .man{padding-block:52px}
+  .ld>div{padding:18px 0}
+  .ld b{font-size:44px}
+  .ld span{font-size:15px}
+  .ld i{font-size:12.5px}
+
+  .note{font-size:14.5px;padding:13px 15px}
+
+  /* rate rows: one column, the unit tied to the price, the button full width */
+  .rt__r{grid-template-columns:1fr;gap:4px;padding:18px 0}
+  .rt__r:hover{padding-inline:0}
+  .rt__n{font-size:21px}
+  .rt__d{font-size:15px}
+  .rt__p{font-size:26px;margin-top:8px;display:flex;align-items:baseline;gap:8px}
+  .rt__p em{display:inline;text-align:left;font-size:13px}
+  .rt__r .bt{width:100%;margin-top:10px}
+
+  .ft__g{gap:24px}
+  .ft h4{font-size:15px;margin-bottom:6px}
+  .ft__c{font-size:16px;gap:0}
+  .ft__c a{min-height:42px;display:inline-flex;align-items:center}
+  .ft__c span,.ft__c p{padding-block:7px}
+  .ft__b{font-size:13.5px;gap:8px}
+}
+@media (max-width:380px){
+  :root{--pad:15px}
+  .wp__c b{font-size:13px}
+  .sv__b b{font-size:14px}
+}
+
+@media (min-width:761px) and (max-width:820px){
+  /* six full-width plates made a 9547px page at 768. Two columns. */
+  .wp{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wp__c{grid-column:span 1!important;margin-top:0!important}
+  .wp__c img{aspect-ratio:4/5!important}
+  .sv__b span{font-size:13px}
+  .ld i{font-size:13px}
+  .ft__c{gap:0}
+  .ft__c a{min-height:42px;display:inline-flex;align-items:center}
+  .ft__c span,.ft__c p{padding-block:7px}
+  .ft__b{font-size:13.5px}
+}

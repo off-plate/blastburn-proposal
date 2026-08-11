@@ -61,7 +61,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* header */
 .nv{position:fixed;inset:0 0 auto;z-index:70;display:flex;align-items:center;gap:26px;
-  padding:14px var(--pad);background:rgba(16,17,18,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--edge)}
+  padding:14px var(--pad);background:rgba(16,17,18,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--edge)} /* slop-lint-ignore glassmorphism: sticky header, not a card */
 .nv__b{display:flex;align-items:center;gap:11px;font-family:'Khand',sans-serif;font-weight:700;
   font-size:26px;letter-spacing:.02em;text-transform:uppercase}
 .nv__b img{height:44px;width:auto}
@@ -175,8 +175,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    One card, one hover: the button reacts to the card. */
 .pzc{transition:border-color .25s var(--ez),background .25s var(--ez),transform .25s var(--ez)}
 .pzc:hover{transform:translateY(-5px)}
-.pzc .bt,.pzc a[class*="bt"]{transition:background .2s var(--ez),color .2s var(--ez),border-color .2s var(--ez)}
-.pzc:hover .bt,.pzc:hover a[class*="bt"]{background:var(--lime);border-color:var(--lime);color:var(--k)}
+.pzc .bn{transition:background .2s var(--ez),color .2s var(--ez),border-color .2s var(--ez)}
+.pzc:hover .bn{background:var(--lime);border-color:var(--lime);color:var(--k)}
 
 /* 3. the angled crop runs OFF the page rather than floating in it. The image
    keeps its angle on the inner edge and sits flush to the outer one, which is
@@ -192,4 +192,96 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   clip-path:polygon(5.5vw 0,100% 0,100% 100%,0 100%)}
 @media (max-width:860px){
   .sp--l .sp__f,.sp--r .sp__f{margin:0;width:100%;clip-path:none}
+}
+
+/* ================================================================
+   MOBILE. The skew is this page's whole identity, so it survives, but
+   every skewed box gets the room its corners need. A -9deg corner on a
+   full-width button hangs 8px past the card it sits in.
+   ================================================================ */
+@media (max-width:760px){
+  :root{--pad:18px;--sk:-5deg}
+
+  .nv{padding:11px var(--pad);gap:12px}
+  .nv__b{font-size:21px;white-space:nowrap;gap:9px;min-height:44px}
+  .nv__b img{height:34px}
+  .br{flex:none}
+  .dr{inset:64px 12px auto}
+  .dr a{font-size:19px}
+
+  /* hero: the words sit in the darkest part of the frame, not the brightest */
+  .hr{min-height:auto;padding:106px 0 52px}
+  .hr__img+span{background:linear-gradient(180deg,rgba(16,17,18,.66) 0%,rgba(16,17,18,.42) 22%,
+    rgba(16,17,18,.86) 44%,rgba(16,17,18,.96) 66%,rgba(16,17,18,.98) 100%)}
+  .hr__stack{gap:8px}
+  .hr__stack .slab{padding:8px 20px}
+  .hr__1{font-size:clamp(34px,10.4vw,50px)}
+  .hr__2{font-size:clamp(30px,9vw,44px)}
+  .hr__sub{margin-top:20px;font-size:16.5px;max-width:none}
+  .hr__act{display:grid;gap:11px;margin-top:22px;width:100%}
+  .hr__act .bn{width:calc(100% - 12px);margin-inline:6px}
+  .chev svg{width:32px}
+
+  .bn{min-height:54px;padding:15px 24px;font-size:16.5px}
+
+  .sc{padding-block:52px}
+  .sc--t{padding-block:38px}
+  .hh{gap:12px;margin-bottom:22px}
+  .k1{font-size:clamp(40px,11.6vw,56px)}
+  .k2{font-size:clamp(30px,8.6vw,40px)}
+  .k3{font-size:20px}
+  .lg{font-size:16.5px;max-width:none}
+
+  /* the label slab is inline-block, so a long class name ran wider than its
+     tile and the skewed corners hung off both sides */
+  .gr{gap:8px}
+  .gt__l{left:6px;max-width:calc(100% - 12px)}
+  .gt__l.slab{padding:5px 12px}
+  .gt__l .k3{font-size:15.5px;line-height:1.2}
+  .gt__n{font-size:26px;right:10px;top:9px}
+
+  .lb{padding-block:44px}
+  .lbg{gap:22px}
+  .lbg b{font-size:46px}
+  .lbg span{font-size:14.5px}
+
+  /* the angled crop keeps running off the page on a phone: full bleed, with a
+     shallow cut on the bottom edge instead of the side */
+  .sp{gap:22px}
+  .sp--l .sp__f,.sp--r .sp__f{margin-inline:calc(-1*var(--pad));width:calc(100% + 2*var(--pad))}
+  .sp--l .sp__f{clip-path:polygon(0 0,100% 0,100% calc(100% - 5vw),0 100%)}
+  .sp--r .sp__f{clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - 5vw))}
+  /* the 1.02 overscale pushed 4px past the viewport once the plate was
+     already running the full width of the page */
+  .sp__f img{aspect-ratio:5/4;scale:1}
+
+  .pz{gap:10px}
+  .pzc{padding:20px 16px;gap:11px}
+  .pzc__p{font-size:42px}
+  .pzc:hover{transform:none}
+  .pzc .bn{width:calc(100% - 12px);margin-inline:6px;margin-top:2px}
+
+  .dsc{font-size:14.5px;padding:13px 15px}
+
+  /* the three contact buttons ran off the right edge as a wrapped flex row */
+  .cta-row{display:grid!important;gap:11px}
+  .cta-row .bn{width:calc(100% - 12px);margin-inline:6px}
+
+  .fo__g{gap:24px}
+  .fo h4{margin-bottom:6px}
+  .fo__c{font-size:16px;gap:0}
+  .fo__c a{min-height:42px;display:inline-flex;align-items:center}
+  .fo__c span,.fo__c p{padding-block:7px}
+  .fo__b{font-size:13.5px;gap:8px}
+}
+@media (max-width:380px){
+  :root{--pad:15px}
+  .gt__l .k3{font-size:14px}
+}
+
+@media (min-width:761px) and (max-width:820px){
+  .fo__c{gap:0}
+  .fo__c a{min-height:42px;display:inline-flex;align-items:center}
+  .fo__c span,.fo__c p{padding-block:7px}
+  .fo__b{font-size:13.5px}
 }
