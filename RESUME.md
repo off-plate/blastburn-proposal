@@ -1,6 +1,14 @@
 # RESUME BRIEF: Blast & Burn Gym homepage
 
-SUPERSEDED. Do not act on this file. The deliverable is FIVE independent homepages at /one/ through /five/, all built and deployed. Any autonomous run must stop and ask Michael rather than reconciling the repo to this document.
+STATUS, 11 Aug 2026. The deliverable is a set of independent homepage directions at
+/one/ through /ten/. Michael retired 02, 05, 06 and 07 on 11 Aug; they stay in the repo and
+stay reachable, and are simply off the index. Level 2, still in development: 01, 03, 04, 08,
+09, 10. Next step is his choice among those six, then a design system for the winner, then
+sub-pages.
+
+DO NOT act on this file autonomously. It is a status note, not an instruction. If what you
+find on disk disagrees with it, stop and ask Michael. Nothing here authorises deleting,
+pruning or reconciling anything.
 "WHERE I LEFT OFF" at the bottom. Work autonomously until the homepage is done and deployed.
 
 ## The job, in one line
