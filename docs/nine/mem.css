@@ -32,14 +32,15 @@
 
 /* ---- the plans, as club cards ---- */
 .mtable{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+/* the same hover the plan cards carry on the home page: the yellow edge and
+   the five pixel lift, so the two pages behave the same way */
 .mrow{position:relative;background:var(--teal3);border:2px solid transparent;
   display:grid;gap:14px;align-content:start;padding:clamp(20px,2.2vw,28px);overflow:hidden;
-  transition:border-color .28s var(--ez),background .28s var(--ez)}
+  transition:border-color .25s var(--ez),background .25s var(--ez),transform .25s var(--ez)}
+.mrow:hover{border-color:var(--yel);transform:translateY(-5px)}
+.mrow:hover .mrow__id b{color:var(--yel)}
+.mrow__id b{transition:color .25s var(--ez)}
 .mrow.is-best{border-color:var(--yel)}
-/* the card's punched top edge */
-.mrow::before{content:'';position:absolute;left:0;right:0;top:0;height:6px;
-  background:repeating-linear-gradient(90deg,var(--yel) 0 10px,transparent 10px 20px);opacity:.55}
-.mrow.is-best::before{opacity:1}
 .mrow__id b{display:block;font-family:'Ant',sans-serif;text-transform:uppercase;
   font-size:clamp(24px,2.3vw,34px);line-height:1}
 .mrow__id span{display:block;color:var(--cr-d);font-size:14.5px;margin-top:5px}
@@ -150,4 +151,47 @@
 @media (max-width:600px){
   .mincg,.mqag{grid-template-columns:1fr!important}
   .minc:last-child,.mqa:last-child{grid-column:span 1}
+}
+
+
+/* ---- FAQ: a club register. The marker is a stamped badge, a yellow ring with
+   a bar that fills in when the answer is open. ---- */
+.yacs{border:2px solid var(--ln)}
+.yac{border-bottom:2px solid var(--ln)}
+.yac:last-child{border-bottom:0}
+.yac summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;
+  padding:clamp(16px,1.9vw,24px) clamp(16px,1.9vw,26px);position:relative;
+  transition:background .25s var(--ez)}
+.yac summary::-webkit-details-marker{display:none}
+.yac summary span{flex:1;font-family:'Ant',sans-serif;text-transform:uppercase;
+  font-size:clamp(17px,1.6vw,23px);letter-spacing:.02em;transition:color .25s var(--ez)}
+.yac summary:hover{background:var(--teal3)}
+.yac summary:hover span,.yac[open] summary span{color:var(--yel)}
+/* the badge */
+.yac summary::after{content:'';width:26px;height:26px;border-radius:50%;flex:none;
+  border:2px solid var(--yel);background:transparent;
+  transition:background .25s var(--ez)}
+.yac[open] summary::after{background:var(--yel)}
+/* the mark inside the badge: two bars make the plus, the vertical one is
+   dropped when the answer is open */
+.yac summary::before{content:'';position:absolute;right:calc(clamp(16px,1.9vw,26px) + 6px);
+  width:14px;height:14px;z-index:2;
+  background-image:linear-gradient(var(--yel),var(--yel)),linear-gradient(var(--yel),var(--yel));
+  background-size:14px 2px,2px 14px;background-position:center,center;background-repeat:no-repeat;
+  transition:background-size .25s var(--ez)}
+.yac[open] summary::before{
+  background-image:linear-gradient(var(--ink),var(--ink)),linear-gradient(var(--ink),var(--ink));
+  background-size:14px 2px,0 0}
+.yac__b{padding:0 clamp(16px,1.9vw,26px) clamp(18px,2.2vw,26px);color:var(--cr-d);
+  font-size:15.5px;max-width:76ch}
+@media (prefers-reduced-motion:no-preference){
+  .yac[open] .yac__b{animation:yin .34s var(--ez) both}
+  @keyframes yin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+@media (max-width:760px){
+  .mrow:hover{transform:none}
+  .yac summary{padding:15px 14px;gap:14px}
+  .yac summary span{font-size:17px}
+  .yac summary::before{right:calc(14px + 6px)}
+  .yac__b{padding:0 14px 16px}
 }

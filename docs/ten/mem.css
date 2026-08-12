@@ -15,9 +15,17 @@
 /* ================= THE PRICE BANDS ================= */
 .pb{position:relative;isolation:isolate;overflow:hidden;border-top:2px solid var(--bk);
   padding-block:clamp(40px,5.5vw,86px)}
+/* A spotlight across the three bands. At rest every photograph sits under a
+   heavy dark; hovering one lifts its image and pushes the other two further
+   down, so attention has somewhere to go. Pointer devices only: on a phone
+   there is no hover and all three stay at their resting weight. */
 .pb__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
-  filter:grayscale(1) contrast(1.16);opacity:.2;transition:opacity .5s var(--ez)}
-.pb:hover .pb__bg{opacity:.3}
+  filter:grayscale(1) contrast(1.16);opacity:.16;
+  transition:opacity .55s var(--ez),filter .55s var(--ez)}
+@media (hover:hover) and (pointer:fine){
+  .pbs:hover .pb .pb__bg{opacity:.07}
+  .pbs .pb:hover .pb__bg{opacity:.62;filter:grayscale(1) contrast(1.06)}
+}
 .pb__in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;
   gap:clamp(20px,4vw,72px);align-items:center}
 .pb__l{display:grid;gap:12px;justify-items:start}
@@ -51,7 +59,37 @@
 .pb__p{transition:color .45s var(--ez)}
 .pb:last-of-type{border-bottom:2px solid var(--bk)}
 
-/* ---- what all three open: a painted list, two columns, hard rules ---- */
+/* ---- what all three open: a painted board. The type IS the picture here,
+   set at four sizes the way a hand-painted services board is, each entry
+   filling beige as you pass it. ---- */
+.bd{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;background:var(--bk);
+  border:2px solid var(--bk)}
+.bd__i{position:relative;background:var(--cr);padding:clamp(16px,2vw,30px);display:grid;
+  align-content:end;gap:6px;min-height:clamp(150px,15vw,230px);
+  transition:background .3s var(--ez),color .3s var(--ez)}
+.bd__i:hover{background:var(--bk);color:var(--cr)}
+.bd__n{font-family:'Sten',sans-serif;font-size:13px;letter-spacing:.24em;color:var(--bk-d);
+  position:absolute;left:clamp(16px,2vw,30px);top:clamp(14px,1.6vw,22px);transition:color .3s var(--ez)}
+.bd__i:hover .bd__n{color:var(--acc)}
+.bd__i b{font-family:'Sten',sans-serif;text-transform:uppercase;line-height:.92;
+  letter-spacing:-.01em;transition:color .3s var(--ez)}
+.bd__i:hover b{color:var(--acc)}
+.bd__d{font-size:14px;color:var(--bk-d);max-width:34ch;transition:color .3s var(--ez)}
+.bd__i:hover .bd__d{color:rgba(231,226,214,.72)}
+/* Six columns, seven plates, and the spans tile exactly:
+   4+2 | 2+4 | 3+3 | 6 = 24 cells over four rows, no hole anywhere. */
+.bd__i--1{grid-column:span 4}
+.bd__i--2{grid-column:span 2}
+.bd__i--3{grid-column:span 2}
+.bd__i--4{grid-column:span 4}
+.bd__i--5{grid-column:span 3}
+.bd__i--6{grid-column:span 3}
+.bd__i--7{grid-column:span 6}
+.bd__i--1 b,.bd__i--7 b{font-size:clamp(32px,4.2vw,68px)}
+.bd__i--4 b,.bd__i--5 b{font-size:clamp(26px,3vw,46px)}
+.bd__i--2 b,.bd__i--3 b,.bd__i--6 b{font-size:clamp(21px,2.2vw,34px)}
+
+/* the old two-column register, kept for reference of the rules it used */
 .opl{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
   gap:0 clamp(28px,4vw,80px);border-top:2px solid var(--bk)}
 .opl li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline;
@@ -104,6 +142,10 @@
 .scta__b{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 
 @media (max-width:1000px){
+  /* four columns: 4 | 2+2 | 4 | 2+2 | 4 = 20 cells over five rows */
+  .bd{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .bd__i--1,.bd__i--4,.bd__i--7{grid-column:span 4}
+  .bd__i--2,.bd__i--3,.bd__i--5,.bd__i--6{grid-column:span 2}
   .pb__in{grid-template-columns:1fr;gap:18px}
   .pb__r{text-align:left}
   .opl{grid-template-columns:1fr}
@@ -111,6 +153,12 @@
   .xsg{grid-template-columns:1fr}
 }
 @media (max-width:760px){
+  .bd{grid-template-columns:1fr;gap:2px}
+  .bd__i{grid-column:span 1!important;min-height:0;padding:34px 16px 18px}
+  .bd__i--1 b,.bd__i--7 b{font-size:32px}
+  .bd__i--4 b,.bd__i--5 b{font-size:27px}
+  .bd__i--2 b,.bd__i--3 b,.bd__i--6 b{font-size:23px}
+  .bd__d{font-size:14.5px;max-width:none}
   .shero{padding:calc(56px + 26px) 0 26px}
   .shero__1,.shero__2{font-size:11.2vw}
   .shero__2{margin-left:14px}
