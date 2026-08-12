@@ -1,0 +1,61 @@
+/* the hero device, copied from mem.css: same component, another page */
+.shero{background:var(--cr);padding:calc(60px + clamp(30px,4vw,64px)) 0 clamp(30px,4vw,56px);overflow:hidden}
+.shero__1,.shero__2{white-space:nowrap;line-height:.84}
+.shero__2{margin-left:clamp(24px,7vw,150px)}
+.shero__l{margin-top:clamp(18px,2.4vw,32px);max-width:56ch}
+@media (max-width:760px){
+  .shero__1,.shero__2{font-size:11.2vw}
+  .shero__2{margin-left:14px}
+  .shero__l{font-size:16.5px}
+}
+
+/* VISIT, variant ten. A hard-ruled punch card of facts, boxed like a
+   printed price list, and the stencil accordion copied verbatim from
+   mem.css because it is the same component on a third page. */
+
+.nav__l a.is-here{color:var(--acc)!important}
+.nav__l a.is-here::after{right:0}
+
+.shero__l{max-width:56ch}
+.scta__b{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+.card{display:grid;border:2px solid var(--bk)}
+.card>div{display:grid;grid-template-columns:180px minmax(0,1fr);gap:clamp(14px,2vw,28px);
+  align-items:baseline;padding:clamp(16px,2vw,26px) clamp(14px,1.8vw,24px);
+  border-bottom:2px solid var(--bk)}
+.card>div:last-child{border-bottom:0}
+.card b{font-family:'Sten',sans-serif;text-transform:uppercase;font-size:15px}
+.card span{font-size:16px}
+.card a{color:var(--bk);border-bottom:1px solid var(--bk-d);min-height:44px;display:inline-flex;align-items:center}
+.card a:hover{color:var(--hot);border-color:var(--hot)}
+
+.sacs{border:2px solid var(--acc)}
+.sac{border-bottom:2px solid var(--acc)}
+.sac:last-child{border-bottom:0}
+.sac summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:20px;
+  padding:clamp(16px,2vw,26px) clamp(16px,2vw,28px);position:relative;
+  transition:background .25s var(--ez),color .25s var(--ez)}
+.sac summary::-webkit-details-marker{display:none}
+.sac summary span{flex:1;font-family:'Sten',sans-serif;text-transform:uppercase;
+  font-size:clamp(16px,1.5vw,22px);line-height:1.2}
+.sac summary:hover{background:var(--acc);color:var(--bk)}
+.sac[open] summary{background:var(--acc);color:var(--bk)}
+.sac summary::after{content:'';width:18px;height:3px;background:currentColor;flex:none}
+.sac summary::before{content:'';position:absolute;right:calc(clamp(16px,2vw,28px) + 7.5px);
+  width:3px;height:18px;background:currentColor;transition:opacity .25s var(--ez)}
+.sac[open] summary::before{opacity:0}
+.sac__b{padding:clamp(16px,2vw,24px) clamp(16px,2vw,28px);color:var(--bk-d);
+  font-size:15.5px;max-width:76ch}
+@media (prefers-reduced-motion:no-preference){
+  .sac[open] .sac__b{animation:sin .32s var(--ez) both}
+  @keyframes sin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+
+@media (max-width:760px){
+  .card>div{grid-template-columns:1fr;gap:4px}
+  .sac summary{padding:15px 14px;gap:14px}
+  .sac summary span{font-size:16.5px}
+  .sac summary::before{right:calc(14px + 7.5px)}
+  .scta__b{display:grid;gap:10px}
+  .scta__b .bt{width:100%}
+}

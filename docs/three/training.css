@@ -1,0 +1,49 @@
+/* TRAINING, variant three.
+   The plans page split the pricing into three fullscreen panels. Training
+   does the opposite move on purpose: six disciplines laid out as an
+   alternating dossier, image swapping sides row by row, each row carrying
+   its own outlined numeral. Nothing here is a grid of cards. */
+
+.top__n a.is-here{color:var(--w)}
+.top__n a.is-here::after{right:0}
+
+.thero{padding:calc(80px + clamp(46px,7vw,100px)) 0 clamp(26px,3.4vw,48px)}
+.thero__l{margin-top:16px;max-width:60ch}
+
+.tstage{padding-bottom:clamp(40px,5vw,80px)}
+.trow{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
+  gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(36px,5vw,72px);
+  border-top:1px solid var(--hair)}
+.trow:last-child{border-bottom:1px solid var(--hair)}
+.trow--r{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.trow--r .trow__f{order:2}
+.trow--r .trow__c{order:1}
+/* the outlined numeral sits in the photograph's own corner, never behind the
+   copy: a numeral large enough to overlap a paragraph is unreadable, not
+   decorative. */
+.trow__f{position:relative;z-index:1;margin:0;overflow:hidden}
+.trow__f img{width:100%;aspect-ratio:5/4;object-fit:cover;filter:grayscale(1) contrast(1.06) brightness(.86);
+  transition:filter .55s var(--ease),transform .7s var(--ease)}
+.trow:hover .trow__f img{filter:grayscale(0) contrast(1.02) brightness(1);transform:scale(1.03)}
+.trow__g{position:absolute;left:16px;top:10px;z-index:2;
+  font-family:'Mont',sans-serif;font-weight:800;font-size:clamp(34px,3.4vw,52px);line-height:1;
+  color:transparent;-webkit-text-stroke:1px rgba(244,242,239,.55);pointer-events:none;user-select:none}
+.trow--r .trow__g{left:auto;right:16px}
+.trow__c{position:relative}
+.trow__c .h2{margin:8px 0 12px}
+.trow__c .lead{max-width:48ch}
+
+@media (max-width:900px){
+  .trow,.trow--r{grid-template-columns:1fr}
+  .trow--r .trow__f,.trow--r .trow__c{order:0}
+  .trow--r .trow__g{left:16px;right:auto}
+}
+@media (max-width:760px){
+  .thero{padding:calc(66px + 34px) 0 22px}
+  .thero__l{font-size:16.5px}
+  .trow{padding-block:28px;gap:18px}
+  .trow__f img{aspect-ratio:4/3}
+  .trow__c .h2{font-size:26px}
+  .acts{display:grid;gap:10px}
+  .acts .b{width:100%}
+}

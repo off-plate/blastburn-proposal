@@ -1,0 +1,57 @@
+/* VISIT, variant nine. A club notice board: the marquee band up top, facts
+   pinned as a ruled list, the yellow-badge accordion copied verbatim from
+   mem.css because it is genuinely the same component on a third page. */
+
+.nav__l a.is-here{color:var(--yel)!important}
+.nav__l a.is-here::after{right:0}
+
+.mhero{position:relative;padding:calc(66px + clamp(46px,7vw,102px)) 0 clamp(24px,3vw,40px)}
+.mhero__in .tx{margin-top:16px;max-width:60ch}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:0 clamp(24px,3vw,52px);border-top:2px solid var(--yel);margin-top:clamp(28px,3.6vw,50px)}
+.board>div{border-bottom:1px solid var(--ln);padding:16px 0}
+.board b{display:block;font-family:'Ant',sans-serif;text-transform:uppercase;font-size:16px;
+  color:var(--yel);margin-bottom:5px}
+.board span{color:var(--cr-d);font-size:15px}
+.board a{color:var(--cr);min-height:44px;display:inline-flex;align-items:center}
+.board a:hover{color:var(--yel)}
+
+.yacs{border:2px solid var(--ln)}
+.yac{border-bottom:2px solid var(--ln)}
+.yac:last-child{border-bottom:0}
+.yac summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;
+  padding:clamp(16px,1.9vw,24px) clamp(16px,1.9vw,26px);position:relative;
+  transition:background .25s var(--ez)}
+.yac summary::-webkit-details-marker{display:none}
+.yac summary span{flex:1;font-family:'Ant',sans-serif;text-transform:uppercase;
+  font-size:clamp(17px,1.6vw,23px);letter-spacing:.02em;transition:color .25s var(--ez)}
+.yac summary:hover{background:var(--teal3)}
+.yac summary:hover span,.yac[open] summary span{color:var(--yel)}
+.yac summary::after{content:'';width:26px;height:26px;border-radius:50%;flex:none;
+  border:2px solid var(--yel);background:transparent;transition:background .25s var(--ez)}
+.yac[open] summary::after{background:var(--yel)}
+.yac summary::before{content:'';position:absolute;right:calc(clamp(16px,1.9vw,26px) + 6px);
+  width:14px;height:14px;z-index:2;
+  background-image:linear-gradient(var(--yel),var(--yel)),linear-gradient(var(--yel),var(--yel));
+  background-size:14px 2px,2px 14px;background-position:center,center;background-repeat:no-repeat;
+  transition:background-size .25s var(--ez)}
+.yac[open] summary::before{
+  background-image:linear-gradient(var(--ink),var(--ink)),linear-gradient(var(--ink),var(--ink));
+  background-size:14px 2px,0 0}
+.yac__b{padding:0 clamp(16px,1.9vw,26px) clamp(18px,2.2vw,26px);color:var(--cr-d);
+  font-size:15.5px;max-width:76ch}
+@media (prefers-reduced-motion:no-preference){
+  .yac[open] .yac__b{animation:yin .34s var(--ez) both}
+  @keyframes yin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+
+@media (max-width:760px){
+  .mhero{padding:calc(60px + 34px) 0 22px}
+  .board{grid-template-columns:1fr}
+  .yac summary{padding:15px 14px;gap:14px}
+  .yac summary span{font-size:17px}
+  .acts{display:grid;gap:10px}
+  .acts .bt{width:100%}
+}

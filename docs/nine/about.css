@@ -1,0 +1,29 @@
+/* ABOUT, variant nine. A numbered house-rules manifesto rather than prose,
+   because a club states its rules. The record band (.rec) is already
+   defined in app.css and reused verbatim, exactly as the parity gate wants. */
+
+.nav__l a.is-here{color:var(--yel)!important}
+.nav__l a.is-here::after{right:0}
+
+.mhero{position:relative;padding:calc(66px + clamp(46px,7vw,102px)) 0 clamp(30px,4vw,52px)}
+.mhero__in .tx{margin-top:16px;max-width:60ch}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+
+.rules{list-style:none;padding:0;counter-reset:r;border-top:2px solid var(--yel)}
+.rules li{counter-increment:r;position:relative;display:grid;grid-template-columns:56px minmax(0,1fr);
+  gap:clamp(14px,2vw,28px);align-items:start;padding:clamp(18px,2.2vw,28px) 0;
+  border-bottom:1px solid var(--ln)}
+.rules li::before{content:counter(r,decimal-leading-zero);font-family:'Ant',sans-serif;
+  font-size:clamp(24px,2.6vw,38px);color:var(--yel);line-height:1}
+.rules b{grid-column:2;display:block;font-family:'Ant',sans-serif;text-transform:uppercase;
+  font-size:clamp(17px,1.7vw,23px);line-height:1.15}
+.rules span{grid-column:2;display:block;color:var(--cr-d);font-size:14.5px;margin-top:6px;max-width:56ch}
+
+@media (max-width:760px){
+  .mhero{padding:calc(60px + 34px) 0 26px}
+  .rules li{grid-template-columns:36px minmax(0,1fr);padding:16px 0}
+  .rules li::before{font-size:22px}
+  .rules b{font-size:18px}
+  .acts{display:grid;gap:10px}
+  .acts .bt{width:100%}
+}

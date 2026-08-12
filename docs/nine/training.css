@@ -1,0 +1,33 @@
+/* TRAINING, variant nine. A club card catalogue: six discipline cards laid
+   out like a wall of membership cards, reusing the club-card language from
+   the plans page for a new purpose. Different grid rhythm, different
+   content, same house device. */
+
+.nav__l a.is-here{color:var(--yel)!important}
+.nav__l a.is-here::after{right:0}
+
+.mhero{position:relative;padding:calc(66px + clamp(46px,7vw,102px)) 0 clamp(30px,4vw,52px)}
+.mhero__in .tx{margin-top:16px;max-width:60ch}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+
+.ccatalog{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.ccard{position:relative;background:var(--teal2);border:2px solid transparent;overflow:hidden;
+  transition:border-color .28s var(--ez),transform .28s var(--ez)}
+.ccard:hover{border-color:var(--yel);transform:translateY(-5px)}
+.ccard img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(.4) sepia(.16) contrast(1.06);
+  transition:filter .5s var(--ez)}
+.ccard:hover img{filter:grayscale(0) sepia(0)}
+.ccard__b{padding:clamp(16px,1.8vw,24px);position:relative}
+.ccard__n{position:absolute;right:clamp(16px,1.8vw,24px);top:-30px;font-family:'Ant',sans-serif;
+  font-size:22px;color:var(--yel)}
+.ccard__b b{display:block;font-family:'Ant',sans-serif;text-transform:uppercase;font-size:22px}
+.ccard__f{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cr-d);margin-top:4px}
+.ccard__b p{color:var(--cr-d);font-size:14.5px;margin-top:10px}
+
+@media (max-width:760px){
+  .mhero{padding:calc(60px + 34px) 0 26px}
+  .ccatalog{grid-template-columns:1fr}
+  .acts{display:grid;gap:10px}
+  .acts .bt{width:100%}
+}

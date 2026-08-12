@@ -76,3 +76,8 @@ white variants he had asked to see for 04 are therefore not being built. Files s
 in the repo at /four/ and still resolve.
 
 **RETIRED 12 Aug 2026: template 01, black & orange.** Michael's call. Its memberships page was the one he asked to keep untouched, so that page dies with the direction. Files stay in the repo at /one/ and still resolve.
+
+
+---
+
+**Full site, 12 Aug 2026.** Michael asked for the complete site on each of the four remaining directions: training, about ("the room"), and visit ("find us"), sourced from blastburn.al and research/01-extraction.md, no invented history, no invented schedule. Each direction got its own structural idea per page rather than one template reflowed four ways: 03 an alternating photographic dossier / long-form editorial / ghost-numeral address split; 08 a spec-sheet accordion / gold ledger / coordinates readout; 09 a club card catalogue / numbered house rules / notice board; 10 a poster wall / sparse manifesto / punch-card contact sheet. Nav across all four now points to real pages instead of homepage anchors for Training, About and Visit.

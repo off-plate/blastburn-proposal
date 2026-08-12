@@ -1,0 +1,53 @@
+/* TRAINING, variant eight. Memberships compares plans as columns; this
+   documents disciplines as a dense spec register, each one a native
+   <details> row that opens to its full description. Gold-ruled, numbered,
+   restrained: a technical dossier, not a features grid. */
+
+.nav__l a.is-here{color:var(--gold)!important}
+.nav__l a.is-here::after{right:0}
+
+.mhero__mk{position:absolute;left:50%;top:clamp(90px,17vh,200px);translate:-50% 0;z-index:1;
+  font-family:'Bebas',sans-serif;font-size:min(22vw,280px);line-height:.8;
+  color:var(--gold);opacity:.14;white-space:nowrap;user-select:none;pointer-events:none}
+.mhero{position:relative;isolation:isolate;overflow:hidden;
+  padding:calc(68px + clamp(52px,8vw,116px)) 0 clamp(34px,4.4vw,64px)}
+.mhero__in{position:relative;z-index:2}
+.mhero__in em{font-style:normal;color:var(--gold)}
+.mhero__in .tx{margin-top:16px;max-width:60ch}
+
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+
+.specl{border-top:1px solid var(--ln)}
+.spec{border-bottom:1px solid var(--ln);transition:background .25s var(--ez)}
+.spec[open]{background:var(--b2)}
+.spec summary{list-style:none;cursor:pointer;display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto auto;gap:clamp(14px,2vw,28px);align-items:center;
+  padding:clamp(18px,2.2vw,28px) clamp(12px,1.6vw,22px)}
+.spec summary::-webkit-details-marker{display:none}
+.spec__n{font-family:'Bebas',sans-serif;font-size:18px;color:var(--gold-d);
+  transition:color .25s var(--ez)}
+.spec__t{font-family:'Bebas',sans-serif;font-size:clamp(22px,2.4vw,34px);
+  transition:color .25s var(--ez)}
+.spec__f{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-d);
+  white-space:nowrap}
+.spec summary::after{content:'';width:9px;height:9px;background:var(--gold-d);rotate:45deg;
+  transition:rotate .3s var(--ez),background .25s var(--ez)}
+.spec:hover summary .spec__t,.spec[open] summary .spec__t{color:var(--gold)}
+.spec[open] summary .spec__n{color:var(--gold)}
+.spec[open] summary::after{rotate:135deg;background:var(--gold)}
+.spec__b{padding:0 clamp(12px,1.6vw,22px) clamp(20px,2.4vw,30px);color:var(--w-d);
+  font-size:15.5px;max-width:76ch}
+@media (prefers-reduced-motion:no-preference){
+  .spec[open] .spec__b{animation:spin .34s var(--ez) both}
+  @keyframes spin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+
+@media (max-width:760px){
+  .mhero{padding:calc(62px + 40px) 0 30px}
+  .mhero__mk{font-size:24vw;top:78px}
+  .spec summary{grid-template-columns:auto minmax(0,1fr) auto;row-gap:6px;padding:16px 12px}
+  .spec__f{grid-column:2/-1;font-size:13px}
+  .spec__t{font-size:22px}
+  .acts{display:grid;gap:10px}
+  .acts .bt{width:100%}
+}

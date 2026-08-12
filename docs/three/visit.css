@@ -1,0 +1,61 @@
+/* VISIT, variant three. A giant outlined street number as the hero device
+   (the hero's own ghost-numeral language, applied to the address rather
+   than a plan), a ruled facts sheet, and the memberships FAQ accordion
+   reused verbatim because it is genuinely the same component. */
+
+.top__n a.is-here{color:var(--w)}
+.top__n a.is-here::after{right:0}
+
+.vhero{padding:calc(80px + clamp(40px,6vw,84px)) 0 clamp(30px,4vw,54px);overflow:hidden}
+.vhero__g{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(20px,4vw,64px);align-items:center}
+.vhero__no{font-family:'Mont',sans-serif;font-weight:800;line-height:.78;
+  font-size:clamp(120px,20vw,300px);color:transparent;-webkit-text-stroke:1px var(--sand);
+  user-select:none}
+.vhero__c .lead{margin-top:14px;max-width:52ch}
+
+.vfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:0 clamp(28px,3.4vw,60px)}
+.vfacts>div{border-top:1px solid var(--hair);padding:16px 0}
+.vfacts b{display:block;font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:13px;letter-spacing:.14em;color:var(--sand);margin-bottom:6px}
+.vfacts span{color:var(--w-dim);font-size:15px}
+.vfacts a{color:var(--w);min-height:44px;display:inline-flex;align-items:center}
+.vfacts a:hover{color:var(--sand)}
+
+/* the accordion, copied verbatim from mem.css: same component, second page */
+.acs{border-top:1px solid var(--hair)}
+.ac{border-bottom:1px solid var(--hair)}
+.ac summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;
+  padding:clamp(18px,2.2vw,28px) 0;position:relative}
+.ac summary::-webkit-details-marker{display:none}
+.ac summary span{font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(16px,1.5vw,21px);line-height:1.2;flex:1;transition:color .25s var(--ease)}
+.ac summary:hover span{color:var(--sand)}
+.ac summary::after{content:'';width:17px;height:1px;background:var(--w-dim);flex:none;
+  transition:background .25s var(--ease)}
+.ac summary::before{content:'';position:absolute;right:8px;width:1px;height:17px;background:var(--w-dim);
+  transition:opacity .25s var(--ease),background .25s var(--ease)}
+.ac[open] summary::before{opacity:0}
+.ac[open] summary::after,.ac[open] summary::before{background:var(--sand)}
+.ac[open] summary span{color:var(--sand)}
+.ac::after{content:'';display:block;height:1px;width:0;background:var(--sand);
+  transition:width .45s var(--ease)}
+.ac[open]::after{width:100%}
+.ac__b{padding:0 0 clamp(18px,2.2vw,28px);max-width:74ch}
+.ac__b{color:var(--w-dim);font-size:15.5px}
+@media (prefers-reduced-motion:no-preference){
+  .ac[open] .ac__b{animation:acin .38s var(--ease) both}
+  @keyframes acin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+
+@media (max-width:760px){
+  .vhero{padding:calc(66px + 32px) 0 24px}
+  .vhero__g{grid-template-columns:1fr;gap:14px}
+  .vhero__no{font-size:26vw;line-height:1}
+  .vfacts{grid-template-columns:1fr}
+  .ac summary{padding:16px 0;gap:14px}
+  .ac summary span{font-size:16.5px}
+  .acts{display:grid;gap:10px}
+  .acts .b{width:100%}
+}
