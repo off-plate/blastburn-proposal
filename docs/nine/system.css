@@ -1,0 +1,113 @@
+/* GUIDELINE PAGE FURNITURE ONLY.
+   Nothing here restyles a component. It labels them, frames them and lays out
+   the spec tables, so what the page shows stays the shipping component. */
+
+.sysdoc{background:var(--ink)}
+.sy__top{padding:clamp(60px,8vw,120px) 0 clamp(24px,3vw,44px);border-bottom:1px solid var(--ln)}
+.sy__back{display:inline-block;font-size:14.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--yel);margin-bottom:18px;min-height:44px;line-height:44px}
+.sy__lede{margin-top:16px;max-width:70ch}
+.sy{padding-block:clamp(40px,5vw,80px);border-bottom:1px solid var(--ln)}
+.sy__h{margin-bottom:clamp(16px,2vw,28px)}
+.sy__p{max-width:74ch;margin-bottom:14px}
+.sy__note{font-size:14px;color:var(--cr-d);margin-top:16px;max-width:78ch;
+  border-left:2px solid var(--yel);padding-left:14px}
+.sy code{font-family:'Epi',monospace;font-size:13px;color:var(--yel);
+  background:var(--teal2);padding:2px 6px;white-space:nowrap}
+
+/* spec tables */
+.sy__scroll{overflow-x:auto;scrollbar-width:thin}
+.sx{width:100%;border-collapse:collapse;text-align:left;min-width:720px;font-size:14.5px}
+.sx th{font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--cr-d);padding:0 16px 10px 0;border-bottom:1px solid var(--yel);white-space:nowrap}
+.sx td{padding:13px 16px 13px 0;border-bottom:1px solid var(--ln);vertical-align:top;color:var(--cr)}
+.sx--2 td:first-child{white-space:nowrap}
+.sx__n{color:var(--cr-d)}
+.sx__c{display:inline-block;width:22px;height:22px;margin-right:10px;vertical-align:-6px;
+  border:1px solid var(--ln)}
+.sx__c--a{background-image:linear-gradient(45deg,#888 25%,transparent 25%,transparent 75%,#888 75%),
+  linear-gradient(45deg,#888 25%,transparent 25%,transparent 75%,#888 75%);
+  background-size:8px 8px;background-position:0 0,4px 4px}
+.sx__r{white-space:nowrap;font-family:'Epi',monospace;font-size:13px}
+.sx__on{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  opacity:.62;margin-top:3px;white-space:nowrap}
+.sx__r--x{opacity:.5}
+.sx__r em{font-style:normal;color:var(--yel);margin-left:6px}
+
+/* type specimens */
+.sy__ty{display:grid;gap:0}
+.sy__t{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(16px,2.4vw,44px);
+  padding:clamp(18px,2.2vw,30px) 0;border-bottom:1px solid var(--ln);align-items:baseline}
+.sy__t:last-child{border-bottom:0}
+.sy__tk b{display:block;font-size:15px;color:var(--cr)}
+.sy__tk code{margin-top:6px;display:inline-block}
+.sy__ts{min-width:0;overflow:hidden}
+.sy__tm{grid-column:2;display:flex;flex-wrap:wrap;gap:6px 18px;font-family:'Epi',monospace;
+  font-size:13px;color:var(--cr-d);margin-top:12px}
+
+/* state grids */
+.sy__states{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:clamp(16px,2vw,30px)}
+.sy__st{display:grid;gap:10px;justify-items:start;align-content:start}
+.sy__st--wide{grid-column:1/-1}
+.sy__lb{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--cr-d);display:block}
+.sy__mob{width:min(390px,100%);padding:14px;border:1px dashed var(--ln);display:grid;box-sizing:border-box}
+.sy__mob a{width:100%}
+.sy__narrow{width:280px;max-width:100%}
+.sy__nav{padding:14px 0}
+.sy__navdemo .top__n,.sy__navdemo .nav__l{display:flex;margin:0;gap:clamp(20px,2.2vw,34px)}
+.sy__cmp{display:grid;gap:12px;padding:clamp(20px,2.6vw,38px) 0;border-bottom:1px solid var(--ln)}
+.sy__cmp:last-child{border-bottom:0}
+
+/* component demos are shown at a workable size, never restyled */
+.sy__pstage{grid-template-columns:1fr 1fr;min-height:0}
+.sy__pstage .ppan{aspect-ratio:4/5}
+.sy__spread{grid-template-columns:repeat(6,minmax(0,1fr))}
+.sy__mtable{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sy__mos{grid-template-columns:1fr 1fr}
+.sy__mos .mos__c{aspect-ratio:16/9}
+.sy__bd{grid-template-columns:repeat(6,minmax(0,1fr))}
+.sy__pbs .pb{padding-block:clamp(24px,3vw,44px)}
+
+/* the page frame diagram */
+.sy__frame{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:0;margin-top:24px;
+  border:1px dashed var(--ln);font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cr-d)}
+.sy__frame>span{width:clamp(20px,3.5vw,72px);display:grid;place-items:center;padding:22px 0;
+  background:var(--teal2);writing-mode:vertical-rl;font-size:13px}
+.sy__frame>div{padding:22px;display:grid;place-items:center;border-inline:1px dashed var(--yel)}
+
+/* numbers */
+.sy__nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:clamp(18px,2.4vw,40px)}
+.sy__nums>div{display:grid;gap:8px;align-content:start}
+.sy__n1{font-size:clamp(30px,3.4vw,50px);line-height:1;font-variant-numeric:tabular-nums;color:var(--yel)}
+.sy__n1 i{display:block;font-style:normal;font-size:13px;color:var(--cr-d);margin-top:5px}
+.sy__n2{font-size:clamp(30px,3.4vw,50px);line-height:1;font-variant-numeric:tabular-nums;color:var(--cr)}
+.sy__n2--o{color:transparent;-webkit-text-stroke:1px var(--yel)}
+.sy__n3{font-size:clamp(30px,3.4vw,50px);line-height:1;font-variant-numeric:tabular-nums}
+.sy__n3 em{display:block;font-style:normal;font-size:13px;color:var(--cr-d);margin-top:5px}
+
+/* photography */
+.sy__img{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:22px}
+.sy__img figure{margin:0;position:relative;overflow:hidden}
+.sy__img img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(.4) sepia(.16) contrast(1.06);transition:filter .5s ease}
+.sy__img .is-hover img{filter:grayscale(0) sepia(0)}
+.sy__img figcaption{position:absolute;left:12px;bottom:10px;font-size:13px;letter-spacing:.18em;
+  text-transform:uppercase;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+
+.sy__foot{padding-block:clamp(28px,3.4vw,52px);font-size:14.5px;color:var(--cr-d)}
+.sy__foot a{color:var(--yel);min-height:44px;display:inline-block;line-height:44px}
+
+@media (max-width:900px){
+  .sy__t{grid-template-columns:1fr}
+  .sy__tm{grid-column:1}
+  .sy__pstage,.sy__mtable{grid-template-columns:1fr}
+  .sy__spread,.sy__bd{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sy__spread .sp__f,.sy__bd .bd__i{grid-column:span 1!important}
+}
+@media (max-width:760px){
+  .sy__mos{grid-template-columns:1fr}
+  .sy__states{grid-template-columns:1fr}
+  .sy__frame>span{writing-mode:horizontal-tb;width:auto;padding:10px}
+}

@@ -26,7 +26,7 @@ body{background:var(--cr);color:var(--bk);font-family:'Ero',Georgia,serif;font-s
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+:focus-visible,.is-focus{outline:2px solid var(--hot);outline-offset:3px}
 ::selection{background:var(--bk);color:var(--cr)}
 .w{width:min(100% - 2*var(--pad),var(--shell));margin-inline:auto}
 
@@ -46,8 +46,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-family:'Sten',sans-serif;font-size:15px;letter-spacing:.1em;text-transform:uppercase;
   border:2px solid var(--bk);transition:background .2s var(--ez),color .2s var(--ez)}
 .bt--k{background:var(--bk);color:var(--cr)}
-.bt--k:hover{background:var(--hot);border-color:var(--hot)}
-.bt--o:hover{background:var(--bk);color:var(--cr)}
+.bt--k:hover,.bt--k.is-hover{background:var(--hot);border-color:var(--hot)}
+
+/* size and on-dark-bar modifiers. Same component either way. */
+.bt--sm{min-height:44px;padding:11px 20px;font-size:13px}
+.bt--bar{border-color:var(--cr);color:var(--cr)}
+.bt--bar:hover,.bt--bar.is-hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
+.bt--o:hover,.bt--o.is-hover{background:var(--bk);color:var(--cr)}
 
 .nav{position:fixed;inset:0 0 auto;z-index:80;display:flex;align-items:center;gap:20px;padding:10px var(--pad);
   background:var(--bk);color:var(--cr);border-bottom:2px solid var(--bk)}
@@ -56,7 +61,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav__lg b{font-family:'Sten',sans-serif;font-size:17px;letter-spacing:.06em}
 .nav__l{display:flex;gap:22px;margin-inline:auto}
 .nav__l a{font-family:'Sten',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:rgba(231,226,214,.72)}
-.nav__l a:hover{color:var(--acc)}
+.nav__l a:hover,.nav__l a.is-hover{color:var(--acc)}
 .brg{display:none;width:44px;height:44px;place-content:center;gap:6px;margin-left:auto}
 .brg span{display:block;width:22px;height:2px;background:var(--cr)}
 .drw{display:none}
@@ -91,7 +96,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .wp{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px;align-items:start}
 .wp__c{position:relative;display:block;border:2px solid var(--bk)}
 .wp__c img{width:100%;object-fit:cover;filter:grayscale(1) contrast(1.08);transition:filter .45s var(--ez)}
-.wp__c:hover img{filter:grayscale(0) contrast(1.02)}
+.wp__c:hover img,.wp__c.is-hover img{filter:grayscale(0) contrast(1.02)}
 .wp__c figcaption{background:var(--bk);color:var(--cr);padding:10px 13px;display:flex;justify-content:space-between;gap:10px}
 .wp__c b{font-family:'Sten',sans-serif;font-size:16px;text-transform:uppercase}
 .wp__c span{font-size:12.5px;color:rgba(231,226,214,.66);font-family:'Sten',sans-serif;letter-spacing:.1em}
@@ -120,7 +125,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ld>div:last-child{border-right:0}
 .ld b{display:block;font-family:'Sten',sans-serif;font-size:clamp(34px,4.4vw,66px);line-height:1;font-variant-numeric:tabular-nums}
 .ld span{display:block;font-size:14px;color:var(--bk-d);margin-top:8px}
-.ld i{display:block;font-style:normal;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--hot);margin-top:5px}
+.ld i{display:block;font-style:normal;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bk-d);margin-top:5px}
 
 /* rates as hard rows */
 .rt{display:grid;border-top:2px solid var(--bk)}
@@ -131,13 +136,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .rt__p{font-family:'Sten',sans-serif;font-size:clamp(20px,2.2vw,30px);white-space:nowrap}
 .rt__p em{font-style:normal;font-family:'Ero',serif;font-weight:400;display:block;font-size:13px;color:var(--bk-d);text-align:right}
 
-.note{border:2px solid var(--hot);padding:14px 18px;color:var(--hot);font-size:14px;font-weight:500}
+.note{border:2px solid var(--bk);padding:14px 18px;color:var(--bk);font-size:14px;font-weight:500}
 
 .ft{background:var(--bk);color:var(--cr);padding-block:clamp(36px,4.6vw,64px)}
 .ft__g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(20px,3vw,48px)}
-.ft h4{font-family:'Sten',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--hot);margin-bottom:12px}
+.ft h4{font-family:'Sten',sans-serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
 .ft__c{display:grid;gap:9px;align-content:start;font-size:15px;color:rgba(231,226,214,.7)}
-.ft__c a:hover{color:var(--cr)}
+.ft__c a:hover,.ft__c a.is-hover{color:var(--cr)}
 .ft__b{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid rgba(231,226,214,.2);
   margin-top:clamp(24px,3vw,40px);padding-top:18px;font-size:12.5px;color:rgba(231,226,214,.55)}
 
@@ -167,7 +172,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   display:inline-flex;align-items:center;position:relative}
 .nav__l a::after{content:'';position:absolute;left:0;right:100%;bottom:10px;height:2px;
   background:var(--hot);transition:right .25s cubic-bezier(.2,.72,.3,1)}
-.nav__l a:hover::after{right:0}
+.nav__l a:hover::after,.nav__l a.is-hover::after{right:0}
 .nav__l{gap:clamp(20px,2.2vw,34px)!important;align-items:center}
 
 /* ==========================================================================
@@ -175,21 +180,21 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    and it has to be obvious on hover rather than a two percent shift.
    ========================================================================== */
 .nav__l a::after{background:var(--acc)!important;height:3px}
-.nav__l a:hover{color:var(--acc)!important}
-.nav__lg:hover b{color:var(--acc)}
-.bt--k:hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
-.bt--o:hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
+.nav__l a:hover,.nav__l a.is-hover{color:var(--acc)!important}
+.nav__lg:hover b,.nav__lg.is-hover b{color:var(--acc)}
+.bt--k:hover,.bt--k.is-hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
+.bt--o:hover,.bt--o.is-hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
 .wp__c figcaption{transition:background .3s var(--ez),color .3s var(--ez)}
-.wp__c:hover figcaption{background:var(--acc);color:var(--bk)}
-.wp__c:hover span{color:rgba(11,11,9,.7)}
+.wp__c:hover figcaption,.wp__c.is-hover figcaption{background:var(--acc);color:var(--bk)}
+.wp__c:hover span,.wp__c.is-hover span{color:rgba(11,11,9,.7)}
 .rt__r{transition:background .3s var(--ez),padding-inline .3s var(--ez)}
-.rt__r:hover{background:var(--acc);padding-inline:clamp(12px,1.6vw,24px)}
+.rt__r:hover,.rt__r.is-hover{background:var(--acc);padding-inline:clamp(12px,1.6vw,24px)}
 .ld>div{transition:background .3s var(--ez)}
-.ld>div:hover{background:var(--acc)}
-.ld>div:hover i{color:var(--bk)}
-.drw a:hover{background:var(--acc);color:var(--bk)}
+.ld>div:hover,.ld>div.is-hover{background:var(--acc)}
+.ld>div:hover i,.ld>div.is-hover i{color:var(--bk)}
+.drw a:hover,.drw a.is-hover{background:var(--acc);color:var(--bk)}
 .ft__c a{transition:color .2s var(--ez)}
-.ft__c a:hover{color:var(--acc)!important}
+.ft__c a:hover,.ft__c a.is-hover{color:var(--acc)!important}
 
 /* ==========================================================================
    SERVICES. What the gym actually offers, above the weapons grid. Same
@@ -198,19 +203,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sv{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,1.2vw,18px)}
 .sv__c{display:grid;gap:0;border:2px solid var(--bk);background:var(--bk);
   transition:transform .35s var(--ez)}
-.sv__c:hover{transform:translateY(-8px)}
+.sv__c:hover,.sv__c.is-hover{transform:translateY(-8px)}
 .sv__im{position:relative;overflow:hidden}
 .sv__im img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(1) contrast(1.06);
   transition:transform .55s var(--ez),filter .55s var(--ez)}
-.sv__c:hover .sv__im img{transform:scale(1.07);filter:grayscale(1) contrast(1.16) brightness(1.08)}
+.sv__c:hover .sv__im img,.sv__c.is-hover .sv__im img{transform:scale(1.07);filter:grayscale(1) contrast(1.16) brightness(1.08)}
 .sv__n{position:absolute;top:8px;left:10px;z-index:2;font-family:'Sten',sans-serif;
   font-size:13px;letter-spacing:.14em;color:var(--acc)}
 .sv__b{padding:12px 13px 14px;background:var(--bk);color:var(--cr);display:grid;gap:5px;
   transition:background .3s var(--ez),color .3s var(--ez)}
-.sv__c:hover .sv__b{background:var(--acc);color:var(--bk)}
+.sv__c:hover .sv__b,.sv__c.is-hover .sv__b{background:var(--acc);color:var(--bk)}
 .sv__b b{font-family:'Sten',sans-serif;font-size:15.5px;text-transform:uppercase;line-height:1.05}
 .sv__b span{font-size:12.5px;color:rgba(231,226,214,.62);transition:color .3s var(--ez)}
-.sv__c:hover .sv__b span{color:rgba(11,11,9,.68)}
+.sv__c:hover .sv__b span,.sv__c.is-hover .sv__b span{color:rgba(11,11,9,.68)}
 /* one line on a laptop, never 5 + 1 */
 @media (max-width:1200px){.sv{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:640px){.sv{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -269,7 +274,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .sv__b b{font-size:15px}
   .sv__b span{font-size:13px}
   .sv__n{font-size:13px}
-  .sv__c:hover{transform:none}
+  .sv__c:hover,.sv__c.is-hover{transform:none}
 
   /* six plates stacked full width was a 3000px tower. Two columns, one crop. */
   .wp{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -289,7 +294,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
   /* rate rows: one column, the unit tied to the price, the button full width */
   .rt__r{grid-template-columns:1fr;gap:4px;padding:18px 0}
-  .rt__r:hover{padding-inline:0}
+  .rt__r:hover,.rt__r.is-hover{padding-inline:0}
   .rt__n{font-size:21px}
   .rt__d{font-size:15px}
   .rt__p{font-size:26px;margin-top:8px;display:flex;align-items:baseline;gap:8px}

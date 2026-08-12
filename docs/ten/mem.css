@@ -23,8 +23,8 @@
   filter:grayscale(1) contrast(1.16);opacity:.16;
   transition:opacity .55s var(--ez),filter .55s var(--ez)}
 @media (hover:hover) and (pointer:fine){
-  .pbs:hover .pb .pb__bg{opacity:.07}
-  .pbs .pb:hover .pb__bg{opacity:.62;filter:grayscale(1) contrast(1.06)}
+  .pbs:hover .pb .pb__bg,.pbs.is-hover .pb .pb__bg{opacity:.07}
+  .pbs .pb:hover .pb__bg,.pbs .pb.is-hover .pb__bg{opacity:.62;filter:grayscale(1) contrast(1.06)}
 }
 .pb__in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;
   gap:clamp(20px,4vw,72px);align-items:center}
@@ -45,7 +45,7 @@
 .pb--0 .pb__k{color:var(--bk-d)}
 .pb--0 .pb__d{color:var(--bk-d)}
 .pb--0 .pb__p{color:transparent;-webkit-text-stroke:2px var(--bk)}
-.pb--0:hover .pb__p{color:var(--bk)}
+.pb--0:hover .pb__p,.pb--0.is-hover .pb__p{color:var(--bk)}
 .pb--0 .pb__u{color:var(--bk-d)}
 /* black band */
 .pb--1{background:var(--bk);color:var(--cr);border-color:var(--bk)}
@@ -55,7 +55,7 @@
 .pb--1 .pb__p{color:var(--acc)}
 .pb--1 .pb__u{color:rgba(231,226,214,.66)}
 .pb--1 .bt{border-color:var(--cr);color:var(--cr)}
-.pb--1 .bt:hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
+.pb--1 .bt:hover,.pb--1 .bt.is-hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
 .pb__p{transition:color .45s var(--ez)}
 .pb:last-of-type{border-bottom:2px solid var(--bk)}
 
@@ -67,15 +67,15 @@
 .bd__i{position:relative;background:var(--cr);padding:clamp(16px,2vw,30px);display:grid;
   align-content:end;gap:6px;min-height:clamp(150px,15vw,230px);
   transition:background .3s var(--ez),color .3s var(--ez)}
-.bd__i:hover{background:var(--bk);color:var(--cr)}
+.bd__i:hover,.bd__i.is-hover{background:var(--bk);color:var(--cr)}
 .bd__n{font-family:'Sten',sans-serif;font-size:13px;letter-spacing:.24em;color:var(--bk-d);
   position:absolute;left:clamp(16px,2vw,30px);top:clamp(14px,1.6vw,22px);transition:color .3s var(--ez)}
-.bd__i:hover .bd__n{color:var(--acc)}
+.bd__i:hover .bd__n,.bd__i.is-hover .bd__n{color:var(--acc)}
 .bd__i b{font-family:'Sten',sans-serif;text-transform:uppercase;line-height:.92;
   letter-spacing:-.01em;transition:color .3s var(--ez)}
-.bd__i:hover b{color:var(--acc)}
+.bd__i:hover b,.bd__i.is-hover b{color:var(--acc)}
 .bd__d{font-size:14px;color:var(--bk-d);max-width:34ch;transition:color .3s var(--ez)}
-.bd__i:hover .bd__d{color:rgba(231,226,214,.72)}
+.bd__i:hover .bd__d,.bd__i.is-hover .bd__d{color:rgba(231,226,214,.72)}
 /* Six columns, seven plates, and the spans tile exactly:
    4+2 | 2+4 | 3+3 | 6 = 24 cells over four rows, no hole anywhere. */
 .bd__i--1{grid-column:span 4}
@@ -105,7 +105,7 @@
   border:2px solid var(--bk)}
 .xs{background:var(--cr);padding:clamp(20px,2.4vw,34px);display:grid;gap:10px;justify-items:start;
   align-content:start;transition:background .3s var(--ez)}
-.xs:hover{background:var(--acc)}
+.xs:hover,.xs.is-hover{background:var(--acc)}
 .xs h3{font-size:clamp(20px,2vw,28px)}
 .xs p{color:var(--bk-d);font-size:15px;max-width:46ch}
 .xs__p{font-family:'Sten',sans-serif;font-size:clamp(24px,2.4vw,36px);line-height:1}
@@ -125,7 +125,7 @@
 .sac summary::-webkit-details-marker{display:none}
 .sac summary span{flex:1;font-family:'Sten',sans-serif;text-transform:uppercase;
   font-size:clamp(16px,1.5vw,22px);line-height:1.2}
-.sac summary:hover{background:var(--acc);color:var(--bk)}
+.sac summary:hover,.sac summary.is-hover{background:var(--acc);color:var(--bk)}
 .sac[open] summary{background:var(--acc);color:var(--bk)}
 .sac summary::after{content:'';width:18px;height:3px;background:currentColor;flex:none}
 .sac summary::before{content:'';position:absolute;right:calc(clamp(16px,2vw,28px) + 7.5px);

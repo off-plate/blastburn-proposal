@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design system. Blast &amp; Burn, direction nine</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preload" href="fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/epilogue-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="mem.css">
+<link rel="stylesheet" href="system.css">
+<noscript><style>[data-rv]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body class="sysdoc">
+
+<header class="sy__top">
+  <div class="w">
+    <a class="sy__back" href="index.html">&larr; Direction nine</a>
+    <h1 class="an a2">Brand and web guideline</h1>
+    <p class="tx sy__lede">Every token and every component this direction uses, in every state,
+    on one page. It loads the same <code>app.css</code> and <code>mem.css</code> the site loads, so what is
+    below is the shipping component rather than a drawing of it. Change a rule and this page changes.</p>
+  </div>
+</header>
+
+<section class="sec sy" id="provenance"><div class="w">
+  <h2 class="an a2 sy__h">01 &nbsp; Where this came from</h2>
+  <p class="tx sy__p">Michael's call, 12 August 2026: the palette is Gold's Gym: warm near-black, one hard yellow, cream. The teal this direction started with is not in their logo. Anton is the club lettering, Epilogue the body. The paper grain over everything is a single fixed SVG element.</p>
+  <p class="tx sy__p"><b>Pricing idea:</b> Club membership cards with a stamped approval mark on the one that wins. No other direction uses it.</p>
+</div></section>
+
+<section class="sec sy" id="colour"><div class="w">
+  <h2 class="an a2 sy__h">02 &nbsp; Colour, as roles</h2>
+  <p class="tx sy__p">A palette is not a system. Each token below says what it means, so a new
+  component has exactly one correct answer. Contrast is computed against the surface the token is
+  actually read on, not eyeballed and not against a ground it never sits on. A surface has no
+  contrast requirement of its own; what sits on it does.</p>
+  <div class="sy__scroll"><table class="sx">
+    <thead><tr><th>Token</th><th>Value</th><th>Means</th><th>Never used for</th><th>On the ground</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sx__c" style="background:#100F0D"></span><code>--ink</code></td><td><code>#100F0D</code></td>
+      <td>The ground. Warm near-black.</td><td class="sx__n">text</td><td><span class="sx__r sx__r--x">surface</span></td></tr>
+      <tr><td><span class="sx__c" style="background:#191713"></span><code>--teal2</code></td><td><code>#191713</code></td>
+      <td>The one raised surface: plan cards, footer, hovered rows.</td><td class="sx__n">the page ground</td><td><span class="sx__r sx__r--x">surface</span></td></tr>
+      <tr><td><span class="sx__c" style="background:#FFC72C"></span><code>--yel</code></td><td><code>#FFC72C</code></td>
+      <td>The single accent. Current, live, hovered, and money.</td><td class="sx__n">body text</td><td><span class="sx__r">12.3:1 <em>AAA</em></span><span class="sx__on">on <code>#100F0D</code></span></td></tr>
+      <tr><td><span class="sx__c" style="background:#FFDD7A"></span><code>--yel2</code></td><td><code>#FFDD7A</code></td>
+      <td>Yellow lifted, for the hover of a yellow surface only.</td><td class="sx__n">text on the ground</td><td><span class="sx__r sx__r--x">surface</span></td></tr>
+      <tr><td><span class="sx__c" style="background:#F3EEE2"></span><code>--cr</code></td><td><code>#F3EEE2</code></td>
+      <td>Primary text, and the fill a ghost button takes on hover.</td><td class="sx__n">decoration</td><td><span class="sx__r">16.5:1 <em>AAA</em></span><span class="sx__on">on <code>#100F0D</code></span></td></tr>
+      <tr><td><span class="sx__c" style="background:#B0A99C"></span><code>--cr-d</code></td><td><code>#B0A99C</code></td>
+      <td>Secondary text: body copy, captions, meta.</td><td class="sx__n">headings or numbers</td><td><span class="sx__r">8.2:1 <em>AAA</em></span><span class="sx__on">on <code>#100F0D</code></span></td></tr>
+      <tr><td><span class="sx__c sx__c--a" style="background:rgba(243,238,226,.16)"></span><code>--ln</code></td><td><code>rgba(243,238,226,.16)</code></td>
+      <td>Hairlines and card edges at rest.</td><td class="sx__n">meaningful borders</td><td><span class="sx__r sx__r--x">hairline</span></td></tr></tbody>
+  </table></div>
+  <p class="sy__note">One accent, never a gradient. Secondary text is the only grey; there is no
+  second accent hiding as a colour.</p>
+</div></section>
+
+<section class="sec sy" id="type"><div class="w">
+  <h2 class="an a2 sy__h">03 &nbsp; Type, as roles</h2>
+  <div class="sy__ty">
+      <div class="sy__t">
+        <div class="sy__tk"><b>Display 1</b><code>.an.a1</code></div>
+        <div class="sy__ts"><span class="an a1">Join the club</span></div>
+        <div class="sy__tm"><span>Anton</span><span>clamp(44px,7.6vw,124px)</span><span>line .9</span>
+          <span>tracking .004em</span><span>measure 14ch</span></div>
+      </div>
+      <div class="sy__t">
+        <div class="sy__tk"><b>Display 2</b><code>.an.a2</code></div>
+        <div class="sy__ts"><span class="an a2">Three ways to pay</span></div>
+        <div class="sy__tm"><span>Anton</span><span>clamp(30px,4.2vw,68px)</span><span>line .9</span>
+          <span>tracking .004em</span><span>measure 18ch</span></div>
+      </div>
+      <div class="sy__t">
+        <div class="sy__tk"><b>Heading</b><code>.an.a3</code></div>
+        <div class="sy__ts"><span class="an a3">Personal training</span></div>
+        <div class="sy__tm"><span>Anton</span><span>clamp(20px,2vw,30px)</span><span>line .9</span>
+          <span>tracking .004em</span><span>measure 30ch</span></div>
+      </div>
+      <div class="sy__t">
+        <div class="sy__tk"><b>Body</b><code>.tx</code></div>
+        <div class="sy__ts"><span class="tx">Every membership opens the whole floor.</span></div>
+        <div class="sy__tm"><span>Epilogue 400</span><span>16.5px</span><span>line 1.62</span>
+          <span>tracking 0</span><span>measure 56ch</span></div>
+      </div>
+      <div class="sy__t">
+        <div class="sy__tk"><b>Small</b><code>.rec-i</code></div>
+        <div class="sy__ts"><span class="rec-i">VERIFIED 10 AUG 2026</span></div>
+        <div class="sy__tm"><span>Epilogue 400</span><span>13px</span><span>line 1.62</span>
+          <span>tracking .14em</span><span>measure 40ch</span></div>
+      </div></div>
+  <p class="sy__note">Two families, and every figure that is money or data is set with
+  <code>font-variant-numeric: tabular-nums</code> so columns of prices line up.</p>
+</div></section>
+
+<section class="sec sy" id="frame"><div class="w">
+  <h2 class="an a2 sy__h">04 &nbsp; The page and its frame</h2>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>Thing</th><th>Token</th><th>Value</th><th>Rule</th></tr></thead>
+    <tbody><tr><td><b>Shell</b></td><td><code>--shell</code></td><td><code>1760px</code></td><td>The maximum line the page is allowed to occupy.</td></tr><tr><td><b>Gutter</b></td><td><code>--pad</code></td><td><code>clamp(20px,3.5vw,72px)</code></td><td>Page inset. Drops to 18px under 760px and 15px under 380px.</td></tr><tr><td><b>Container</b></td><td><code>.w</code></td><td><code>min(100% - 2*var(--pad), var(--shell))</code></td><td>Every section body sits in one of these. Full-bleed elements opt out deliberately.</td></tr><tr><td><b>Section rhythm</b></td><td><code>.sec</code></td><td><code>clamp(52px,7.5vw,128px)</code></td><td>Vertical padding on a normal section. 48 to 56px on a phone.</td></tr><tr><td><b>Breakpoints</b></td><td><code></code></td><td><code>1180 · 1000 · 820 · 760 · 380</code></td><td>760 is where the phone layout starts. 780 is where the burger appears.</td></tr><tr><td><b>Radius ceiling</b></td><td><code></code></td><td><code>0</code></td><td>Nothing on this direction is rounded. There is no exception.</td></tr><tr><td><b>Shadow</b></td><td><code></code></td><td><code>none</code></td><td>Depth comes from hairlines and surfaces, never from a blur.</td></tr></tbody>
+  </table></div>
+  <div class="sy__frame" aria-hidden="true"><span>gutter</span><div><span>container</span></div><span>gutter</span></div>
+</div></section>
+
+<section class="sec sy" id="motion"><div class="w">
+  <h2 class="an a2 sy__h">05 &nbsp; Motion budget</h2>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>Thing</th><th>Token</th><th>Value</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td><b>Easing</b></td><td><code>--ez</code></td><td><code>cubic-bezier(.2,.72,.3,1)</code></td><td>One curve. Nothing on this direction uses a second.</td></tr>
+      <tr><td><b>Duration</b></td><td></td><td><code>200 to 280ms on colour, 500 to 600ms on image</code></td><td>Colour is fast, geometry is slow, nothing exceeds 900ms.</td></tr>
+      <tr><td><b>Signature</b></td><td></td><td></td><td>a plan card lifting five pixels onto a yellow edge</td></tr>
+      <tr><td><b>Reveal</b></td><td><code>[data-rv]</code></td><td><code>26px rise, 80ms stagger via --i</code></td><td>Fires once at 88% of the viewport. Dies under prefers-reduced-motion.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="sec sy" id="buttons"><div class="w">
+  <h2 class="an a2 sy__h">06 &nbsp; Buttons, in every state</h2>
+  <div class="sy__states">
+    <div class="sy__st"><span class="sy__lb">Primary, rest</span><a class="bt bt--y" href="tel:+355694553486">Enquire</a></div>
+    <div class="sy__st"><span class="sy__lb">Primary, hover</span><a class="bt bt--y is-hover" href="tel:+355694553486">Enquire</a></div>
+    <div class="sy__st"><span class="sy__lb">Primary, focus</span><a class="bt bt--y is-focus" href="tel:+355694553486">Enquire</a></div>
+    <div class="sy__st"><span class="sy__lb">Secondary, rest</span><a class="bt bt--o" href="tel:+355694553486">Directions</a></div>
+    <div class="sy__st"><span class="sy__lb">Secondary, hover</span><a class="bt bt--o is-hover" href="tel:+355694553486">Directions</a></div>
+    <div class="sy__st"><span class="sy__lb">Secondary, focus</span><a class="bt bt--o is-focus" href="tel:+355694553486">Directions</a></div>
+    <div class="sy__st sy__st--wide"><span class="sy__lb">Full width, under 760px</span>
+      <div class="sy__mob"><a class="bt bt--y" href="tel:+355694553486">Call +355 69 455 3486</a></div></div>
+    <div class="sy__st sy__st--wide"><span class="sy__lb">Long label, wrapping</span>
+      <div class="sy__narrow"><a class="bt bt--o" href="tel:+355694553486">Book a first session and a body composition check</a></div></div>
+    <div class="sy__st"><span class="sy__lb">Inverted, on the accent band</span>
+      <a class="bt bt--y bt--inv" href="tel:+355694553486">Call the gym</a></div>
+  </div>
+  <p class="sy__note">Minimum 52px tall, 44px hit height everywhere including the nav. Buttons are
+  links to <code>tel:</code> throughout this proposal; there is no form yet.</p>
+</div></section>
+
+<section class="sec sy" id="nav"><div class="w">
+  <h2 class="an a2 sy__h">07 &nbsp; Navigation</h2>
+  <div class="sy__navdemo">
+    <div class="sy__nav">
+      <nav class="nav__l">
+        <a href="#nav">Rest</a><a href="#nav" class="is-hover">Hover</a>
+        <a href="#nav" class="is-here" aria-current="page">Current</a><a href="#nav" class="is-focus">Focus</a>
+      </nav>
+    </div></div>
+  <p class="sy__note">Desktop items are 16.5px with a 44px hit height and a 20px minimum gap.
+  Under 780px the list is replaced by the burger and the bar carries the logo only.</p>
+</div></section>
+
+<section class="sec sy" id="components"><div class="w">
+  <h2 class="an a2 sy__h">08 &nbsp; Repeating components</h2>
+  
+  <div class="sy__cmp"><span class="sy__lb">Plan card &mdash; the pricing device, rest / hovered / cheapest</span>
+    <div class="mtable sy__mtable">
+      <div class="mrow"><div class="mrow__id"><b>Monthly</b><span>Rolling. Stop whenever you stop.</span></div>
+        <div class="mrow__sticker">3 000<i>Lek&euml; a month</i></div>
+        <div class="mrow__calc"><div class="mrow__tot"><em>9 000</em><span>Lek&euml; in total</span></div>
+        <div class="mrow__per"><em>231</em><span>Lek&euml; a session</span></div></div>
+        <div class="mrow__flag"></div><a class="bt bt--o mrow__go" href="tel:+355694553486">Enquire</a></div>
+      <div class="mrow is-hover"><div class="mrow__id"><b>Quarterly</b><span>Three months, paid once.</span></div>
+        <div class="mrow__sticker">7 500<i>Lek&euml; a quarter</i></div>
+        <div class="mrow__calc"><div class="mrow__tot"><em>7 500</em><span>Lek&euml; in total</span></div>
+        <div class="mrow__per"><em>192</em><span>Lek&euml; a session</span></div></div>
+        <div class="mrow__flag"></div><a class="bt bt--o mrow__go" href="tel:+355694553486">Enquire</a></div>
+      <div class="mrow is-best"><div class="mrow__id"><b>Annual</b><span>Twelve months, paid once.</span></div>
+        <div class="mrow__sticker">24 000<i>Lek&euml; a year</i></div>
+        <div class="mrow__calc"><div class="mrow__tot"><em>24 000</em><span>Lek&euml; in total</span></div>
+        <div class="mrow__per"><em>154</em><span>Lek&euml; a session</span></div></div>
+        <div class="mrow__flag">Cheapest</div><a class="bt bt--o mrow__go" href="tel:+355694553486">Enquire</a></div>
+    </div>
+  </div>
+  <div class="sy__cmp"><span class="sy__lb">Mosaic tile &mdash; rest and hovered</span>
+    <div class="mos sy__mos">
+      <a class="mos__c" href="#components"><img src="img/a-s.webp" alt=""><b>01</b><p>The main floor</p></a>
+      <a class="mos__c is-hover" href="#components"><img src="img/b-s.webp" alt=""><b>02</b><p>Free weights</p></a>
+    </div>
+  </div>
+  <div class="sy__cmp"><span class="sy__lb">Marquee &mdash; the running band</span>
+    <div class="mq" aria-hidden="true"><div class="mq__t">
+      <span>Rruga Glaukia 17 &#10022;</span><span>Open 09:00 to 22:00 &#10022;</span>
+      <span>Rruga Glaukia 17 &#10022;</span><span>Open 09:00 to 22:00 &#10022;</span></div></div>
+  </div>
+</div></section>
+
+<section class="sec sy" id="accordion"><div class="w">
+  <h2 class="an a2 sy__h">09 &nbsp; The accordion, closed and open</h2>
+  <div class="yacs">
+    <details class="yac"><summary><span>Closed, at rest</span></summary>
+      <div class="yac__b">The answer sits here.</div></details>
+    <details class="yac" open><summary><span>Open</span></summary>
+      <div class="yac__b">Native <code>&lt;details&gt;</code>. No library, no JavaScript, and it works
+      before the stylesheet loads.</div></details>
+    <details class="yac"><summary><span>A question long enough to run onto a second line on a narrow screen, which is the state that finds the bugs</span></summary>
+      <div class="yac__b">The marker holds its position and the text wraps under itself.</div></details>
+  </div>
+</div></section>
+
+<section class="sec sy" id="numbers"><div class="w">
+  <h2 class="an a2 sy__h">10 &nbsp; Numbers and money</h2>
+  <div class="sy__nums">
+    <div><span class="sy__lb">Price, large</span><div class="sy__n1">3 000<i>Lek&euml; a month</i></div></div>
+    <div><span class="sy__lb">Price, four figures</span><div class="sy__n1">24 000<i>Lek&euml; a year</i></div></div>
+    <div><span class="sy__lb">Sequence numeral</span><div class="sy__n2">01</div></div>
+    <div><span class="sy__lb">Outlined numeral</span><div class="sy__n2 sy__n2--o">07</div></div>
+    <div><span class="sy__lb">Data figure</span><div class="sy__n3">5.0<em>from 113 reviews</em></div></div>
+  </div>
+  <p class="sy__note">Money is grouped with a space, never a comma, because Albanian formatting uses
+  a space and the client's own site does. Every figure is tabular so a column of them aligns.</p>
+</div></section>
+
+<section class="sec sy" id="images"><div class="w">
+  <h2 class="an a2 sy__h">11 &nbsp; Photography</h2>
+  <div class="sy__img">
+    <figure><img src="img/a-s.webp" alt=""><figcaption>At rest</figcaption></figure>
+    <figure class="is-hover"><img src="img/a-s.webp" alt=""><figcaption>Hovered</figcaption></figure>
+  </div>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>Thing</th><th>Token</th><th>Value</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td><b>Filter</b></td><td></td><td><code>grayscale(.4) sepia(.16) contrast(1.06), clearing to grayscale(0) sepia(0) on hover</code></td><td>One recipe. A photograph never appears untreated.</td></tr>
+      <tr><td><b>Ratios</b></td><td></td><td><code>1/1 and 16/9 in the mosaic, fixed 168px rows in the disciplines grid</code></td><td>Stated per component, never left to the file.</td></tr>
+      <tr><td><b>Overlay</b></td><td></td><td><code>linear-gradient(180deg,rgba(16,15,13,.35),transparent 32%,rgba(16,15,13,.92))</code></td><td>So a label can always be read over any photograph.</td></tr>
+      <tr><td><b>Sourcing</b></td><td></td><td><code>placeholder stock</code></td><td>Replaced by the client's own archive before this goes live.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="sec sy" id="inventory"><div class="w">
+  <h2 class="an a2 sy__h">12 &nbsp; Component inventory</h2>
+  <p class="tx sy__p">Purpose in one sentence each. Two rows with the same sentence would be one
+  component, and there are none.</p>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>Component</th><th>Purpose</th><th>Variants</th><th>Appears on</th></tr></thead>
+    <tbody><tr><td><code>.bt / .bt--y</code></td><td>The single most important action on the current surface</td><td>full width under 760px</td><td>home, memberships, system</td></tr><tr><td><code>.bt--o</code></td><td>An alternative action that must not compete with the primary</td><td>inside a card, inside a plan row</td><td>home, memberships, system</td></tr><tr><td><code>.nav__l a</code></td><td>Move between the pages of the site</td><td>current page</td><td>every page</td></tr><tr><td><code>.yac</code></td><td>Hold one answer until a visitor asks for it</td><td>open</td><td>memberships</td></tr><tr><td><code>.mhd / .hd / .sh</code></td><td>Open a section with its heading and, when it earns it, one line of copy</td><td>none</td><td>every page</td></tr><tr><td><code>the price</code></td><td>State one figure so its face and its tabular numerals are decided once</td><td>large on the plan, small in a row</td><td>memberships</td></tr><tr><td><code>the photographic plate</code></td><td>Show the room, always under the same filter and gradient</td><td>by aspect ratio</td><td>home, memberships</td></tr><tr><td><code>the footer</code></td><td>Close every page with the same four columns and the same disclosure</td><td>none</td><td>every page</td></tr></tbody>
+  </table></div>
+</div></section>
+
+<section class="sec sy" id="oneedit"><div class="w">
+  <h2 class="an a2 sy__h">13 &nbsp; The one-edit test</h2>
+  <p class="tx sy__p">If a change costs more than one edit, the system is wrong and every future
+  request carries the same tax. Answered honestly.</p>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>The request</th><th>Places to edit</th></tr></thead>
+    <tbody><tr><td>Make every primary button red</td><td>1 &mdash; the <code>.bt--y</code> rule in app.css</td></tr><tr><td>Change the accent</td><td>1 &mdash; the accent token in <code>:root</code></td></tr><tr><td>Change the body typeface</td><td>1 &mdash; the <code>@font-face</code> and the <code>body</code> rule</td></tr><tr><td>Change the page width</td><td>1 &mdash; <code>--shell</code></td></tr><tr><td>Change the page gutter</td><td>3 &mdash; <code>--pad</code> plus its two phone overrides, which is the point of the overrides</td></tr><tr><td>Change how a price is set</td><td>1 per surface it appears on, and it appears on one</td></tr></tbody>
+  </table></div>
+</div></section>
+
+<footer class="sy__foot"><div class="w">
+  <p>Blast &amp; Burn, direction nine. Guideline page, not part of the site a visitor sees.
+  <a href="index.html">Home</a> &middot; <a href="memberships.html">Memberships</a></p>
+</div></footer>
+
+<script src="motion.js" defer></script>
+</body>
+</html>

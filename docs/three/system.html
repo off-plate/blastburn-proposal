@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design system. Blast &amp; Burn, direction three</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preload" href="fonts/montserrat-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="mem.css">
+<link rel="stylesheet" href="system.css">
+<noscript><style>[data-rv]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body class="sysdoc">
+
+<header class="sy__top">
+  <div class="c">
+    <a class="sy__back" href="index.html">&larr; Direction three</a>
+    <h1 class="t2">Brand and web guideline</h1>
+    <p class="lead sy__lede">Every token and every component this direction uses, in every state,
+    on one page. It loads the same <code>app.css</code> and <code>mem.css</code> the site loads, so what is
+    below is the shipping component rather than a drawing of it. Change a rule and this page changes.</p>
+  </div>
+</header>
+
+<section class="s sy" id="provenance"><div class="c">
+  <h2 class="t2 sy__h">01 &nbsp; Where this came from</h2>
+  <p class="lead sy__p">The ground is near-black because the reference photography is cinematic and underlit, and the sand accent is sampled from the warm dust in it rather than chosen. Montserrat 800 carries the display because the whole direction is built on split panels where the type has to hold a hard edge; Poppins 300 sits under it so body copy never competes.</p>
+  <p class="lead sy__p"><b>Pricing idea:</b> Three fullscreen panels, one per plan, the hero's own device applied to money. No other direction uses it.</p>
+</div></section>
+
+<section class="s sy" id="colour"><div class="c">
+  <h2 class="t2 sy__h">02 &nbsp; Colour, as roles</h2>
+  <p class="lead sy__p">A palette is not a system. Each token below says what it means, so a new
+  component has exactly one correct answer. Contrast is computed against the surface the token is
+  actually read on, not eyeballed and not against a ground it never sits on. A surface has no
+  contrast requirement of its own; what sits on it does.</p>
+  <div class="sy__scroll"><table class="sx">
+    <thead><tr><th>Token</th><th>Value</th><th>Means</th><th>Never used for</th><th>On the ground</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sx__c" style="background:#0A0A0B"></span><code>--n</code></td><td><code>#0A0A0B</code></td>
+      <td>The ground. Every page starts here.</td><td class="sx__n">text, or a raised surface</td><td><span class="sx__r sx__r--x">surface</span></td></tr>
+      <tr><td><span class="sx__c" style="background:#121214"></span><code>--n2</code></td><td><code>#121214</code></td>
+      <td>The one raised surface: panel interiors, the drawer.</td><td class="sx__n">large areas of page</td><td><span class="sx__r sx__r--x">surface</span></td></tr>
+      <tr><td><span class="sx__c" style="background:#F4F2EF"></span><code>--w</code></td><td><code>#F4F2EF</code></td>
+      <td>Primary text, and the fill a ghost button takes on hover.</td><td class="sx__n">decoration</td><td><span class="sx__r">17.7:1 <em>AAA</em></span><span class="sx__on">on <code>#0A0A0B</code></span></td></tr>
+      <tr><td><span class="sx__c" style="background:#9C9894"></span><code>--w-dim</code></td><td><code>#9C9894</code></td>
+      <td>Secondary text: body copy, captions, meta.</td><td class="sx__n">headings or numbers</td><td><span class="sx__r">6.9:1 <em>AA</em></span><span class="sx__on">on <code>#0A0A0B</code></span></td></tr>
+      <tr><td><span class="sx__c" style="background:#C6A98B"></span><code>--sand</code></td><td><code>#C6A98B</code></td>
+      <td>The single accent. The live thing, the open thing, money.</td><td class="sx__n">large fills, body text</td><td><span class="sx__r">8.9:1 <em>AAA</em></span><span class="sx__on">on <code>#0A0A0B</code></span></td></tr>
+      <tr><td><span class="sx__c" style="background:#8A7660"></span><code>--sand-lo</code></td><td><code>#8A7660</code></td>
+      <td>Sand held back: table keys, small labels on the ground.</td><td class="sx__n">anything interactive</td><td><span class="sx__r">4.6:1 <em>AA</em></span><span class="sx__on">on <code>#0A0A0B</code></span></td></tr>
+      <tr><td><span class="sx__c sx__c--a" style="background:rgba(244,242,239,.16)"></span><code>--hair</code></td><td><code>rgba(244,242,239,.16)</code></td>
+      <td>Separators and panel splits.</td><td class="sx__n">borders that carry meaning</td><td><span class="sx__r sx__r--x">hairline</span></td></tr>
+      <tr><td><span class="sx__c sx__c--a" style="background:rgba(244,242,239,.32)"></span><code>--hair2</code></td><td><code>rgba(244,242,239,.32)</code></td>
+      <td>The resting edge of an outlined control.</td><td class="sx__n">separators</td><td><span class="sx__r sx__r--x">hairline</span></td></tr></tbody>
+  </table></div>
+  <p class="sy__note">One accent, never a gradient. Secondary text is the only grey; there is no
+  second accent hiding as a colour.</p>
+</div></section>
+
+<section class="s sy" id="type"><div class="c">
+  <h2 class="t2 sy__h">03 &nbsp; Type, as roles</h2>
+  <div class="sy__ty">
+      <div class="sy__t">
+        <div class="sy__tk"><b>Display 1</b><code>.t1</code></div>
+        <div class="sy__ts"><span class="t1">Memberships</span></div>
+        <div class="sy__tm"><span>Montserrat 800</span><span>clamp(40px,7vw,116px)</span><span>line .92</span>
+          <span>tracking -.02em</span><span>measure 16ch</span></div>
+      </div>
+      <div class="sy__t">
+        <div class="sy__tk"><b>Display 2</b><code>.t2</code></div>
+        <div class="sy__ts"><span class="t2">What a membership opens</span></div>
+        <div class="sy__tm"><span>Montserrat 800</span><span>clamp(26px,3.6vw,58px)</span><span>line 1.0</span>
+          <span>tracking -.015em</span><span>measure 20ch</span></div>
+      </div>
+      <div class="sy__t">
+        <div class="sy__tk"><b>Heading</b><code>.h.h3</code></div>
+        <div class="sy__ts"><span class="h h3">Personal training</span></div>
+        <div class="sy__tm"><span>Montserrat 700</span><span>clamp(17px,1.5vw,22px)</span><span>line 1.02</span>
+          <span>tracking -.005em</span><span>measure 30ch</span></div>
+      </div>
+      <div class="sy__t">
+        <div class="sy__tk"><b>Body</b><code>.lead</code></div>
+        <div class="sy__ts"><span class="lead">Three ways to pay for the same gym.</span></div>
+        <div class="sy__tm"><span>Poppins 300</span><span>clamp(16px,1.15vw,18px)</span><span>line 1.7</span>
+          <span>tracking 0</span><span>measure 56ch</span></div>
+      </div>
+      <div class="sy__t">
+        <div class="sy__tk"><b>Small</b><code>.eb</code></div>
+        <div class="sy__ts"><span class="eb">STRENGTH</span></div>
+        <div class="sy__tm"><span>Poppins 400</span><span>13px</span><span>line 1.7</span>
+          <span>tracking .22em</span><span>measure 40ch</span></div>
+      </div></div>
+  <p class="sy__note">Two families, and every figure that is money or data is set with
+  <code>font-variant-numeric: tabular-nums</code> so columns of prices line up.</p>
+</div></section>
+
+<section class="s sy" id="frame"><div class="c">
+  <h2 class="t2 sy__h">04 &nbsp; The page and its frame</h2>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>Thing</th><th>Token</th><th>Value</th><th>Rule</th></tr></thead>
+    <tbody><tr><td><b>Shell</b></td><td><code>--shell</code></td><td><code>1760px</code></td><td>The maximum line the page is allowed to occupy.</td></tr><tr><td><b>Gutter</b></td><td><code>--pad</code></td><td><code>clamp(20px,3.5vw,72px)</code></td><td>Page inset. Drops to 18px under 760px and 15px under 380px.</td></tr><tr><td><b>Container</b></td><td><code>.c</code></td><td><code>min(100% - 2*var(--pad), var(--shell))</code></td><td>Every section body sits in one of these. Full-bleed elements opt out deliberately.</td></tr><tr><td><b>Section rhythm</b></td><td><code>.s</code></td><td><code>clamp(52px,7.5vw,128px)</code></td><td>Vertical padding on a normal section. 48 to 56px on a phone.</td></tr><tr><td><b>Breakpoints</b></td><td><code></code></td><td><code>1180 · 1000 · 820 · 760 · 380</code></td><td>760 is where the phone layout starts. 780 is where the burger appears.</td></tr><tr><td><b>Radius ceiling</b></td><td><code></code></td><td><code>0</code></td><td>Nothing on this direction is rounded. There is no exception.</td></tr><tr><td><b>Shadow</b></td><td><code></code></td><td><code>none</code></td><td>Depth comes from hairlines and surfaces, never from a blur.</td></tr></tbody>
+  </table></div>
+  <div class="sy__frame" aria-hidden="true"><span>gutter</span><div><span>container</span></div><span>gutter</span></div>
+</div></section>
+
+<section class="s sy" id="motion"><div class="c">
+  <h2 class="t2 sy__h">05 &nbsp; Motion budget</h2>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>Thing</th><th>Token</th><th>Value</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td><b>Easing</b></td><td><code>--ez</code></td><td><code>cubic-bezier(.2,.7,.3,1)</code></td><td>One curve. Nothing on this direction uses a second.</td></tr>
+      <tr><td><b>Duration</b></td><td></td><td><code>250ms on colour, 450 to 900ms on scale and reveal</code></td><td>Colour is fast, geometry is slow, nothing exceeds 900ms.</td></tr>
+      <tr><td><b>Signature</b></td><td></td><td></td><td>the panel photograph scaling to 1.05 while its ghost numeral inks in sand</td></tr>
+      <tr><td><b>Reveal</b></td><td><code>[data-rv]</code></td><td><code>26px rise, 80ms stagger via --i</code></td><td>Fires once at 88% of the viewport. Dies under prefers-reduced-motion.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="s sy" id="buttons"><div class="c">
+  <h2 class="t2 sy__h">06 &nbsp; Buttons, in every state</h2>
+  <div class="sy__states">
+    <div class="sy__st"><span class="sy__lb">Primary, rest</span><a class="b b--s" href="tel:+355694553486">Enquire</a></div>
+    <div class="sy__st"><span class="sy__lb">Primary, hover</span><a class="b b--s is-hover" href="tel:+355694553486">Enquire</a></div>
+    <div class="sy__st"><span class="sy__lb">Primary, focus</span><a class="b b--s is-focus" href="tel:+355694553486">Enquire</a></div>
+    <div class="sy__st"><span class="sy__lb">Secondary, rest</span><a class="b b--o" href="tel:+355694553486">Directions</a></div>
+    <div class="sy__st"><span class="sy__lb">Secondary, hover</span><a class="b b--o is-hover" href="tel:+355694553486">Directions</a></div>
+    <div class="sy__st"><span class="sy__lb">Secondary, focus</span><a class="b b--o is-focus" href="tel:+355694553486">Directions</a></div>
+    <div class="sy__st sy__st--wide"><span class="sy__lb">Full width, under 760px</span>
+      <div class="sy__mob"><a class="b b--s" href="tel:+355694553486">Call +355 69 455 3486</a></div></div>
+    <div class="sy__st sy__st--wide"><span class="sy__lb">Long label, wrapping</span>
+      <div class="sy__narrow"><a class="b b--o" href="tel:+355694553486">Book a first session and a body composition check</a></div></div>
+    
+  </div>
+  <p class="sy__note">Minimum 52px tall, 44px hit height everywhere including the nav. Buttons are
+  links to <code>tel:</code> throughout this proposal; there is no form yet.</p>
+</div></section>
+
+<section class="s sy" id="nav"><div class="c">
+  <h2 class="t2 sy__h">07 &nbsp; Navigation</h2>
+  <div class="sy__navdemo">
+    <div class="sy__nav">
+      <nav class="top__n">
+        <a href="#nav">Rest</a><a href="#nav" class="is-hover">Hover</a>
+        <a href="#nav" class="is-here" aria-current="page">Current</a><a href="#nav" class="is-focus">Focus</a>
+      </nav>
+    </div></div>
+  <p class="sy__note">Desktop items are 16.5px with a 44px hit height and a 20px minimum gap.
+  Under 780px the list is replaced by the burger and the bar carries the logo only.</p>
+</div></section>
+
+<section class="s sy" id="components"><div class="c">
+  <h2 class="t2 sy__h">08 &nbsp; Repeating components</h2>
+  
+  <div class="sy__cmp"><span class="sy__lb">Plan panel &mdash; the pricing device, rest and open</span>
+    <div class="pstage sy__pstage">
+      <article class="ppan"><img class="ppan__img" src="img/p1-s.webp" alt=""><span class="ppan__no">01</span>
+        <div class="ppan__in"><h3 class="h ppan__t">Monthly</h3>
+          <div class="ppan__p">3 000<i>Lek&euml; a month</i></div>
+          <p class="ppan__d">Rolling. Stop whenever you stop.</p>
+          <p class="ppan__h">The only sensible way in until you know you will come back.</p>
+          <div class="ppan__l"><ul><li>CrossFit</li><li>HIIT</li></ul></div>
+          <a class="b b--o ppan__go" href="tel:+355694553486">Enquire</a></div></article>
+      <article class="ppan is-hover"><img class="ppan__img" src="img/p2-s.webp" alt=""><span class="ppan__no">02</span>
+        <div class="ppan__in"><h3 class="h ppan__t">Quarterly</h3>
+          <div class="ppan__p">7 500<i>Lek&euml; a quarter</i></div>
+          <p class="ppan__d">Three months, paid once.</p>
+          <p class="ppan__h">Cheaper than three monthly payments from the day you buy it.</p>
+          <div class="ppan__l"><ul><li>CrossFit</li><li>HIIT</li></ul></div>
+          <a class="b b--o ppan__go" href="tel:+355694553486">Enquire</a></div></article>
+    </div>
+  </div>
+  <div class="sy__cmp"><span class="sy__lb">Photographic plate &mdash; the spread unit</span>
+    <div class="spread sy__spread">
+      <figure class="sp__f sp__f--3"><img src="img/climb-s.webp" alt=""><span class="sp__no">01</span>
+        <figcaption><b>CrossFit</b><span>Functional strength and conditioning in a group.</span></figcaption></figure>
+      <figure class="sp__f sp__f--3 is-hover"><img src="img/grip-s.webp" alt=""><span class="sp__no">02</span>
+        <figcaption><b>HIIT</b><span>Short rounds at full effort against measured rest.</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="sy__cmp"><span class="sy__lb">Extra &mdash; a service booked separately</span>
+    <div class="xt"><div class="xtw"><span class="xtw__p">1 500</span><h3 class="h">Personal training</h3>
+      <p>One coach, one plan, technique corrected as it happens.</p>
+      <div class="xtw__m">1 500 Lek&euml; a session</div>
+      <a class="b b--o" href="tel:+355694553486">Ask</a></div></div>
+  </div>
+</div></section>
+
+<section class="s sy" id="accordion"><div class="c">
+  <h2 class="t2 sy__h">09 &nbsp; The accordion, closed and open</h2>
+  <div class="acs">
+    <details class="ac"><summary><span>Closed, at rest</span></summary>
+      <div class="ac__b">The answer sits here.</div></details>
+    <details class="ac" open><summary><span>Open</span></summary>
+      <div class="ac__b">Native <code>&lt;details&gt;</code>. No library, no JavaScript, and it works
+      before the stylesheet loads.</div></details>
+    <details class="ac"><summary><span>A question long enough to run onto a second line on a narrow screen, which is the state that finds the bugs</span></summary>
+      <div class="ac__b">The marker holds its position and the text wraps under itself.</div></details>
+  </div>
+</div></section>
+
+<section class="s sy" id="numbers"><div class="c">
+  <h2 class="t2 sy__h">10 &nbsp; Numbers and money</h2>
+  <div class="sy__nums">
+    <div><span class="sy__lb">Price, large</span><div class="sy__n1">3 000<i>Lek&euml; a month</i></div></div>
+    <div><span class="sy__lb">Price, four figures</span><div class="sy__n1">24 000<i>Lek&euml; a year</i></div></div>
+    <div><span class="sy__lb">Sequence numeral</span><div class="sy__n2">01</div></div>
+    <div><span class="sy__lb">Outlined numeral</span><div class="sy__n2 sy__n2--o">07</div></div>
+    <div><span class="sy__lb">Data figure</span><div class="sy__n3">5.0<em>from 113 reviews</em></div></div>
+  </div>
+  <p class="sy__note">Money is grouped with a space, never a comma, because Albanian formatting uses
+  a space and the client's own site does. Every figure is tabular so a column of them aligns.</p>
+</div></section>
+
+<section class="s sy" id="images"><div class="c">
+  <h2 class="t2 sy__h">11 &nbsp; Photography</h2>
+  <div class="sy__img">
+    <figure><img src="img/p1-s.webp" alt=""><figcaption>At rest</figcaption></figure>
+    <figure class="is-hover"><img src="img/p1-s.webp" alt=""><figcaption>Hovered</figcaption></figure>
+  </div>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>Thing</th><th>Token</th><th>Value</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td><b>Filter</b></td><td></td><td><code>grayscale(1) contrast(1.08) brightness(.72), lifting to grayscale(0) contrast(1.02) brightness(.92) on hover</code></td><td>One recipe. A photograph never appears untreated.</td></tr>
+      <tr><td><b>Ratios</b></td><td></td><td><code>4/5, 3/4, 1/1, 4/3, 16/10, 32/9</code></td><td>Stated per component, never left to the file.</td></tr>
+      <tr><td><b>Overlay</b></td><td></td><td><code>linear-gradient(180deg,transparent 34%,rgba(10,10,11,.9))</code></td><td>So a label can always be read over any photograph.</td></tr>
+      <tr><td><b>Sourcing</b></td><td></td><td><code>placeholder stock</code></td><td>Replaced by the client's own archive before this goes live.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="s sy" id="inventory"><div class="c">
+  <h2 class="t2 sy__h">12 &nbsp; Component inventory</h2>
+  <p class="lead sy__p">Purpose in one sentence each. Two rows with the same sentence would be one
+  component, and there are none.</p>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>Component</th><th>Purpose</th><th>Variants</th><th>Appears on</th></tr></thead>
+    <tbody><tr><td><code>.b / .b--s</code></td><td>The single most important action on the current surface</td><td>full width under 760px</td><td>home, memberships, system</td></tr><tr><td><code>.b--o</code></td><td>An alternative action that must not compete with the primary</td><td>inside a card, inside a plan row</td><td>home, memberships, system</td></tr><tr><td><code>.top__n a</code></td><td>Move between the pages of the site</td><td>current page</td><td>every page</td></tr><tr><td><code>.ac</code></td><td>Hold one answer until a visitor asks for it</td><td>open</td><td>memberships</td></tr><tr><td><code>.mhd / .hd / .sh</code></td><td>Open a section with its heading and, when it earns it, one line of copy</td><td>none</td><td>every page</td></tr><tr><td><code>the price</code></td><td>State one figure so its face and its tabular numerals are decided once</td><td>large on the plan, small in a row</td><td>memberships</td></tr><tr><td><code>the photographic plate</code></td><td>Show the room, always under the same filter and gradient</td><td>by aspect ratio</td><td>home, memberships</td></tr><tr><td><code>the footer</code></td><td>Close every page with the same four columns and the same disclosure</td><td>none</td><td>every page</td></tr></tbody>
+  </table></div>
+</div></section>
+
+<section class="s sy" id="oneedit"><div class="c">
+  <h2 class="t2 sy__h">13 &nbsp; The one-edit test</h2>
+  <p class="lead sy__p">If a change costs more than one edit, the system is wrong and every future
+  request carries the same tax. Answered honestly.</p>
+  <div class="sy__scroll"><table class="sx sx--2">
+    <thead><tr><th>The request</th><th>Places to edit</th></tr></thead>
+    <tbody><tr><td>Make every primary button red</td><td>1 &mdash; the <code>.b--s</code> rule in app.css</td></tr><tr><td>Change the accent</td><td>1 &mdash; the accent token in <code>:root</code></td></tr><tr><td>Change the body typeface</td><td>1 &mdash; the <code>@font-face</code> and the <code>body</code> rule</td></tr><tr><td>Change the page width</td><td>1 &mdash; <code>--shell</code></td></tr><tr><td>Change the page gutter</td><td>3 &mdash; <code>--pad</code> plus its two phone overrides, which is the point of the overrides</td></tr><tr><td>Change how a price is set</td><td>1 per surface it appears on, and it appears on one</td></tr></tbody>
+  </table></div>
+</div></section>
+
+<footer class="sy__foot"><div class="c">
+  <p>Blast &amp; Burn, direction three. Guideline page, not part of the site a visitor sees.
+  <a href="index.html">Home</a> &middot; <a href="memberships.html">Memberships</a></p>
+</div></footer>
+
+<script src="motion.js" defer></script>
+</body>
+</html>

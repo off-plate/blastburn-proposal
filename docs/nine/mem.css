@@ -23,7 +23,7 @@
 .mbtn{font-family:'Ant',sans-serif;text-transform:uppercase;font-size:17px;letter-spacing:.04em;
   min-height:46px;padding:11px 20px;border:2px solid var(--ln);color:var(--cr-d);
   transition:background .2s var(--ez),color .2s var(--ez),border-color .2s var(--ez)}
-.mbtn:hover{border-color:var(--cr);color:var(--cr)}
+.mbtn:hover,.mbtn.is-hover{border-color:var(--cr);color:var(--cr)}
 .mbtn.is-on{background:var(--yel);border-color:var(--yel);color:var(--ink)}
 
 .mverdict{font-size:clamp(16.5px,1.4vw,20px);color:var(--cr-d);max-width:64ch;
@@ -37,8 +37,8 @@
 .mrow{position:relative;background:var(--teal3);border:2px solid transparent;
   display:grid;gap:14px;align-content:start;padding:clamp(20px,2.2vw,28px);overflow:hidden;
   transition:border-color .25s var(--ez),background .25s var(--ez),transform .25s var(--ez)}
-.mrow:hover{border-color:var(--yel);transform:translateY(-5px)}
-.mrow:hover .mrow__id b{color:var(--yel)}
+.mrow:hover,.mrow.is-hover{border-color:var(--yel);transform:translateY(-5px)}
+.mrow:hover .mrow__id b,.mrow.is-hover .mrow__id b{color:var(--yel)}
 .mrow__id b{transition:color .25s var(--ez)}
 .mrow.is-best{border-color:var(--yel)}
 .mrow__id b{display:block;font-family:'Ant',sans-serif;text-transform:uppercase;
@@ -97,8 +97,10 @@
 .mpromo__in>div{flex:1 1 320px}
 .mpromo__in b{display:block;font-family:'Ant',sans-serif;text-transform:uppercase;font-size:clamp(22px,2.1vw,32px)}
 .mpromo__in p{font-size:14.5px;color:rgba(15,20,18,.74);max-width:58ch;margin-top:4px}
-.mpromo .bt--y{background:var(--ink);color:var(--yel)}
-.mpromo .bt--y:hover{background:var(--teal3)}
+/* the inverted variant: same button, ink on gold instead of gold on ink,
+   for the one place the button sits on the accent itself */
+.bt--inv{background:var(--ink);color:var(--yel)}
+.bt--inv:hover,.bt--inv.is-hover{background:var(--teal3)}
 
 .mcta .tx{margin-top:16px}
 .mcta__b{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
@@ -165,8 +167,8 @@
 .yac summary::-webkit-details-marker{display:none}
 .yac summary span{flex:1;font-family:'Ant',sans-serif;text-transform:uppercase;
   font-size:clamp(17px,1.6vw,23px);letter-spacing:.02em;transition:color .25s var(--ez)}
-.yac summary:hover{background:var(--teal3)}
-.yac summary:hover span,.yac[open] summary span{color:var(--yel)}
+.yac summary:hover,.yac summary.is-hover{background:var(--teal3)}
+.yac summary:hover span,.yac[open] summary span,.yac summary.is-hover span{color:var(--yel)}
 /* the badge */
 .yac summary::after{content:'';width:26px;height:26px;border-radius:50%;flex:none;
   border:2px solid var(--yel);background:transparent;
@@ -189,7 +191,7 @@
   @keyframes yin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 }
 @media (max-width:760px){
-  .mrow:hover{transform:none}
+  .mrow:hover,.mrow.is-hover{transform:none}
   .yac summary{padding:15px 14px;gap:14px}
   .yac summary span{font-size:17px}
   .yac summary::before{right:calc(14px + 6px)}

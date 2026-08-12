@@ -18,7 +18,7 @@
 .ppan:last-child{border-right:0}
 .ppan__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
   filter:brightness(.42) grayscale(.4);transition:scale .9s var(--ease),filter .6s var(--ease)}
-.ppan:hover .ppan__img,.ppan:focus-within .ppan__img{scale:1.05;filter:brightness(.56) grayscale(.1)}
+.ppan:hover .ppan__img,.ppan:focus-within .ppan__img,.ppan.is-hover .ppan__img{scale:1.05;filter:brightness(.56) grayscale(.1)}
 .ppan::after{content:'';position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(10,10,11,.45) 0%,rgba(10,10,11,.2) 38%,rgba(10,10,11,.94) 100%)}
 /* the ghost numeral, straight off the hero */
@@ -26,7 +26,7 @@
   font-family:'Mont',sans-serif;font-weight:800;font-size:min(26vw,300px);line-height:.72;
   color:transparent;-webkit-text-stroke:1px rgba(244,242,239,.26);user-select:none;pointer-events:none;
   transition:-webkit-text-stroke-color .5s var(--ease)}
-.ppan:hover .ppan__no{-webkit-text-stroke-color:rgba(198,169,139,.5)}
+.ppan:hover .ppan__no,.ppan.is-hover .ppan__no{-webkit-text-stroke-color:rgba(198,169,139,.5)}
 .ppan__in{position:relative;z-index:1;padding:clamp(24px,2.6vw,46px);display:grid;gap:12px;justify-items:start}
 .ppan__t{font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
   font-size:clamp(24px,2.4vw,40px);line-height:1}
@@ -38,7 +38,7 @@
 /* the detail opens the way the hero panels open */
 .ppan__l{overflow:hidden;max-height:0;opacity:0;
   transition:max-height .5s var(--ease),opacity .4s var(--ease)}
-.ppan:hover .ppan__l,.ppan:focus-within .ppan__l{max-height:340px;opacity:1}
+.ppan:hover .ppan__l,.ppan:focus-within .ppan__l,.ppan.is-hover .ppan__l{max-height:340px;opacity:1}
 .ppan__h{color:var(--sand);font-size:14.5px;max-width:32ch}
 .ppan__l ul{list-style:none;padding:0;display:grid;gap:5px;font-size:14px;color:var(--w-dim)}
 .ppan__l li{padding-left:16px;position:relative}
@@ -54,13 +54,13 @@
 .sp__f{position:relative;margin:0;overflow:hidden;background:var(--n2);display:block}
 .sp__f img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08) brightness(.72);
   transition:filter .55s var(--ease),transform .7s var(--ease)}
-.sp__f:hover img{filter:grayscale(0) contrast(1.02) brightness(.92);transform:scale(1.04)}
+.sp__f:hover img,.sp__f.is-hover img{filter:grayscale(0) contrast(1.02) brightness(.92);transform:scale(1.04)}
 .sp__f::after{content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,transparent 34%,rgba(10,10,11,.9) 100%)}
 .sp__no{position:absolute;left:14px;top:10px;z-index:2;font-family:'Mont',sans-serif;font-weight:800;
   font-size:clamp(26px,2.6vw,42px);line-height:1;color:transparent;
   -webkit-text-stroke:1px rgba(244,242,239,.5);transition:-webkit-text-stroke-color .35s var(--ease)}
-.sp__f:hover .sp__no{-webkit-text-stroke-color:var(--sand)}
+.sp__f:hover .sp__no,.sp__f.is-hover .sp__no{-webkit-text-stroke-color:var(--sand)}
 .sp__f figcaption{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;display:grid;gap:3px}
 .sp__f figcaption b{font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
   font-size:clamp(15px,1.4vw,20px);line-height:1.1}
@@ -110,7 +110,7 @@
 .ac summary::-webkit-details-marker{display:none}
 .ac summary span{font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
   font-size:clamp(16px,1.5vw,21px);line-height:1.2;flex:1;transition:color .25s var(--ease)}
-.ac summary:hover span{color:var(--sand)}
+.ac summary:hover span,.ac summary.is-hover span{color:var(--sand)}
 .ac summary::after{content:'';width:17px;height:1px;background:var(--w-dim);flex:none;
   transition:background .25s var(--ease)}
 .ac summary::before{content:'';position:absolute;right:8px;width:1px;height:17px;background:var(--w-dim);
