@@ -48,7 +48,6 @@
 .pw__p--6{grid-column:span 3;aspect-ratio:4/3}
 .pw__p--6 b{font-size:clamp(18px,1.7vw,24px)}
 
-.scta{padding-top:0}
 
 @media (max-width:1000px){
   /* 4+2 | 2+2 | 2+2 | 4 = 16 cells over four rows on a 4-column grid */

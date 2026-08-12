@@ -4,7 +4,7 @@
    alternating dossier, image swapping sides row by row, each row carrying
    its own outlined numeral. Nothing here is a grid of cards. */
 
-.top__n a.is-here{color:var(--w)}
+.top__n a.is-here{color:var(--sand)}
 .top__n a.is-here::after{right:0}
 
 .thero{padding:calc(80px + clamp(46px,7vw,100px)) 0 clamp(26px,3.4vw,48px)}

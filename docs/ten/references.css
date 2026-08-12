@@ -1,0 +1,38 @@
+/* REFERENCES, variant ten. Not a flying wall like 03. A stamped one.
+   Every card starts tilted and small like a rubber stamp mid-air, then
+   slams flat with a short overshoot, one signature gesture for the whole
+   page, matching the painted-sign identity rather than borrowing 03's. */
+
+.nav__l a.is-here{color:var(--acc)!important}
+.nav__l a.is-here::after{right:0}
+
+.shero__l{max-width:60ch}
+.note{margin-top:22px;max-width:70ch}
+
+.board-wall{padding-block:clamp(20px,3vw,40px) clamp(60px,8vw,120px);overflow-x:hidden}
+.bw__in{columns:4 230px;column-gap:14px}
+
+.stampc{--r:0deg;display:inline-block;width:100%;margin:0 0 14px;break-inside:avoid;
+  background:var(--cr);border:2px solid var(--bk);padding:clamp(16px,1.8vw,24px);
+  opacity:0;transform:scale(.72) rotate(calc(var(--r) * 3));
+  transition:opacity .38s linear,transform .46s cubic-bezier(.16,1,.3,1)}
+/* a stamp reads as punchy from speed and scale, not from overshoot: two
+   curves total for this direction, matching the system page's budget,
+   with none of the bounce a dialog would use */
+.stampc.in{opacity:1;transform:scale(1) rotate(var(--r))}
+.stampc:hover{background:var(--acc);z-index:2;position:relative}
+.stampc__s{display:block;font-family:'Sten',sans-serif;font-size:13px;letter-spacing:.18em;
+  color:var(--hot);margin-bottom:10px}
+.stampc p{font-family:'Sten',sans-serif;text-transform:uppercase;font-size:clamp(15px,1.2vw,18px);
+  line-height:1.2}
+
+@media (max-width:900px){.bw__in{columns:3 190px}}
+@media (max-width:760px){
+  .shero__l{font-size:16.5px}
+  .note{font-size:14px}
+  .bw__in{columns:2 145px;column-gap:8px}
+  .stampc{padding:14px;margin-bottom:8px}
+  .stampc p{font-size:14.5px}
+  .scta__b{display:grid;gap:10px}
+  .scta__b .bt{width:100%}
+}

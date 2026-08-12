@@ -4,7 +4,7 @@
    hairlines, each with its photograph and its ghost numeral. Nothing on this
    page is a table row. */
 
-.top__n a.is-here{color:var(--w)}
+.top__n a.is-here{color:var(--sand)}
 .top__n a.is-here::after{right:0}
 
 /* ---- a type-only opening. The panels carry the photography. ---- */

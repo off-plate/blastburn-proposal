@@ -99,7 +99,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .wp__c:hover img,.wp__c.is-hover img{filter:grayscale(0) contrast(1.02)}
 .wp__c figcaption{background:var(--bk);color:var(--cr);padding:10px 13px;display:flex;justify-content:space-between;gap:10px}
 .wp__c b{font-family:'Sten',sans-serif;font-size:16px;text-transform:uppercase}
-.wp__c span{font-size:12.5px;color:rgba(231,226,214,.66);font-family:'Sten',sans-serif;letter-spacing:.1em}
+.wp__c span{font-size:13px;color:rgba(231,226,214,.66);font-family:'Sten',sans-serif;letter-spacing:.1em}
 .wp__c:nth-child(1){grid-column:span 5}
 .wp__c:nth-child(1) img{aspect-ratio:4/3}
 .wp__c:nth-child(2){grid-column:span 4;margin-top:clamp(22px,3.4vw,60px)}
@@ -117,11 +117,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .man{background:var(--bk);color:var(--cr);padding-block:clamp(48px,7vw,120px);overflow:hidden}
 .man .ol{-webkit-text-stroke:2px var(--cr)}
 .man__l{white-space:nowrap}
+.man__p{max-width:52ch;margin-top:16px;font-size:clamp(16px,1.2vw,18.5px)}
+/* the closing CTA on a page: relies on the section before it for the gap
+   above, and the footer for the gap below, so the two do not stack. */
+.scta{padding-top:0;padding-bottom:0}
+.scta__b{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .man .tx{color:rgba(231,226,214,.66)}
 
 /* ledger */
 .ld{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border-top:2px solid var(--bk)}
-.ld>div{border-right:2px solid var(--bk);padding:clamp(18px,2.4vw,34px) clamp(14px,2vw,26px) clamp(18px,2.4vw,34px) 0}
+/* his note: numbers and subtext were left-aligned inside each cell.
+   Centred now, with symmetric padding so the divider doesn't skew it. */
+.ld>div{border-right:2px solid var(--bk);padding:clamp(18px,2.4vw,34px) clamp(14px,2vw,26px);
+  text-align:center}
 .ld>div:last-child{border-right:0}
 .ld b{display:block;font-family:'Sten',sans-serif;font-size:clamp(34px,4.4vw,66px);line-height:1;font-variant-numeric:tabular-nums}
 .ld span{display:block;font-size:14px;color:var(--bk-d);margin-top:8px}
@@ -282,7 +290,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .wp__c img{aspect-ratio:4/5!important}
   .wp__c figcaption{padding:8px 10px}
   .wp__c b{font-size:14px}
-  .wp__c span{font-size:12.5px}
+  .wp__c span{font-size:13px}
 
   .man{padding-block:52px}
   .ld>div{padding:18px 0}

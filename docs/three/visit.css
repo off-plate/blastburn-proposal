@@ -3,7 +3,7 @@
    than a plan), a ruled facts sheet, and the memberships FAQ accordion
    reused verbatim because it is genuinely the same component. */
 
-.top__n a.is-here{color:var(--w)}
+.top__n a.is-here{color:var(--sand)}
 .top__n a.is-here::after{right:0}
 
 .vhero{padding:calc(80px + clamp(40px,6vw,84px)) 0 clamp(30px,4vw,54px);overflow:hidden}

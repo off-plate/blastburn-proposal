@@ -51,13 +51,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .bt--s:hover,.bt--s.is-hover{background:var(--w);border-color:var(--w)}
 
 /* ---- header: floats, no bar ---- */
-.top{position:fixed;inset:0 0 auto;z-index:60;display:flex;align-items:center;padding:24px var(--pad)}
+/* the header floats over the hero at rest, then picks up a solid, blurred
+   ground the moment the page scrolls, so the logo and links are never left
+   sitting bare over whatever content happens to be underneath them. */
+.top{position:fixed;inset:0 0 auto;z-index:60;display:flex;align-items:center;padding:24px var(--pad);
+  border-bottom:1px solid transparent;transition:background .25s var(--ease),border-color .25s var(--ease)}
+.top.pin{background:rgba(10,10,11,.92);backdrop-filter:blur(12px);border-bottom-color:var(--hair)} /* slop-lint-ignore glassmorphism: sticky header over scrolling content, not a card */
 .top__b{display:flex;align-items:center;gap:12px;font-family:'Mont',sans-serif;font-weight:800;
   font-size:17px;letter-spacing:.16em;text-transform:uppercase}
 .top__b img{height:44px;width:auto}
 .top__n{display:flex;gap:clamp(20px,2.2vw,36px);margin-left:auto;align-items:center}
-.top__n a{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--w-dim)}
-.top__n a:hover,.top__n a.is-hover{color:var(--w)}
+.top__n a{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:var(--w)}
+.top__n a:hover,.top__n a.is-hover{color:var(--sand)}
 .bur{display:none;width:44px;height:44px;place-content:center;gap:7px;margin-left:auto}
 .bur span{display:block;width:24px;height:1px;background:var(--w)}
 .drw{display:none}

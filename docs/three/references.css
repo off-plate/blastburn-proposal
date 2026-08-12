@@ -1,0 +1,44 @@
+/* REFERENCES, variant three. A wall of review cards at a slight, individual
+   rotation, packed dense like index cards pinned up. Each one flies in from
+   an offset and its own rotation as it crosses into view: full spectacle,
+   almost no information, which is the brief. */
+
+.top__n a.is-here{color:var(--w)}
+.top__n a.is-here::after{right:0}
+
+.rhero{padding:calc(80px + clamp(46px,7vw,100px)) 0 clamp(30px,4vw,54px)}
+.rhero .lead{margin-top:16px;max-width:60ch}
+.rhero .note{margin-top:22px;max-width:70ch}
+
+.wall{padding-block:clamp(20px,3vw,40px) clamp(60px,8vw,120px);overflow-x:hidden}
+.wall__in{columns:4 240px;column-gap:16px}
+
+.wallc{--r:0deg;display:inline-block;width:100%;margin:0 0 16px;break-inside:avoid;
+  background:var(--n2);border:1px solid var(--hair);padding:clamp(18px,2vw,26px);
+  opacity:0;transform:translateY(46px) rotate(calc(var(--r) * 2.4)) scale(.88);
+  transition:opacity .6s var(--ease),transform .68s cubic-bezier(.22,.9,.32,1)}
+.wallc.in{opacity:1;transform:translateY(0) rotate(var(--r)) scale(1)}
+.wallc:hover{transform:translateY(0) rotate(0deg) scale(1.02);z-index:2;position:relative;
+  border-color:var(--sand)}
+.wallc__s{display:block;color:var(--sand);font-size:13px;letter-spacing:.16em;margin-bottom:10px}
+.wallc p{font-family:'Mont',sans-serif;font-weight:700;font-size:clamp(15px,1.2vw,17px);
+  line-height:1.32;letter-spacing:-.005em}
+
+.sz2 p{font-size:clamp(19px,1.7vw,23px);line-height:1.22}
+.sz2{background:var(--sand);border-color:var(--sand)}
+.sz2 .wallc__s{color:var(--n)}
+.sz2 p{color:var(--n);font-weight:800}
+.sz3 p{font-size:clamp(13px,1vw,14.5px);color:var(--w-dim)}
+
+@media (max-width:900px){.wall__in{columns:3 200px}}
+@media (max-width:760px){
+  .rhero{padding:calc(66px + 34px) 0 22px}
+  .rhero .lead{font-size:16.5px}
+  .rhero .note{font-size:14px}
+  .wall__in{columns:2 150px;column-gap:10px}
+  .wallc{padding:16px;margin-bottom:10px}
+  .wallc p{font-size:14px}
+  .sz2 p{font-size:17px}
+  .acts{display:grid;gap:10px}
+  .acts .b{width:100%}
+}

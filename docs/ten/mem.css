@@ -139,7 +139,6 @@
 }
 
 .scta .tx{margin-top:16px}
-.scta__b{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 
 @media (max-width:1000px){
   /* four columns: 4 | 2+2 | 4 | 2+2 | 4 = 20 cells over five rows */
