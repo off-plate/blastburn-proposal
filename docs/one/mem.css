@@ -144,6 +144,8 @@
   .mfoot{font-size:13px}
   .mrow__tot span,.mrow__per span{font-size:13px}
   .mrow__flag{font-size:13px}
+  .mrow__tot span,.mrow__per span{font-size:13px}
+  .mrow__flag{font-size:13px}
 }
 
 
@@ -167,4 +169,9 @@
 @media (max-width:600px){
   .mincg,.mqag{grid-template-columns:1fr!important}
   .minc:last-child,.mqa:last-child{grid-column:span 1}
+}
+
+@media (min-width:761px) and (max-width:820px){
+  .mrow__tot span,.mrow__per span{font-size:13px}
+  .mrow__flag{font-size:13px}
 }

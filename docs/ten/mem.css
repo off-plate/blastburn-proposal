@@ -1,162 +1,134 @@
-/* MEMBERSHIPS, variant ten. Cream ground, hard black rules, stencil numerals.
-   The page is set like a printed price list: every cell has an edge, nothing
-   floats, and the winning row takes the beige. */
+/* MEMBERSHIPS, variant ten.
+   Michael, 12 Aug 2026: this direction is painted signage, so the prices are
+   painted too. Three full-bleed bands, one per plan, the figure set at poster
+   scale and allowed to run at the edge. No table, no cards, no calculator. */
 
 .nav__l a.is-here{color:var(--acc)!important}
 .nav__l a.is-here::after{right:0}
 
-.mhero{position:relative;background:var(--bk);color:var(--cr);overflow:hidden;
-  padding:calc(60px + clamp(44px,6.5vw,96px)) 0 clamp(42px,5.5vw,84px)}
-.mhero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
-  filter:grayscale(1) contrast(1.14);opacity:.34}
-.mhero__in{position:relative;z-index:2}
-.mhero .sn{color:var(--cr)}
-.mhero .tx{margin-top:18px;color:rgba(231,226,214,.74)}
-.mnote{margin-top:26px;max-width:62ch;border-color:var(--acc);color:var(--acc)}
-.mhd{display:grid;gap:12px;max-width:62ch;margin-bottom:clamp(22px,3vw,46px)}
+/* ---- opening: type only, the way the home page opens ---- */
+.shero{background:var(--cr);padding:calc(60px + clamp(30px,4vw,64px)) 0 clamp(30px,4vw,56px);overflow:hidden}
+.shero__1,.shero__2{white-space:nowrap;line-height:.84}
+.shero__2{margin-left:clamp(24px,7vw,150px)}
+.shero__l{margin-top:clamp(18px,2.4vw,32px);max-width:56ch}
 
-/* ---- the selector: boxed toggles, printed not styled ---- */
-.mask{display:grid;gap:12px;margin-bottom:22px}
-.mask__q{font-family:'Sten',sans-serif;text-transform:uppercase;font-size:clamp(19px,1.8vw,26px)}
-.mask__b{display:flex;flex-wrap:wrap;gap:0;border:2px solid var(--bk);width:max-content;max-width:100%}
-.mbtn{font-family:'Sten',sans-serif;text-transform:uppercase;font-size:15px;letter-spacing:.08em;
-  min-height:50px;padding:13px 22px;border-right:2px solid var(--bk);color:var(--bk);
-  transition:background .2s var(--ez),color .2s var(--ez)}
-.mbtn:last-child{border-right:0}
-.mbtn:hover{background:var(--acc)}
-.mbtn.is-on{background:var(--bk);color:var(--cr)}
+/* ================= THE PRICE BANDS ================= */
+.pb{position:relative;isolation:isolate;overflow:hidden;border-top:2px solid var(--bk);
+  padding-block:clamp(40px,5.5vw,86px)}
+.pb__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+  filter:grayscale(1) contrast(1.16);opacity:.2;transition:opacity .5s var(--ez)}
+.pb:hover .pb__bg{opacity:.3}
+.pb__in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:clamp(20px,4vw,72px);align-items:center}
+.pb__l{display:grid;gap:12px;justify-items:start}
+.pb__k{font-family:'Sten',sans-serif;font-size:14px;letter-spacing:.3em}
+.pb__t{font-size:clamp(34px,5.4vw,88px);line-height:.86}
+.pb__d{font-size:clamp(15.5px,1.2vw,18px);max-width:46ch}
+.pb__go{margin-top:6px}
+/* the figure, at signage scale, hard against the right edge */
+.pb__r{text-align:right;line-height:.78}
+.pb__p{display:block;font-family:'Sten',sans-serif;font-size:clamp(52px,9.4vw,152px);
+  line-height:.78;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pb__u{display:block;font-family:'Sten',sans-serif;font-size:clamp(13px,1.1vw,17px);
+  letter-spacing:.24em;margin-top:12px}
 
-.mverdict{font-size:clamp(16.5px,1.4vw,20px);color:var(--bk);max-width:64ch;
-  border-left:4px solid var(--bk);padding-left:18px;margin-bottom:clamp(22px,3vw,40px)}
-.mverdict b{font-family:'Sten',sans-serif;font-weight:700;text-transform:uppercase}
+/* cream band */
+.pb--0{background:var(--cr);color:var(--bk)}
+.pb--0 .pb__k{color:var(--bk-d)}
+.pb--0 .pb__d{color:var(--bk-d)}
+.pb--0 .pb__p{color:transparent;-webkit-text-stroke:2px var(--bk)}
+.pb--0:hover .pb__p{color:var(--bk)}
+.pb--0 .pb__u{color:var(--bk-d)}
+/* black band */
+.pb--1{background:var(--bk);color:var(--cr);border-color:var(--bk)}
+.pb--1 .sn{color:var(--cr)}
+.pb--1 .pb__k{color:var(--acc)}
+.pb--1 .pb__d{color:rgba(231,226,214,.72)}
+.pb--1 .pb__p{color:var(--acc)}
+.pb--1 .pb__u{color:rgba(231,226,214,.66)}
+.pb--1 .bt{border-color:var(--cr);color:var(--cr)}
+.pb--1 .bt:hover{background:var(--acc);border-color:var(--acc);color:var(--bk)}
+.pb__p{transition:color .45s var(--ez)}
+.pb:last-of-type{border-bottom:2px solid var(--bk)}
 
-/* ---- the price list: every cell has an edge ---- */
-.mtable{display:grid;border:2px solid var(--bk);border-bottom:0}
-.mrow{position:relative;display:grid;
-  grid-template-columns:minmax(0,1.2fr) auto minmax(0,1fr) auto;gap:clamp(14px,2.4vw,36px);
-  align-items:center;padding:clamp(16px,2vw,26px) clamp(14px,1.8vw,24px);
-  border-bottom:2px solid var(--bk);transition:background .28s var(--ez)}
-.mrow.is-best{background:var(--acc)}
-.mrow__id b{display:block;font-family:'Sten',sans-serif;text-transform:uppercase;
-  font-size:clamp(21px,2.1vw,31px);line-height:1}
-.mrow__id span{display:block;color:var(--bk-d);font-size:14.5px;margin-top:4px;max-width:34ch}
-.mrow__sticker{font-family:'Sten',sans-serif;font-size:clamp(22px,2.1vw,31px);line-height:1;
-  white-space:nowrap;font-variant-numeric:tabular-nums}
-.mrow__sticker i{display:block;font-style:normal;font-family:'Ero',serif;font-size:13px;color:var(--bk-d)}
-.mrow__calc{display:flex;gap:clamp(16px,2vw,32px)}
-.mrow__tot em,.mrow__per em{font-style:normal;font-family:'Sten',sans-serif;
-  font-size:clamp(20px,1.9vw,28px);line-height:1;display:block;font-variant-numeric:tabular-nums}
-.mrow__tot span,.mrow__per span{font-size:12.5px;color:var(--bk-d)}
-/* the flag is a printed tag hooked over the row's left edge */
-.mrow__flag:not(:empty){position:absolute;left:0;top:0;background:var(--bk);color:var(--cr);
-  font-family:'Sten',sans-serif;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
-  padding:3px 12px}
-.mrow.is-best .mrow__id{padding-top:14px}
-.mrow__go{white-space:nowrap}
-.mfoot{font-size:13.5px;color:var(--bk-d);margin-top:16px;max-width:70ch}
+/* ---- what all three open: a painted list, two columns, hard rules ---- */
+.opl{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 clamp(28px,4vw,80px);border-top:2px solid var(--bk)}
+.opl li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline;
+  padding:clamp(13px,1.5vw,19px) 0;border-bottom:2px solid var(--bk)}
+.opl b{font-family:'Sten',sans-serif;text-transform:uppercase;font-size:clamp(16px,1.5vw,21px);
+  white-space:nowrap}
+.opl span{color:var(--bk-d);font-size:15px;text-align:right}
+/* seven items over two columns strands one, so the last runs the full width */
+.opl li:last-child{grid-column:1/-1}
 
-/* ---- included: a boxed grid, hairlines shared ---- */
-.mincg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;background:var(--bk);
+/* ---- booked separately ---- */
+.xsg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--bk);
   border:2px solid var(--bk)}
-.minc{background:var(--cr);padding:clamp(16px,1.8vw,24px);display:grid;gap:5px;align-content:start;
-  transition:background .28s var(--ez)}
-.minc:hover{background:var(--acc)}
-.minc b{font-family:'Sten',sans-serif;text-transform:uppercase;font-size:18px}
-.minc span{color:var(--bk-d);font-size:14.5px}
+.xs{background:var(--cr);padding:clamp(20px,2.4vw,34px);display:grid;gap:10px;justify-items:start;
+  align-content:start;transition:background .3s var(--ez)}
+.xs:hover{background:var(--acc)}
+.xs h3{font-size:clamp(20px,2vw,28px)}
+.xs p{color:var(--bk-d);font-size:15px;max-width:46ch}
+.xs__p{font-family:'Sten',sans-serif;font-size:clamp(24px,2.4vw,36px);line-height:1}
+.xs__p i{display:block;font-style:normal;font-family:'Ero',serif;font-size:13px;color:var(--bk-d);
+  margin-top:3px}
 
-.mexg{display:grid;border:2px solid var(--bk);border-bottom:0}
-.mex{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:clamp(14px,2.4vw,36px);
-  align-items:center;padding:clamp(16px,2vw,26px) clamp(14px,1.8vw,24px);border-bottom:2px solid var(--bk)}
-.mex__t b{display:block;font-family:'Sten',sans-serif;text-transform:uppercase;font-size:21px}
-.mex__t span{display:block;color:var(--bk-d);font-size:14.5px;margin-top:3px;max-width:56ch}
-.mex__p{font-family:'Sten',sans-serif;font-size:clamp(20px,1.9vw,27px);white-space:nowrap}
-.mex__p i{display:block;font-style:normal;font-family:'Ero',serif;font-size:13px;color:var(--bk-d)}
+/* ---- accordion, brutalist: a boxed register on the black band, the marker a
+       hard plus drawn from two bars ---- */
+.sacs-w{background:var(--bk);color:var(--cr);padding-block:clamp(48px,6.5vw,110px)}
+.sacs-w .sn{color:var(--cr)}
+.sacs{border:2px solid var(--acc)}
+.sac{border-bottom:2px solid var(--acc)}
+.sac:last-child{border-bottom:0}
+.sac summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:20px;
+  padding:clamp(16px,2vw,26px) clamp(16px,2vw,28px);position:relative;
+  transition:background .25s var(--ez),color .25s var(--ez)}
+.sac summary::-webkit-details-marker{display:none}
+.sac summary span{flex:1;font-family:'Sten',sans-serif;text-transform:uppercase;
+  font-size:clamp(16px,1.5vw,22px);line-height:1.2}
+.sac summary:hover{background:var(--acc);color:var(--bk)}
+.sac[open] summary{background:var(--acc);color:var(--bk)}
+.sac summary::after{content:'';width:18px;height:3px;background:currentColor;flex:none}
+.sac summary::before{content:'';position:absolute;right:calc(clamp(16px,2vw,28px) + 7.5px);
+  width:3px;height:18px;background:currentColor;transition:opacity .25s var(--ez)}
+.sac[open] summary::before{opacity:0}
+.sac__b{padding:clamp(16px,2vw,24px) clamp(16px,2vw,28px);color:rgba(231,226,214,.72);
+  font-size:15.5px;max-width:76ch}
+@media (prefers-reduced-motion:no-preference){
+  .sac[open] .sac__b{animation:sin .32s var(--ez) both}
+  @keyframes sin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
 
-/* ---- first session: stencil numerals on the black band ---- */
-.mfirst{background:var(--bk);color:var(--cr)}
-.mfirst .sn{color:var(--cr)}
-.mfirstl{list-style:none;padding:0;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(18px,2.6vw,44px);counter-reset:f}
-.mfirstl li{counter-increment:f;border-top:2px solid var(--acc);padding-top:14px}
-.mfirstl li::before{content:counter(f,decimal-leading-zero);display:block;font-family:'Sten',sans-serif;
-  font-size:clamp(30px,3.2vw,46px);line-height:1;color:transparent;-webkit-text-stroke:1.4px var(--acc);
-  margin-bottom:10px}
-.mfirstl b{display:block;font-family:'Sten',sans-serif;text-transform:uppercase;font-size:20px}
-.mfirstl span{display:block;color:rgba(231,226,214,.68);font-size:14.5px;margin-top:4px}
+.scta .tx{margin-top:16px}
+.scta__b{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 
-.mqag{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:0 clamp(26px,3.4vw,60px)}
-.mqa{border-top:2px solid var(--bk);padding:17px 0}
-.mqa b{display:block;font-family:'Sten',sans-serif;text-transform:uppercase;font-size:18px;margin-bottom:6px}
-.mqa p{color:var(--bk-d);font-size:15px}
-
-/* ---- the promo: printed on the black band ---- */
-.mpromo{background:var(--bk);color:var(--cr);padding-block:clamp(26px,3.4vw,48px)}
-.mpromo__in{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,44px);align-items:center}
-.mpromo__n{font-family:'Sten',sans-serif;font-size:clamp(56px,7.4vw,116px);line-height:.82;
-  color:transparent;-webkit-text-stroke:2px var(--acc)}
-.mpromo__in>div{flex:1 1 320px}
-.mpromo__in b{display:block;font-family:'Sten',sans-serif;text-transform:uppercase;
-  font-size:clamp(21px,2vw,30px);color:var(--acc)}
-.mpromo__in p{font-size:14.5px;color:rgba(231,226,214,.7);max-width:58ch;margin-top:4px}
-.mpromo .bt{border-color:var(--acc);color:var(--acc);background:transparent}
-.mpromo .bt:hover{background:var(--acc);color:var(--bk)}
-
-.mcta .tx{margin-top:16px}
-.mcta__b{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-
-@media (max-width:1080px){
-  .mrow{grid-template-columns:minmax(0,1fr) auto;row-gap:12px}
-  .mrow__calc{grid-column:1/-1}
-  .mrow__go{grid-column:1/-1;justify-self:start}
-  .mex{grid-template-columns:minmax(0,1fr) auto;row-gap:12px}
-  .mex .bt{grid-column:1/-1;justify-self:start}
+@media (max-width:1000px){
+  .pb__in{grid-template-columns:1fr;gap:18px}
+  .pb__r{text-align:left}
+  .opl{grid-template-columns:1fr}
+  .opl li:last-child{grid-column:auto}
+  .xsg{grid-template-columns:1fr}
 }
 @media (max-width:760px){
-  .mhero{padding:calc(56px + 32px) 0 38px}
-  .mask__b{width:100%;display:grid;grid-template-columns:1fr 1fr}
-  .mbtn{border-bottom:2px solid var(--bk)}
-  .mbtn:nth-child(2n){border-right:0}
-  .mbtn:nth-last-child(-n+2){border-bottom:0}
-  .mverdict{font-size:16.5px;padding-left:14px}
-  .mrow__tot span,.mrow__per span{font-size:13px}
-  .mrow__flag:not(:empty){font-size:13px}
-  .mrow{grid-template-columns:1fr;row-gap:10px;padding:20px 14px}
-  .mrow.is-best .mrow__id{padding-top:16px}
-  .mrow__sticker{display:flex;align-items:baseline;gap:8px}
-  .mrow__sticker i{display:inline}
-  .mrow__go{width:100%;justify-self:stretch}
-  .mincg{grid-template-columns:1fr}
-  .mex{grid-template-columns:1fr;row-gap:8px;padding:20px 14px}
-  .mex__p{display:flex;align-items:baseline;gap:8px}
-  .mex__p i{display:inline}
-  .mex .bt{width:100%;justify-self:stretch}
-  .mfirstl{gap:20px}
-  .mqag{grid-template-columns:1fr}
-  .mpromo__n{font-size:58px}
-  .mpromo .bt{width:100%}
-  .mcta__b{display:grid;gap:10px}
-  .mcta__b .bt{width:100%}
-}
-
-
-/* ---- grids that count their cells ----
-   Seven tiles and five questions never divide into an auto-fit track list, so
-   both stated a column count and the last item closes the row. */
-.mincg{grid-template-columns:repeat(4,minmax(0,1fr))!important}
-.minc:last-child{grid-column:span 2}
-.mqag{grid-template-columns:repeat(3,minmax(0,1fr))!important}
-.mqa:last-child{grid-column:span 2}
-@media (max-width:1180px){
-  .mincg{grid-template-columns:repeat(3,minmax(0,1fr))!important}
-  .minc:last-child{grid-column:span 3}
-  .mqag{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  .mqa:last-child{grid-column:span 2}
-}
-@media (max-width:820px){
-  .mincg{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  .minc:last-child{grid-column:span 2}
-}
-@media (max-width:600px){
-  .mincg,.mqag{grid-template-columns:1fr!important}
-  .minc:last-child,.mqa:last-child{grid-column:span 1}
+  .shero{padding:calc(56px + 26px) 0 26px}
+  .shero__1,.shero__2{font-size:11.2vw}
+  .shero__2{margin-left:14px}
+  .shero__l{font-size:16.5px}
+  .pb{padding-block:34px}
+  .pb__t{font-size:34px}
+  .pb__d{font-size:16px}
+  .pb__p{font-size:19vw}
+  .pb__go{width:100%;justify-self:stretch}
+  .opl li{grid-template-columns:1fr;gap:3px;padding:14px 0}
+  .opl span{text-align:left;font-size:15px}
+  .xs{padding:20px 16px}
+  .xs .bt{width:100%;justify-self:stretch}
+  .sacs-w{padding-block:48px}
+  .sac summary{padding:15px 14px;gap:14px}
+  .sac summary span{font-size:16.5px}
+  .sac summary::before{right:calc(14px + 7.5px)}
+  .sac__b{padding:14px}
+  .scta__b{display:grid;gap:10px}
+  .scta__b .bt{width:100%}
 }

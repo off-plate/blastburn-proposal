@@ -1,166 +1,147 @@
-/* MEMBERSHIPS, variant three. The hero's device is a ghost outline numeral on
-   a hairline, so the whole page is built from ruled rows and outlined figures.
-   Nav, footer, buttons and type come from app.css untouched. */
+/* MEMBERSHIPS, variant three.
+   Michael, 12 Aug 2026: the hero is the best thing on this direction, so the
+   pricing uses it. The three plans ARE three fullscreen panels, split by
+   hairlines, each with its photograph and its ghost numeral. Nothing on this
+   page is a table row. */
 
 .top__n a.is-here{color:var(--w)}
 .top__n a.is-here::after{right:0}
 
-.mhero{position:relative;isolation:isolate;overflow:hidden;
-  padding:calc(80px + clamp(48px,8vw,120px)) 0 clamp(48px,7vw,110px)}
-.mhero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-  filter:grayscale(1) brightness(.4) contrast(1.08)}
-.mhero::after{content:'';position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(10,10,11,.72),rgba(10,10,11,.86) 60%,var(--n))}
-.mhero .lead{margin-top:20px}
-.mnote{margin-top:28px;max-width:64ch}
-.mhd{display:grid;gap:14px;max-width:64ch;margin-bottom:clamp(28px,3.6vw,56px)}
+/* ---- a type-only opening. The panels carry the photography. ---- */
+.phero{padding:calc(80px + clamp(46px,7vw,104px)) 0 clamp(30px,4vw,56px);background:var(--n)}
+.phero__l{margin-top:18px;max-width:60ch}
 
-/* ---- the selector: a hairline segmented rail, sand on the live one ---- */
-.mask{display:grid;gap:14px;margin-bottom:24px}
-.mask__q{font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--w-dim)}
-.mask__b{display:flex;flex-wrap:wrap;border:1px solid var(--hair);width:max-content;max-width:100%}
-.mbtn{min-height:52px;padding:14px 26px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--w-dim);border-right:1px solid var(--hair);
-  transition:background .25s var(--ease),color .25s var(--ease)}
-.mbtn:last-child{border-right:0}
-.mbtn:hover{color:var(--w)}
-.mbtn.is-on{background:var(--sand);color:var(--n);font-weight:500}
+/* ================= THE PLANS AS PANELS ================= */
+.pstage{display:grid;grid-template-columns:repeat(3,1fr);min-height:82svh;isolation:isolate}
+.ppan{position:relative;overflow:hidden;border-right:1px solid var(--hair);
+  display:grid;align-items:end;isolation:isolate}
+.ppan:last-child{border-right:0}
+.ppan__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  filter:brightness(.42) grayscale(.4);transition:scale .9s var(--ease),filter .6s var(--ease)}
+.ppan:hover .ppan__img,.ppan:focus-within .ppan__img{scale:1.05;filter:brightness(.56) grayscale(.1)}
+.ppan::after{content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(10,10,11,.45) 0%,rgba(10,10,11,.2) 38%,rgba(10,10,11,.94) 100%)}
+/* the ghost numeral, straight off the hero */
+.ppan__no{position:absolute;left:50%;bottom:-3%;translate:-50% 0;z-index:-1;
+  font-family:'Mont',sans-serif;font-weight:800;font-size:min(26vw,300px);line-height:.72;
+  color:transparent;-webkit-text-stroke:1px rgba(244,242,239,.26);user-select:none;pointer-events:none;
+  transition:-webkit-text-stroke-color .5s var(--ease)}
+.ppan:hover .ppan__no{-webkit-text-stroke-color:rgba(198,169,139,.5)}
+.ppan__in{position:relative;z-index:1;padding:clamp(24px,2.6vw,46px);display:grid;gap:12px;justify-items:start}
+.ppan__t{font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(24px,2.4vw,40px);line-height:1}
+.ppan__p{font-family:'Mont',sans-serif;font-weight:800;color:var(--sand);
+  font-size:clamp(30px,3.2vw,52px);line-height:1;font-variant-numeric:tabular-nums}
+.ppan__p i{display:block;font-style:normal;font-family:'Pop',sans-serif;font-weight:300;
+  font-size:13px;color:var(--w-dim);margin-top:3px}
+.ppan__d{color:var(--w-dim);font-size:15px;max-width:30ch}
+/* the detail opens the way the hero panels open */
+.ppan__l{overflow:hidden;max-height:0;opacity:0;
+  transition:max-height .5s var(--ease),opacity .4s var(--ease)}
+.ppan:hover .ppan__l,.ppan:focus-within .ppan__l{max-height:340px;opacity:1}
+.ppan__h{color:var(--sand);font-size:14.5px;max-width:32ch}
+.ppan__l ul{list-style:none;padding:0;display:grid;gap:5px;font-size:14px;color:var(--w-dim)}
+.ppan__l li{padding-left:16px;position:relative}
+.ppan__l li::before{content:'';position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--sand)}
+.ppan__go{margin-top:4px}
 
-.mverdict{font-size:clamp(16px,1.3vw,19px);color:var(--w-dim);max-width:64ch;
-  border-left:1px solid var(--sand);padding-left:20px;margin-bottom:clamp(26px,3.4vw,48px)}
-.mverdict b{color:var(--sand);font-weight:500}
+/* ---- the argument, on the band the home page already uses ---- */
+.pband .fig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--hair);
+  margin-top:clamp(26px,3.4vw,48px);border:1px solid var(--hair)}
+.pband .fig>div{background:var(--n);padding:clamp(16px,1.8vw,26px)}
+.pband dt{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--w-dim)}
+.pband dd{margin:0}
+.pband dd:not(.fig__n){font-size:14.5px;color:var(--w);margin-top:8px}
+.fig__n{font-family:'Mont',sans-serif;font-weight:800;font-size:clamp(26px,3vw,44px);
+  color:var(--sand);line-height:1;margin-top:6px;font-variant-numeric:tabular-nums}
+.fig__f{font-size:12.5px;color:var(--w-dim);margin-top:12px;letter-spacing:.06em}
 
-/* ---- the table: ruled rows carrying an outlined figure ---- */
-.mtable{display:grid;border-top:1px solid var(--hair)}
-.mrow{position:relative;display:grid;
-  grid-template-columns:minmax(0,1.2fr) auto minmax(0,1fr) auto;gap:clamp(16px,3vw,52px);
-  align-items:center;padding:clamp(20px,2.6vw,34px) 0;border-bottom:1px solid var(--hair);
-  transition:border-color .35s var(--ease)}
-.mrow.is-best{border-bottom-color:var(--sand)}
-.mrow__id b{display:block;font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
-  font-size:clamp(20px,2vw,29px);line-height:1.05}
-.mrow__id span{display:block;color:var(--w-dim);font-size:14.5px;margin-top:5px;max-width:36ch}
-.mrow__sticker{font-family:'Mont',sans-serif;font-weight:800;font-size:clamp(21px,2.1vw,30px);
-  color:var(--sand);white-space:nowrap;font-variant-numeric:tabular-nums}
-.mrow__sticker i{display:block;font-style:normal;font-family:'Pop',sans-serif;font-weight:300;
-  font-size:12.5px;color:var(--w-dim)}
-/* the total is set as an outlined figure, the way the hero numerals are */
-.mrow__calc{display:flex;gap:clamp(18px,2.4vw,40px);align-items:flex-end}
-.mrow__tot em{font-style:normal;font-family:'Mont',sans-serif;font-weight:800;line-height:.9;
-  font-size:clamp(26px,2.8vw,44px);color:transparent;-webkit-text-stroke:1px var(--hair2);
-  font-variant-numeric:tabular-nums;display:block;transition:-webkit-text-stroke-color .35s var(--ease)}
-.mrow.is-best .mrow__tot em{-webkit-text-stroke-color:var(--sand)}
-.mrow__per em{font-style:normal;font-family:'Mont',sans-serif;font-weight:800;line-height:1;
-  font-size:clamp(17px,1.6vw,23px);display:block;font-variant-numeric:tabular-nums}
-.mrow__tot span,.mrow__per span{display:block;font-size:12.5px;color:var(--w-dim);margin-top:4px}
-.mrow__flag{position:absolute;right:0;top:10px;font-size:11.5px;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--sand)}
-.mrow__go{white-space:nowrap}
-.mrow.is-best .mrow__go{background:var(--sand);border-color:var(--sand);color:var(--n)}
-.mfoot{font-size:13px;color:var(--w-dim);margin-top:18px;max-width:72ch}
+/* ---- what it opens: running copy, not a grid of tiles ---- */
+.run{columns:2;column-gap:clamp(32px,5vw,90px);column-rule:1px solid var(--hair);
+  font-size:16px;color:var(--w-dim);line-height:1.75}
+.run__i{display:block;break-inside:avoid;padding:12px 0;border-bottom:1px solid var(--hair)}
+.run__i:last-child{border-bottom:0}
+.run__i b{font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;font-size:14.5px;
+  letter-spacing:.04em;color:var(--w);margin-right:8px}
 
-/* ---- included: two columns of ruled entries, print-like ---- */
-.mincg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:0 clamp(28px,4vw,72px)}
-.minc{border-top:1px solid var(--hair);padding:16px 0;display:grid;gap:4px}
-.minc b{font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;font-size:16px;letter-spacing:.02em}
-.minc span{color:var(--w-dim);font-size:14.5px}
+/* ---- booked separately: two wide entries with the price as a ghost ---- */
+.xt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--hair);
+  border:1px solid var(--hair)}
+.xtw{position:relative;background:var(--n);padding:clamp(24px,2.8vw,44px);overflow:hidden;display:grid;
+  gap:10px;justify-items:start;align-content:start}
+.xtw__p{position:absolute;right:-8px;top:-14px;font-family:'Mont',sans-serif;font-weight:800;
+  font-size:clamp(52px,7vw,120px);line-height:1;color:transparent;
+  -webkit-text-stroke:1px var(--hair);pointer-events:none;user-select:none;white-space:nowrap}
+.xtw h3{position:relative;font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(19px,1.9vw,26px)}
+.xtw p{position:relative;color:var(--w-dim);font-size:15px;max-width:44ch}
+.xtw__m{position:relative;font-family:'Mont',sans-serif;font-weight:800;color:var(--sand);
+  font-size:clamp(18px,1.7vw,24px)}
 
-.mexg{display:grid;border-top:1px solid var(--sand)}
-.mex{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:clamp(16px,3vw,44px);
-  align-items:center;padding:clamp(18px,2.4vw,30px) 0;border-bottom:1px solid var(--hair)}
-.mex__t b{display:block;font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;font-size:20px}
-.mex__t span{display:block;color:var(--w-dim);font-size:14.5px;margin-top:4px;max-width:58ch}
-.mex__p{font-family:'Mont',sans-serif;font-weight:800;font-size:clamp(19px,1.9vw,26px);
-  color:var(--sand);white-space:nowrap}
-.mex__p i{display:block;font-style:normal;font-family:'Pop',sans-serif;font-weight:300;
-  font-size:12.5px;color:var(--w-dim)}
+/* ---- a real accordion. Native details, no library, no rotating chevron:
+       a plus becomes a minus and a sand rule grows under the open question. ---- */
+.acs{border-top:1px solid var(--hair)}
+.ac{border-bottom:1px solid var(--hair)}
+.ac summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;
+  padding:clamp(18px,2.2vw,28px) 0;position:relative}
+.ac summary::-webkit-details-marker{display:none}
+.ac summary span{font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(16px,1.5vw,21px);line-height:1.2;flex:1;transition:color .25s var(--ease)}
+.ac summary:hover span{color:var(--sand)}
+.ac summary::after{content:'';width:17px;height:1px;background:var(--w-dim);flex:none;
+  transition:background .25s var(--ease)}
+.ac summary::before{content:'';position:absolute;right:8px;width:1px;height:17px;background:var(--w-dim);
+  transition:opacity .25s var(--ease),background .25s var(--ease)}
+.ac[open] summary::before{opacity:0}
+.ac[open] summary::after,.ac[open] summary::before{background:var(--sand)}
+.ac[open] summary span{color:var(--sand)}
+.ac::after{content:'';display:block;height:1px;width:0;background:var(--sand);
+  transition:width .45s var(--ease)}
+.ac[open]::after{width:100%}
+.ac__b{padding:0 0 clamp(18px,2.2vw,28px);max-width:74ch}
+.ac__b p{color:var(--w-dim);font-size:15.5px}
+@media (prefers-reduced-motion:no-preference){
+  .ac[open] .ac__b{animation:acin .38s var(--ease) both}
+  @keyframes acin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
 
-/* ---- first session: outlined numerals, the hero's own device ---- */
-.mfirstl{list-style:none;padding:0;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,52px);counter-reset:f}
-.mfirstl li{counter-increment:f;position:relative;padding-top:8px}
-.mfirstl li::before{content:counter(f,decimal-leading-zero);display:block;
-  font-family:'Mont',sans-serif;font-weight:800;font-size:clamp(38px,4vw,62px);line-height:.9;
-  color:transparent;-webkit-text-stroke:1px var(--hair2);margin-bottom:10px}
-.mfirstl b{display:block;font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;font-size:19px}
-.mfirstl span{display:block;color:var(--w-dim);font-size:14.5px;margin-top:5px}
+.pcta .lead{margin-top:16px}
 
-.mqag{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:0 clamp(28px,4vw,72px)}
-.mqa{border-top:1px solid var(--hair);padding:18px 0}
-.mqa b{display:block;font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
-  font-size:16px;margin-bottom:7px}
-.mqa p{color:var(--w-dim);font-size:15px}
-
-/* ---- the promo: sand band, the one warm surface on the page ---- */
-.mpromo{background:var(--sand);color:var(--n);padding-block:clamp(28px,3.6vw,52px)}
-.mpromo__in{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,44px);align-items:center}
-.mpromo__n{font-family:'Mont',sans-serif;font-weight:800;font-size:clamp(48px,6.4vw,96px);line-height:.86}
-.mpromo__in>div{flex:1 1 320px}
-.mpromo__in b{display:block;font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
-  font-size:clamp(19px,1.9vw,27px)}
-.mpromo__in p{font-size:14.5px;color:rgba(10,10,11,.72);max-width:58ch;margin-top:5px}
-.mpromo .b--s{background:var(--n);color:var(--w)}
-.mpromo .b--s:hover{background:var(--w);color:var(--n)}
-
-.mcta .lead{margin-top:16px}
-.mcta__b{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-
-@media (max-width:1080px){
-  .mrow{grid-template-columns:minmax(0,1fr) auto;row-gap:16px}
-  .mrow__calc{grid-column:1/-1}
-  .mrow__go{grid-column:1/-1;justify-self:start}
-  .mrow__flag{position:static;order:-1;grid-column:1/-1}
-  .mex{grid-template-columns:minmax(0,1fr) auto;row-gap:14px}
-  .mex .b{grid-column:1/-1;justify-self:start}
+@media (max-width:1000px){
+  .pstage{grid-template-columns:1fr;min-height:0}
+  .ppan{border-right:0;border-bottom:1px solid var(--hair);aspect-ratio:4/3.6}
+  .ppan__l{max-height:340px;opacity:1}
+  .ppan__no{font-size:44vw}
+  .xt{grid-template-columns:1fr}
+  .run{columns:1;column-rule:0}
 }
 @media (max-width:760px){
-  .mhero{padding:calc(66px + 36px) 0 44px}
-  .mask__b{width:100%;display:grid;grid-template-columns:1fr 1fr}
-  .mbtn{border-bottom:1px solid var(--hair)}
-  .mbtn:nth-child(2n){border-right:0}
-  .mbtn:nth-last-child(-n+2){border-bottom:0}
-  .mverdict{font-size:16px;padding-left:16px}
-  .mask__q{font-size:13px}
-  .mrow__sticker i{font-size:13px}
-  .mrow__tot span,.mrow__per span{font-size:13px}
-  .mrow__flag{font-size:13px}
-  .mrow{grid-template-columns:1fr;row-gap:12px;padding:22px 0}
-  .mrow__sticker{display:flex;align-items:baseline;gap:8px}
-  .mrow__sticker i{display:inline}
-  .mrow__go{width:100%;justify-self:stretch}
-  .mincg{grid-template-columns:1fr}
-  .mex{grid-template-columns:1fr;row-gap:10px}
-  .mex__p{display:flex;align-items:baseline;gap:8px}
-  .mex__p i{display:inline;font-size:13px}
-  .mex .b{width:100%;justify-self:stretch}
-  .mfirstl{gap:22px}
-  .mqag{grid-template-columns:1fr}
-  .mpromo__n{font-size:52px}
-  .mpromo .b{width:100%}
-  .mcta__b{display:grid;gap:10px}
-  .mcta__b .b{width:100%}
+  .phero{padding:calc(66px + 36px) 0 26px}
+  .phero__l{font-size:16.5px}
+  .ppan{aspect-ratio:auto;min-height:0}
+  .ppan__in{padding:22px 18px 26px;gap:10px}
+  .ppan__t{font-size:26px}
+  .ppan__p{font-size:34px}
+  .ppan__no{font-size:56vw;bottom:-10%}
+  .ppan__go{width:100%;justify-self:stretch}
+  .pband .fig{grid-template-columns:1fr}
+  .pband dd:not(.fig__n){font-size:15px}
+  .fig__n{font-size:32px}
+  .pband dt{font-size:13px}
+  .fig__f{font-size:13px}
+  .run{font-size:15.5px}
+  .run__i b{font-size:15px}
+  .xtw{padding:22px 18px}
+  .xtw__p{font-size:56px;right:-4px;top:-8px}
+  .xtw .b{width:100%;justify-self:stretch}
+  .ac summary{padding:17px 0;gap:14px}
+  .ac summary span{font-size:16.5px}
+  .ac summary::before{right:7px}
+  .pcta .acts{display:grid;gap:10px}
+  .pcta .acts .b{width:100%}
 }
 
-
-/* ---- grids that count their cells ----
-   Seven tiles and five questions never divide into an auto-fit track list, so
-   both stated a column count and the last item closes the row. */
-.mincg{grid-template-columns:repeat(4,minmax(0,1fr))!important}
-.minc:last-child{grid-column:span 2}
-.mqag{grid-template-columns:repeat(3,minmax(0,1fr))!important}
-.mqa:last-child{grid-column:span 2}
-@media (max-width:1180px){
-  .mincg{grid-template-columns:repeat(3,minmax(0,1fr))!important}
-  .minc:last-child{grid-column:span 3}
-  .mqag{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  .mqa:last-child{grid-column:span 2}
-}
-@media (max-width:820px){
-  .mincg{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  .minc:last-child{grid-column:span 2}
-}
-@media (max-width:600px){
-  .mincg,.mqag{grid-template-columns:1fr!important}
-  .minc:last-child,.mqa:last-child{grid-column:span 1}
+@media (min-width:761px) and (max-width:820px){
+  .pband dt{font-size:13px}
+  .fig__f{font-size:13px}
 }
