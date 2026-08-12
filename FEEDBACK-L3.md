@@ -67,3 +67,10 @@ drift at three rates, mosaic retiled 6x3 so every cell fills.
 - **Add a services section above "Pick your weapon"**, showing what the gym actually offers,
   in the same spirit as 04's "classes designed around real weeks" but not the same design.
   Accepts this creates two similar sections for now.
+
+
+---
+
+**RETIRED 12 Aug 2026: template 04, acid lime.** Michael's call. The two blue and
+white variants he had asked to see for 04 are therefore not being built. Files stay
+in the repo at /four/ and still resolve.
