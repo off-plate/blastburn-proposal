@@ -74,3 +74,5 @@ drift at three rates, mosaic retiled 6x3 so every cell fills.
 **RETIRED 12 Aug 2026: template 04, acid lime.** Michael's call. The two blue and
 white variants he had asked to see for 04 are therefore not being built. Files stay
 in the repo at /four/ and still resolve.
+
+**RETIRED 12 Aug 2026: template 01, black & orange.** Michael's call. Its memberships page was the one he asked to keep untouched, so that page dies with the direction. Files stay in the repo at /one/ and still resolve.
