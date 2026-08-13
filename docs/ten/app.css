@@ -312,7 +312,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .ft__g{gap:24px}
   .ft h4{font-size:15px;margin-bottom:6px}
   .ft__c{font-size:16px;gap:0}
-  .ft__c a{min-height:42px;display:inline-flex;align-items:center}
+  .ft__c a{min-height:44px;display:inline-flex;align-items:center}
   .ft__c span,.ft__c p{padding-block:7px}
   .ft__b{font-size:13.5px;gap:8px}
 }
@@ -330,7 +330,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .sv__b span{font-size:13px}
   .ld i{font-size:13px}
   .ft__c{gap:0}
-  .ft__c a{min-height:42px;display:inline-flex;align-items:center}
+  .ft__c a{min-height:44px;display:inline-flex;align-items:center}
   .ft__c span,.ft__c p{padding-block:7px}
   .ft__b{font-size:13.5px}
 }

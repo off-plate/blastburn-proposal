@@ -349,7 +349,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .f__g{gap:26px}
   .f h4{font-size:13px;letter-spacing:.2em;margin-bottom:8px}
   .f__c{font-size:16px;gap:0}
-  .f__c a{min-height:42px;display:inline-flex;align-items:center}
+  .f__c a{min-height:44px;display:inline-flex;align-items:center}
   .f__c span,.f__c p{padding-block:7px}
   .f__b{font-size:13.5px;gap:8px}
 }
@@ -367,7 +367,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .fg i{font-size:13px}
   .f h4{font-size:13px}
   .f__c{gap:0}
-  .f__c a{min-height:42px;display:inline-flex;align-items:center}
+  .f__c a{min-height:44px;display:inline-flex;align-items:center}
   .f__c span,.f__c p{padding-block:7px}
   .f__b{font-size:13.5px}
 }
