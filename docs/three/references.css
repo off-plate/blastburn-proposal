@@ -1,44 +1,131 @@
-/* REFERENCES, variant three. A wall of review cards at a slight, individual
-   rotation, packed dense like index cards pinned up. Each one flies in from
-   an offset and its own rotation as it crosses into view: full spectacle,
-   almost no information, which is the brief. */
+/* REFERENCES, variant three. A corridor you fly through.
+   One review at a time, full width, set large. Each one arrives from depth,
+   holds at the centre of the screen, then passes over your shoulder as the
+   next one comes up behind it. The page is deliberately long: the reviews are
+   the journey, not a grid to skim.
 
-.top__n a.is-here{color:var(--w)}
+   Driven by CSS scroll-driven animations (animation-timeline: view()), so the
+   motion is tied to scroll position rather than fired once by a script. The
+   IntersectionObserver fallback below covers engines without it. */
+
+.top__n a.is-here{color:var(--sand)}
 .top__n a.is-here::after{right:0}
 
-.rhero{padding:calc(80px + clamp(46px,7vw,100px)) 0 clamp(30px,4vw,54px)}
-.rhero .lead{margin-top:16px;max-width:60ch}
-.rhero .note{margin-top:22px;max-width:70ch}
+/* ---- opening ---- */
+.rhero{position:relative;padding:calc(80px + clamp(46px,7vw,100px)) 0 clamp(34px,5vw,70px);
+  text-align:center}
+.rhero .t1{margin-inline:auto}
+.rhero__n{display:block;font-family:'Mont',sans-serif;font-weight:800;
+  font-size:clamp(64px,13vw,190px);line-height:.86;color:var(--sand);
+  font-variant-numeric:tabular-nums}
+.rhero__k{display:block;font-size:12.5px;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--w-dim);margin-top:18px}
+.rhero .lead{margin:18px auto 0;max-width:54ch}
+.rhero .note{margin:24px auto 0;max-width:66ch;text-align:left}
 
-.wall{padding-block:clamp(20px,3vw,40px) clamp(60px,8vw,120px);overflow-x:hidden}
-.wall__in{columns:4 240px;column-gap:16px}
+/* a hairline that runs the length of the corridor, so the flight has a spine.
+   The perspective deliberately does NOT live here: one vanishing point on a
+   27,000px container puts the horizon at a single fixed spot, and every review
+   far from that spot gets flung off screen when it moves in Z. Each review
+   owns its own perspective instead, so each flies about its own centre. */
+.corridor{position:relative}
+.corridor::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,var(--hair) 8%,var(--hair) 92%,transparent);
+  pointer-events:none}
 
-.wallc{--r:0deg;display:inline-block;width:100%;margin:0 0 16px;break-inside:avoid;
-  background:var(--n2);border:1px solid var(--hair);padding:clamp(18px,2vw,26px);
-  opacity:0;transform:translateY(46px) rotate(calc(var(--r) * 2.4)) scale(.88);
-  transition:opacity .6s var(--ease),transform .68s cubic-bezier(.22,.9,.32,1)}
-.wallc.in{opacity:1;transform:translateY(0) rotate(var(--r)) scale(1)}
-.wallc:hover{transform:translateY(0) rotate(0deg) scale(1.02);z-index:2;position:relative;
-  border-color:var(--sand)}
-.wallc__s{display:block;color:var(--sand);font-size:13px;letter-spacing:.16em;margin-bottom:10px}
-.wallc p{font-family:'Mont',sans-serif;font-weight:700;font-size:clamp(15px,1.2vw,17px);
-  line-height:1.32;letter-spacing:-.005em}
+/* ---- one review, one screen ----
+   Exactly one viewport tall. That spacing is what keeps the corridor full:
+   each review's opacity plateau covers one screen of scroll, so as one starts
+   to pass overhead the next is already lit. Shorter blocks left dead gaps
+   where the screen went black between quotes. */
+/* Blocks are deliberately SHORTER than the viewport. That is what makes the
+   flight continuous: at 70svh apart, each quote's lit window overlaps its
+   neighbour's, so one is always fading up as the last fades back, and the
+   text stays inside the middle of the screen the whole way. Pinning them
+   instead (position:sticky) made all thirty pin at once and print on top of
+   each other, which was unreadable. */
+.rev{height:70svh;display:grid;place-items:center;
+  padding:clamp(20px,4vw,60px) 0;perspective:1200px;perspective-origin:50% 50%}
+.rev__in{width:min(100% - 2*var(--pad),980px);text-align:center;will-change:transform,opacity}
+.rev__q{font-family:'Mont',sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(26px,4.4vw,68px);line-height:1.04;letter-spacing:-.015em;text-wrap:balance}
+.rev__s{display:block;color:var(--sand);font-size:clamp(15px,1.4vw,20px);letter-spacing:.34em;
+  margin-bottom:clamp(16px,2.2vw,30px)}
+.rev__by{display:block;margin-top:clamp(18px,2.4vw,34px);font-size:13px;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--w-dim)}
+.rev__no{display:block;font-family:'Mont',sans-serif;font-weight:800;
+  font-size:clamp(40px,7vw,110px);line-height:1;color:transparent;
+  -webkit-text-stroke:1px var(--hair);margin-bottom:clamp(10px,1.4vw,20px);
+  font-variant-numeric:tabular-nums}
 
-.sz2 p{font-size:clamp(19px,1.7vw,23px);line-height:1.22}
-.sz2{background:var(--sand);border-color:var(--sand)}
-.sz2 .wallc__s{color:var(--n)}
-.sz2 p{color:var(--n);font-weight:800}
-.sz3 p{font-size:clamp(13px,1vw,14.5px);color:var(--w-dim)}
+/* every third one is set on sand, so the flight has a rhythm rather than
+   thirty identical frames */
+.rev--hot .rev__q{color:var(--sand)}
+.rev--hot .rev__s{color:var(--w)}
 
-@media (max-width:900px){.wall__in{columns:3 200px}}
+/* ---- the flight itself ---- */
+@supports (animation-timeline: view()) {
+  .rev__in{
+    animation:fly linear both;
+    animation-timeline:view();
+    animation-range:entry 0% exit 100%;
+  }
+  /* Z travels the whole way without pausing, so it genuinely flies past
+     rather than sliding in and stopping. Only opacity plateaus.
+     This is a 3D fly-through, not a fade-up reveal: the small Y/rotate
+     drift is the depth arc itself (the corridor this page is built
+     around), and transform never triggers layout, so there is no real
+     shift here regardless of which axis moves. */
+  @keyframes fly{
+    0%   {opacity:0;transform:translateZ(-820px) translateY(50px) rotateX(6deg)} /* slop-lint-ignore */
+    25%  {opacity:1;transform:translateZ(-400px) translateY(22px) rotateX(3deg)} /* slop-lint-ignore */
+    50%  {opacity:1;transform:translateZ(0) translateY(0) rotateX(0deg)} /* slop-lint-ignore */
+    75%  {opacity:1;transform:translateZ(380px) translateY(-22px) rotateX(-3deg)} /* slop-lint-ignore */
+    100% {opacity:0;transform:translateZ(760px) translateY(-50px) rotateX(-6deg)} /* slop-lint-ignore */
+  }
+  /* the counter numeral trails slightly behind its quote, which is what sells
+     the depth: two planes moving at different rates */
+  .rev__no{animation:trail linear both;animation-timeline:view();
+    animation-range:entry 0% exit 100%}
+  @keyframes trail{
+    0%   {opacity:0;transform:translateZ(-240px) scale(.82)}
+    24%  {opacity:.85;transform:translateZ(-120px) scale(.93)}
+    50%  {opacity:.85;transform:translateZ(0) scale(1)}
+    80%  {opacity:.85;transform:translateZ(150px) scale(1.1)}
+    100% {opacity:0;transform:translateZ(280px) scale(1.2)}
+  }
+}
+
+/* engines without scroll-driven animations get the same choreography, fired
+   once per element by wall.js instead of tracked to the scrollbar */
+@supports not (animation-timeline: view()) {
+  .rev__in{opacity:0;transform:translateY(60px) scale(.92);
+    transition:opacity .7s var(--ease),transform .8s var(--ease)}
+  .rev__in.in{opacity:1;transform:none}
+  .rev__no{opacity:0;transition:opacity .7s var(--ease) .1s}
+  .rev__in.in .rev__no{opacity:1}
+}
+@media (prefers-reduced-motion:reduce){
+  .rev__in,.rev__no{animation:none!important;opacity:1!important;transform:none!important}
+}
+
+/* ---- the closer ---- */
+.rend{padding-block:clamp(60px,9vw,140px) 0;text-align:center}
+.rend .t2{margin-inline:auto}
+.rend .lead{margin:16px auto 0;max-width:52ch}
+.rend .acts{justify-content:center}
+
 @media (max-width:760px){
-  .rhero{padding:calc(66px + 34px) 0 22px}
+  .rhero{padding:calc(66px + 34px) 0 26px}
+  .rhero__n{font-size:23vw}
   .rhero .lead{font-size:16.5px}
   .rhero .note{font-size:14px}
-  .wall__in{columns:2 150px;column-gap:10px}
-  .wallc{padding:16px;margin-bottom:10px}
-  .wallc p{font-size:14px}
-  .sz2 p{font-size:17px}
+  .rev{perspective:820px}
+  .rev{height:76svh;padding:26px 0}
+  .rev__q{font-size:clamp(21px,6.4vw,30px);line-height:1.12}
+  .rev__s{font-size:14px;letter-spacing:.28em}
+  .rev__no{font-size:44px}
+  .rev__by{font-size:12.5px;letter-spacing:.2em}
   .acts{display:grid;gap:10px}
   .acts .b{width:100%}
 }

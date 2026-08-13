@@ -1,38 +1,103 @@
-/* REFERENCES, variant ten. Not a flying wall like 03. A stamped one.
-   Every card starts tilted and small like a rubber stamp mid-air, then
-   slams flat with a short overshoot, one signature gesture for the whole
-   page, matching the painted-sign identity rather than borrowing 03's. */
+/* REFERENCES, variant ten. A different mechanic entirely from 03.
+   03 flies you forward through depth. This one does not move toward you at
+   all: the page pins, and a painted banner of reviews is pulled sideways
+   past the window as you scroll down. Vertical scroll, horizontal travel.
+
+   Same underlying technology (CSS scroll-driven animations), opposite
+   feeling: 03 is a corridor, this is a billboard being unrolled. */
 
 .nav__l a.is-here{color:var(--acc)!important}
 .nav__l a.is-here::after{right:0}
 
-.shero__l{max-width:60ch}
-.note{margin-top:22px;max-width:70ch}
+/* ---- opening ---- */
+.rhero{background:var(--cr);padding:calc(60px + clamp(30px,4vw,64px)) 0 clamp(26px,3.4vw,48px);
+  overflow:hidden}
+.rhero__1,.rhero__2{white-space:nowrap;line-height:.84}
+.rhero__2{margin-left:clamp(24px,7vw,150px)}
+.rhero__l{margin-top:clamp(16px,2.2vw,28px);max-width:56ch}
+.rhero .note{margin-top:20px;max-width:70ch}
 
-.board-wall{padding-block:clamp(20px,3vw,40px) clamp(60px,8vw,120px);overflow-x:hidden}
-.bw__in{columns:4 230px;column-gap:14px}
+/* ---- the pinned strip ---- */
+/* the wrapper's height IS the scroll distance the banner travels over */
+.strip{position:relative;height:520vh;background:var(--bk);
+  view-timeline-name:--strip;view-timeline-axis:block}
+.strip__stick{position:sticky;top:0;height:100svh;overflow:hidden;
+  display:grid;align-content:space-evenly;padding:76px 0 64px}
 
-.stampc{--r:0deg;display:inline-block;width:100%;margin:0 0 14px;break-inside:avoid;
-  background:var(--cr);border:2px solid var(--bk);padding:clamp(16px,1.8vw,24px);
-  opacity:0;transform:scale(.72) rotate(calc(var(--r) * 3));
-  transition:opacity .38s linear,transform .46s cubic-bezier(.16,1,.3,1)}
-/* a stamp reads as punchy from speed and scale, not from overshoot: two
-   curves total for this direction, matching the system page's budget,
-   with none of the bounce a dialog would use */
-.stampc.in{opacity:1;transform:scale(1) rotate(var(--r))}
-.stampc:hover{background:var(--acc);z-index:2;position:relative}
-.stampc__s{display:block;font-family:'Sten',sans-serif;font-size:13px;letter-spacing:.18em;
-  color:var(--hot);margin-bottom:10px}
-.stampc p{font-family:'Sten',sans-serif;text-transform:uppercase;font-size:clamp(15px,1.2vw,18px);
-  line-height:1.2}
+/* two rails travelling in opposite directions, so the window reads as busy
+   rather than as one belt sliding by */
+.rail{display:flex;gap:clamp(12px,1.6vw,22px);width:max-content;will-change:transform}
+.rail--a{translate:2% 0}
+.rail--b{translate:-62% 0}
+.rail--c{translate:-24% 0}
 
-@media (max-width:900px){.bw__in{columns:3 190px}}
+.card{flex:none;width:clamp(230px,26vw,380px);background:var(--cr);color:var(--bk);
+  border:2px solid var(--bk);padding:clamp(16px,1.8vw,26px);display:grid;gap:9px;
+  align-content:start}
+.card--ink{background:var(--bk);color:var(--cr);border-color:var(--acc)}
+.card--acc{background:var(--acc);color:var(--bk)}
+/* a darker rust than --hot: the token reads fine at nav-accent size, but
+   at 13px on cream or beige it lands under 4.5:1. This shade clears both. */
+.card__s{font-family:'Sten',sans-serif;font-size:13px;letter-spacing:.2em;color:#9C3309}
+.card--ink .card__s{color:var(--acc)}
+.card__q{font-family:'Sten',sans-serif;text-transform:uppercase;
+  font-size:clamp(14px,1.15vw,17px);line-height:1.22}
+.card__by{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.62}
+
+/* a stencil counter stamped over the window, so the strip has a scale */
+.strip__n{position:absolute;left:50%;bottom:clamp(18px,3vw,44px);translate:-50% 0;z-index:3;
+  font-family:'Sten',sans-serif;font-size:clamp(13px,1.1vw,16px);letter-spacing:.3em;
+  color:var(--acc);pointer-events:none}
+.strip__edge{position:absolute;top:0;bottom:0;width:clamp(40px,8vw,140px);z-index:2;
+  pointer-events:none}
+.strip__edge--l{left:0;background:linear-gradient(90deg,var(--bk),transparent)}
+.strip__edge--r{right:0;background:linear-gradient(270deg,var(--bk),transparent)}
+
+@supports (animation-timeline: view()) {
+  .rail--a{animation:pan-a linear both;animation-timeline:--strip;
+    animation-range:contain 0% contain 100%}
+  .rail--b{animation:pan-b linear both;animation-timeline:--strip;
+    animation-range:contain 0% contain 100%}
+  .rail--c{animation:pan-c linear both;animation-timeline:--strip;
+    animation-range:contain 0% contain 100%}
+  /* three speeds, middle rail against the other two */
+  @keyframes pan-a{from{translate:2% 0}to{translate:-62% 0}}
+  @keyframes pan-b{from{translate:-62% 0}to{translate:2% 0}}
+  @keyframes pan-c{from{translate:-24% 0}to{translate:-78% 0}}
+}
+
+/* without scroll-driven animations the strip collapses to a plain horizontal
+   scroller: a worse experience, but nothing is hidden and nothing needs a
+   script to become readable */
+@supports not (animation-timeline: view()) {
+  .strip{height:auto}
+  .strip__stick{position:static;height:auto;padding-block:clamp(40px,6vw,90px);
+    overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--acc) var(--bk)}
+  .strip__edge{display:none}
+  .rail--a,.rail--b,.rail--c{translate:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .strip{height:auto}
+  .strip__stick{position:static;height:auto;overflow-x:auto;padding-block:60px}
+  .rail{animation:none!important;translate:none!important}
+  .strip__edge{display:none}
+}
+
+/* ---- the closer ---- */
+.rend{background:var(--cr);padding-block:clamp(50px,7vw,110px) 0}
+.rend .tx{margin-top:14px;max-width:52ch}
+
 @media (max-width:760px){
-  .shero__l{font-size:16.5px}
-  .note{font-size:14px}
-  .bw__in{columns:2 145px;column-gap:8px}
-  .stampc{padding:14px;margin-bottom:8px}
-  .stampc p{font-size:14.5px}
+  .rhero{padding:calc(56px + 26px) 0 22px}
+  .rhero__1,.rhero__2{font-size:11.2vw}
+  .rhero__2{margin-left:14px}
+  .rhero__l{font-size:16.5px}
+  .rhero .note{font-size:14px}
+  /* a shorter travel on a phone: the same gesture, fewer screens of scroll */
+  .strip{height:360vh}
+  .strip__stick{padding:64px 0 54px}
+  .card{width:clamp(190px,64vw,240px);padding:14px}
+  .card__q{font-size:14px}
   .scta__b{display:grid;gap:10px}
   .scta__b .bt{width:100%}
 }

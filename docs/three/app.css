@@ -27,7 +27,13 @@
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;overscroll-behavior-y:none}
 body{background:var(--n);color:var(--w);font-family:'Pop',system-ui,sans-serif;
-  font-size:16.5px;line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  font-size:16.5px;line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased;
+  /* clip, not hidden: overflow-x:hidden silently turns body into a scroll
+     container (overflow-y computes to auto), which breaks every
+     animation-timeline:view() on the site because the timeline then
+     measures against a scroller that never scrolls. clip guards the same
+     horizontal overflow without creating one. */
+  overflow-x:clip}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}

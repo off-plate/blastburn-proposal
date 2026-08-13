@@ -13,6 +13,13 @@
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       }), { rootMargin: '0px 0px -12% 0px', threshold: .08 });
       rv.forEach(e => io.observe(e));
+      /* the -12% bottom margin can trap an element that sits right at the
+         page's max scroll position, nowhere further down to reveal it from.
+         Force it visible once there is no more page left to scroll. */
+      addEventListener('scroll', () => {
+        if (innerHeight + scrollY < document.documentElement.scrollHeight - 2) return;
+        rv.forEach(e => { e.classList.add('in'); io.unobserve(e); });
+      }, { passive: true });
     }
   }
 
